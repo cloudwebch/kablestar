@@ -1,16 +1,16 @@
 <?php
 /**
- * KableStar
+ * KabelStar
  *
- * This file adds theme support functions to the KableStar Theme.
+ * This file adds theme support functions to the KabelStar Theme.
  *
- * @package KableStar
+ * @package KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 function adds_theme_supports() {
 
@@ -45,9 +45,9 @@ function adds_theme_supports() {
 		),
 		'post-formats' => array( 'aside', 'gallery', 'link', 'video' ),
 		'genesis-menus'                   => array(
-			'primary'        => __( 'Primary Menu', 'kablestar' ),
-			'secondary'      => __( 'Footer Menu', 'kablestar' ),
-			'sidebar-footer' => __( 'Sidebar Footer Navigation Menu', 'kablestar' ),
+			'primary'        => __( 'Primary Menu', 'KabelStar' ),
+			'secondary'      => __( 'Footer Menu', 'KabelStar' ),
+			'sidebar-footer' => __( 'Sidebar Footer Navigation Menu', 'KabelStar' ),
 
 		),
 		'genesis-structural-wraps'        => array(
@@ -56,26 +56,26 @@ function adds_theme_supports() {
 		),
 		'editor-font-sizes' =>	array(
 			array(
-				'name'      => __( 'small', 'kablestar' ),
-				'shortName' => __( 'S', 'kablestar' ),
+				'name'      => __( 'small', 'KabelStar' ),
+				'shortName' => __( 'S', 'KabelStar' ),
 				'size'      => 12,
 				'slug'      => 'small',
 			),
 			array(
-				'name'      => __( 'regular', 'kablestar' ),
-				'shortName' => __( 'M', 'kablestar' ),
+				'name'      => __( 'regular', 'KabelStar' ),
+				'shortName' => __( 'M', 'KabelStar' ),
 				'size'      => 16,
 				'slug'      => 'regular',
 			),
 			array(
-				'name'      => __( 'large', 'kablestar' ),
-				'shortName' => __( 'L', 'kablestar' ),
+				'name'      => __( 'large', 'KabelStar' ),
+				'shortName' => __( 'L', 'KabelStar' ),
 				'size'      => 20,
 				'slug'      => 'large',
 			),
 			array(
-				'name'      => __( 'larger', 'kablestar' ),
-				'shortName' => __( 'XL', 'kablestar' ),
+				'name'      => __( 'larger', 'KabelStar' ),
+				'shortName' => __( 'XL', 'KabelStar' ),
 				'size'      => 24,
 				'slug'      => 'larger',
 			),
@@ -91,22 +91,22 @@ function adds_theme_supports() {
 		'disable-custom-colors' => true,
 		'editor-color-palette' =>	array(
 			array(
-				'name'  => __( 'Blue', 'kablestar' ),
+				'name'  => __( 'Blue', 'KabelStar' ),
 				'slug'  => 'blue',
 				'color' => '#0071bc',
 			),
 			array(
-				'name'  => __( 'Red', 'kablestar' ),
+				'name'  => __( 'Red', 'KabelStar' ),
 				'slug'  => 'red',
 				'color' => '#e31c3d',
 			),
 			array(
-				'name'  => __( 'Yellow', 'kablestar' ),
+				'name'  => __( 'Yellow', 'KabelStar' ),
 				'slug'  => 'yellow',
 				'color' => '#fdb81e',
 			),
 			array(
-				'name'  => __( 'Gray', 'kablestar' ),
+				'name'  => __( 'Gray', 'KabelStar' ),
 				'slug'  => 'gray',
 				'color' => '#323a45',
 			),

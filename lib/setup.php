@@ -1,14 +1,14 @@
 <?php
 /**
- * Setup KableStar theme
+ * Setup KabelStar theme
  *
- * @package  KableStar
+ * @package  KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 /** Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -62,7 +62,7 @@ add_action( 'genesis_setup', __NAMESPACE__ . '\setup', 15 );
  *
  */
 function setup() {
-	load_child_theme_textdomain( 'genesis-webpack-replace', apply_filters( 'child_theme_textdomain', CHILD_THEME_DIR . '/languages', 'genesis-webpack-replace' ) );
+	load_child_theme_textdomain( 'genesis-webpack-replace', apply_filters( 'child_theme_textdomain', CHILD_THEME_DIR . '/languages', 'kabelstar' ) );
 	adds_theme_supports();
 	adds_new_image_sizes();
 }

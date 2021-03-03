@@ -1,16 +1,16 @@
 <?php
 /**
- * KableStar
+ * KabelStar
  *
- * This file adds the required CSS to the front end to the KableStar Theme.
+ * This file adds the required CSS to the front end to the KabelStar Theme.
  *
- * @package KableStar
+ * @package KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ .'\inline_style' );
 /**

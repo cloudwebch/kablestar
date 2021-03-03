@@ -1,8 +1,8 @@
 <?php
 /**
- * KableStar
+ * KabelStar
  *
- * This file adds the default theme settings to the KableStar Theme.
+ * This file adds the default theme settings to the KabelStar Theme.
  *
  * @package Genesis Webpack Replace
  * @author  Valentin Zmaranda
@@ -10,7 +10,7 @@
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 
 add_filter( 'genesis_theme_settings_defaults', __NAMESPACE__ . '\set_theme_settings_defaults' );

@@ -2,13 +2,13 @@
 /**
  * Theme Filters
  *
- * @package KableStar
+ * @package KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Cheatin&#8217; uh?' );
@@ -38,7 +38,7 @@ add_filter( 'login_errors', __NAMESPACE__ .'\login_errors' );
  * Generic login error message
  */
 function login_errors() {
-	return __('Oops! Something is wrong!', 'kablestar');
+	return __('Oops! Something is wrong!', 'KabelStar');
 }
 
 

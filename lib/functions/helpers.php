@@ -1,8 +1,8 @@
 <?php
 /**
- * KableStar
+ * KabelStar
  *
- * This file adds the required helper functions used in the KableStar Theme.
+ * This file adds the required helper functions used in the KabelStar Theme.
  *
  * @package Genesis Webpack Replace
  * @author  Valentin Zmaranda
@@ -10,7 +10,7 @@
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 /**
  * Gets default link color for Customizer.

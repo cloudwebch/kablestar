@@ -1,16 +1,16 @@
 <?php
 /**
- * KableStar
+ * KabelStar
  *
- * This file adds the Customizer additions to the KableStar Theme.
+ * This file adds the Customizer additions to the KabelStar Theme.
  *
- * @package KableStar
+ * @package KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 add_action( 'customize_register', __NAMESPACE__ . '\customizer_register' );
 /**
@@ -35,8 +35,8 @@ function customizer_register( $wp_customize ) {
 			$wp_customize,
 			'link_color',
 			array(
-				'description' => __( 'Change the color of post info links, hover color of linked titles, hover color of menu items, and more.', 'kablestar' ),
-				'label'       => __( 'Link Color', 'kablestar' ),
+				'description' => __( 'Change the color of post info links, hover color of linked titles, hover color of menu items, and more.', 'KabelStar' ),
+				'label'       => __( 'Link Color', 'KabelStar' ),
 				'section'     => 'colors',
 				'settings'    => 'link_color',
 			)
@@ -56,8 +56,8 @@ function customizer_register( $wp_customize ) {
 			$wp_customize,
 			'accent_color',
 			array(
-				'description' => __( 'Change the default hovers color for button.', 'kablestar' ),
-				'label'       => __( 'Accent Color', 'kablestar' ),
+				'description' => __( 'Change the default hovers color for button.', 'KabelStar' ),
+				'label'       => __( 'Accent Color', 'KabelStar' ),
 				'section'     => 'colors',
 				'settings'    => 'accent_color',
 			)
@@ -76,8 +76,8 @@ function customizer_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'logo_width',
 		array(
-			'label'       => __( 'Logo Width', 'kablestar' ),
-			'description' => __( 'The maximum width of the logo in pixels.', 'kablestar' ),
+			'label'       => __( 'Logo Width', 'KabelStar' ),
+			'description' => __( 'The maximum width of the logo in pixels.', 'KabelStar' ),
 			'priority'    => 9,
 			'section'     => 'title_tagline',
 			'settings'    => 'logo_width',
@@ -102,7 +102,7 @@ function customizer_register( $wp_customize ) {
 		'header_parallax',
 		array(
 			'section' => 'header_image',
-			'label'   => __('Parallax header?', 'kablestar'),
+			'label'   => __('Parallax header?', 'KabelStar'),
 			'type'    => 'checkbox',
 		)
 	);
@@ -111,7 +111,7 @@ function customizer_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'display_options',
 		array(
-			'title'    => __('Display Options', 'kablestar'),
+			'title'    => __('Display Options', 'KabelStar'),
 			'priority' => 100,
 		)
 	);
@@ -129,7 +129,7 @@ function customizer_register( $wp_customize ) {
 		'navigation_transparency',
 		array(
 			'section' => 'display_options',
-			'label'   => __('Transparent Navigation?', 'kablestar'),
+			'label'   => __('Transparent Navigation?', 'KabelStar'),
 			'type'    => 'checkbox',
 		)
 	);
@@ -146,7 +146,7 @@ function customizer_register( $wp_customize ) {
 		'navigation_fixed',
 		array(
 			'section' => 'display_options',
-			'label'   => __('Fixed Navigation?', 'kablestar'),
+			'label'   => __('Fixed Navigation?', 'KabelStar'),
 			'type'    => 'checkbox',
 		)
 	);
@@ -163,12 +163,12 @@ function customizer_register( $wp_customize ) {
 		'navigation_layout_select',
 		array(
 			'section' => 'display_options',
-			'label'   => __('Navigation Location', 'kablestar'),
+			'label'   => __('Navigation Location', 'KabelStar'),
 			'type'    => 'select',
 			'choices' => array(
-				'right'    => __('Right of the logo', 'kablestar'),
-				'below'    => __('Below the header', 'kablestar'),
-				'centered' => __('Centered logo in nav', 'kablestar'),
+				'right'    => __('Right of the logo', 'KabelStar'),
+				'below'    => __('Below the header', 'KabelStar'),
+				'centered' => __('Centered logo in nav', 'KabelStar'),
 			),
 		)
 	);
@@ -187,7 +187,7 @@ function customizer_register( $wp_customize ) {
 			$wp_customize,
 			'header_image',
 			array(
-				'label'    => __('Standard Header Image', 'kablestar'),
+				'label'    => __('Standard Header Image', 'KabelStar'),
 				'settings' => 'header_image',
 				'section'  => 'display_options',
 			)
@@ -198,7 +198,7 @@ function customizer_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'footer_copyright_text',
 		array(
-			'default'           => __('All Rights Reserved', 'kablestar'),
+			'default'           => __('All Rights Reserved', 'KabelStar'),
 			'sanitize_callback' => __NAMESPACE__ . '\sanitize_input',
 			'transport'         => 'refresh',
 		)
@@ -207,7 +207,7 @@ function customizer_register( $wp_customize ) {
 		'footer_copyright_text',
 		array(
 			'section' => 'display_options',
-			'label'   => __('Copyright Message', 'kablestar'),
+			'label'   => __('Copyright Message', 'KabelStar'),
 			'type'    => 'text',
 		)
 	);

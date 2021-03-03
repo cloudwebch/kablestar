@@ -1,16 +1,16 @@
 <?php
 /**
- * KableStar.
+ * KabelStar.
  *
- * This file adds the WooCommerce styles and the Customizer additions for WooCommerce to the KableStar Theme.
+ * This file adds the WooCommerce styles and the Customizer additions for WooCommerce to the KabelStar Theme.
  *
- * @package KableStar
+ * @package KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 add_filter( 'woocommerce_enqueue_styles', __NAMESPACE__ . '\woocommerce_styles' );
 /**

@@ -10,13 +10,13 @@
  * go into a plugin and not in your theme.  If you put them here, I want you to picture me shaking my head back and
  * forth.  Come on....I taught you better than that.
  *
- * @package KableStar
+ * @package KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 /**
  * Loads non admin files.
@@ -40,11 +40,11 @@ function load_nonadmin_files() {
 		'functions/theme/optional-acf-settings-page.php',
 		'functions/theme/output.php',// Include Customizer CSS.
 		'functions/theme/speed-tuning.php',// Add speed tuning functions.
-		'functions/theme/theme-default.php',
+		'functions/theme/theme-defaults.php',
 		'functions/theme/widgets.php',// Add widgets.
-		'functions/woocommerce/woocommerce-setup.php',// Add WooCommerce support.
-		'functions/woocommerce/woocommerce-output.php',// Add the required WooCommerce styles and Customizer CSS.
-		'fucntions/woocommerce/woocommerce-notice.php',// Add the Genesis Connect WooCommerce notice.
+		'woocommerce/woocommerce-setup.php',// Add WooCommerce support.
+		'woocommerce/woocommerce-output.php',// Add the required WooCommerce styles and Customizer CSS.
+		'woocommerce/woocommerce-notice.php',// Add the Genesis Connect WooCommerce notice.
 		'functions/filters.php',
 //		'functions/register-post-type.php',
 		'functions/templates.php',

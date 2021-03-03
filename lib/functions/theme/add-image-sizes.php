@@ -1,16 +1,16 @@
 <?php
 /**
- * KableStar
+ * KabelStar
  *
- * This file register custom image sizes to the KableStar Theme.
+ * This file register custom image sizes to the KabelStar Theme.
  *
- * @package KableStar
+ * @package KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 /**
  * Adds new image sizes.

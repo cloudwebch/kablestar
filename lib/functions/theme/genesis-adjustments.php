@@ -1,28 +1,28 @@
 <?php
 /**
- * KableStar
+ * KabelStar
  *
- * This file adds Genesis adjustment functions to the KableStar Theme.
+ * This file adds Genesis adjustment functions to the KabelStar Theme.
  *
- * @package KableStar
+ * @package KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 // Genesis adjustments.
 // Removes site layouts.
-genesis_unregister_layout( 'content-sidebar-sidebar' );
-genesis_unregister_layout( 'sidebar-content-sidebar' );
-genesis_unregister_layout( 'sidebar-sidebar-content' );
+\genesis_unregister_layout( 'content-sidebar-sidebar' );
+\genesis_unregister_layout( 'sidebar-content-sidebar' );
+\genesis_unregister_layout( 'sidebar-sidebar-content' );
 
 /**
  * Remove the header right widget area.
  */
 if ( get_theme_mod( 'navigation_layout_select' ) !== 'below' ) {
-	unregister_sidebar( 'header-right' );
+	\unregister_sidebar( 'header-right' );
 }
 
 /**

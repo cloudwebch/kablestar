@@ -1,16 +1,16 @@
 <?php
 /**
- * KableStar
+ * KabelStar
  *
- * This file adds menus to the KableStar Theme.
+ * This file adds menus to the KabelStar Theme.
  *
- * @package KableStar
+ * @package KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 // If statement for menu placement.
 if ( get_theme_mod( 'navigation_layout_select' ) === 'centered' ) {
@@ -18,10 +18,10 @@ if ( get_theme_mod( 'navigation_layout_select' ) === 'centered' ) {
 	add_theme_support(
 		'genesis-menus',
 		array(
-			'primary'      => __( 'Above Header Menu', 'kablestar' ),
-			'header-left'  => __( 'Header Left', 'kablestar' ),
-			'header-right' => __( 'Header Right', 'kablestar' ),
-			'secondary'    => __( 'Footer Menu', 'kablestar' ),
+			'primary'      => __( 'Above Header Menu', 'KabelStar' ),
+			'header-left'  => __( 'Header Left', 'KabelStar' ),
+			'header-right' => __( 'Header Right', 'KabelStar' ),
+			'secondary'    => __( 'Footer Menu', 'KabelStar' ),
 		)
 	);
 } else {
@@ -29,8 +29,8 @@ if ( get_theme_mod( 'navigation_layout_select' ) === 'centered' ) {
 	add_theme_support(
 		'genesis-menus',
 		array(
-			'primary'   => __( 'Header Menu', 'kablestar' ),
-			'secondary' => __( 'Footer Menu', 'kablestar' ),
+			'primary'   => __( 'Header Menu', 'KabelStar' ),
+			'secondary' => __( 'Footer Menu', 'KabelStar' ),
 		)
 	);
 }
@@ -41,9 +41,9 @@ if ( get_theme_mod( 'navigation_layout_select' ) === 'centered' ) {
 function standard_responsive_menu_settings() {
 
 	$settings = array(
-		'mainMenu'          => __( 'Menu', 'kablestar' ),
+		'mainMenu'          => __( 'Menu', 'KabelStar' ),
 		'menuIconClass'     => 'dashicons-before dashicons-menu',
-		'subMenu'           => __( 'Submenu', 'kablestar' ),
+		'subMenu'           => __( 'Submenu', 'KabelStar' ),
 		'subMenuIconsClass' => 'dashicons-before dashicons-arrow-down-alt2',
 		'menuClasses'       => array(
 			'combine' => array(
@@ -64,9 +64,9 @@ function standard_responsive_menu_settings() {
 function centered_logo_responsive_menu_settings() {
 
 	$settings = array(
-		'mainMenu'          => __( 'Menu', 'kablestar' ),
+		'mainMenu'          => __( 'Menu', 'KabelStar' ),
 		'menuIconClass'     => 'dashicons-before dashicons-menu',
-		'subMenu'           => __( 'Submenu', 'kablestar' ),
+		'subMenu'           => __( 'Submenu', 'KabelStar' ),
 		'subMenuIconsClass' => 'dashicons-before dashicons-arrow-down-alt2',
 		'menuClasses'       => array(
 			'combine' => array(

@@ -1,16 +1,16 @@
 <?php
 /**
- * KableStar.
+ * KabelStar.
  *
- * This file adds the required WooCommerce setup functions to the KableStar Theme.
+ * This file adds the required WooCommerce setup functions to the KabelStar Theme.
  *
- * @package KableStar
+ * @package KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\products_match_height', 99 );
 /**

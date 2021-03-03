@@ -2,13 +2,13 @@
 /**
  * Theme initialization
  *
- * @package     CloudWeb\KableStar
+ * @package     CloudWeb\KabelStar
  * @since       1.0.0
  * @author      CloudWeb Team @valentin
  * @link        https://cloudweb.ch
  * @license     GNU General Public License 2.0+
  */
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 
 /**

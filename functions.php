@@ -12,12 +12,12 @@
 
 namespace CloudWeb\KableStar;
 
+// Start the engine.
+require_once get_template_directory() . '/lib/init.php';
+
 include_once( 'lib/init.php' );
 
 include_once( 'lib/functions/autoload.php' );
-
-// Start the engine.
-require_once get_template_directory() . '/lib/init.php';
 
 
 // Sets the content width based on the theme's design and stylesheet.

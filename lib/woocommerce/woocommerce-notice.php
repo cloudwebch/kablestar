@@ -1,16 +1,16 @@
 <?php
 /**
- * Genesis Webpack Replace.
+ * KabelStar
  *
- * This file adds the Genesis Connect for WooCommerce notice to the Genesis Webpack Replace Theme.
+ * This file adds the Genesis Connect for WooCommerce notice to the KabelStar Theme.
  *
- * @package Genesis Webpack Replace
+ * @package KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\GenesisWebpackReplace;
+namespace CloudWeb\KabelStar;
 
 add_action( 'admin_print_styles', __NAMESPACE__ . '\remove_woocommerce_notice' );
 /**
@@ -25,7 +25,7 @@ function remove_woocommerce_notice() {
 		return;
 	}
 
-	WC_Admin_Notices::remove_notice( 'theme_support' );
+	\WC_Admin_Notices::remove_notice( 'theme_support' );
 
 }
 
@@ -52,7 +52,7 @@ function woocommerce_theme_notice() {
 	if ( get_user_option( 'woocommerce_message_dismissed', get_current_user_id() ) ) {
 		return;
 	}
-	$notice_html = sprintf( __e( 'Please install and activate <a href="https://wordpress.org/plugins/genesis-connect-woocommerce/" target="_blank">Genesis Connect for WooCommerce</a> to <strong>enable WooCommerce support for %s</strong>.', 'genesis-webpack-replace' ), esc_html( CHILD_THEME_NAME ) );
+//	$notice_html = sprintf( _e( 'Please install and activate <a href="https://wordpress.org/plugins/genesis-connect-woocommerce/" target="_blank">Genesis Connect for WooCommerce</a> to <strong>enable WooCommerce support for %s</strong>.', 'kabelstar' ), esc_html( CHILD_THEME_NAME ) );
 
 	if ( current_user_can( 'install_plugins' ) ) {
 		$plugin_slug  = 'genesis-connect-woocommerce';
@@ -69,13 +69,15 @@ function woocommerce_theme_notice() {
 				),
 				'install-plugin_' . $plugin_slug
 			),
-			__( 'install and activate Genesis Connect for WooCommerce', 'genesis-webpack-replace' )
+			__( 'install and activate Genesis Connect for WooCommerce', 'kabelstar' )
 		);
 
-		$notice_html = sprintf( __e( 'Please %s to <strong>enable WooCommerce support for %s</strong>.', 'genesis-webpack-replace' ), $install_link, esc_html( CHILD_THEME_NAME ) );
+		$notice_html = __(
+			sprintf('Please %s to <strong>enable WooCommerce support for %s</strong>.',$install_link, esc_html( CHILD_THEME_NAME ) ),
+			 'kabelstar' );
 	}
 
-	echo '<div class="notice notice-info is-dismissible genesis-webpack-replace-woocommerce-notice"><p>' . esc_html( $notice_html ) . '</p></div>';
+	echo '<div class="notice notice-info is-dismissible kabelstar-woocommerce-notice"><p>' . $notice_html  . '</p></div>';
 
 }
 

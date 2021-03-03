@@ -1,43 +1,43 @@
 <?php
 /**
- * KableStar
+ * KabelStar
  *
- * This file adds widgets to the KableStar Theme.
+ * This file adds widgets to the KabelStar Theme.
  *
- * @package KableStar
+ * @package KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 // Register top widget.
-genesis_register_sidebar(
+\genesis_register_sidebar(
 	array(
 		'id'          => 'top-widget',
 		'name'        => __( 'Top Widget', 'genesis' ),
-		'description' => __( 'Widgets in this widget area will display above the header.', 'kablestar' ),
+		'description' => __( 'Widgets in this widget area will display above the header.', 'kabelstar' ),
 	)
 );
 
 // Banner widget area.
-genesis_register_sidebar(
+\genesis_register_sidebar(
 	array(
 		'id'           => 'banner-widget',
-		'name'         => __( 'Banner Widget', 'kablestar' ),
-		'description'  => __( 'Widgets in this widget area will display in the banner on the homepage.', 'kablestar' ),
+		'name'         => __( 'Banner Widget', 'KabelStar' ),
+		'description'  => __( 'Widgets in this widget area will display in the banner on the homepage.', 'kabelstar' ),
 		'before_title' => '<h1 class="widget-title">',
 		'after_title'  => '</h1>',
 	)
 );
 
 // Register above footer widget.
-genesis_register_sidebar(
+\genesis_register_sidebar(
 	array(
 		'id'           => 'above-footer-widget',
-		'name'         => __( 'Above Footer Widget', 'kablestar' ),
-		'description'  => __( 'Widgets in this widget area will display above the footer.', 'kablestar' ),
+		'name'         => __( 'Above Footer Widget', 'KabelStar' ),
+		'description'  => __( 'Widgets in this widget area will display above the footer.', 'kabelstar' ),
 		'before_title' => '<h2 class="widget-title">',
 		'after_title'  => '</h2>',
 	)
@@ -48,7 +48,7 @@ add_action( 'genesis_before_header', __NAMESPACE__ . '\top_widget' );
  * Add top widget.
  */
 function top_widget() {
-	genesis_widget_area(
+	\genesis_widget_area(
 		'top-widget',
 		array(
 			'before' => '<div class="top-widget widget-area">',
@@ -62,7 +62,7 @@ add_action( 'genesis_before_footer', __NAMESPACE__ . '\above_footer_widget', 5 )
  * Add above footer widget.
  */
 function above_footer_widget() {
-	genesis_widget_area(
+	\genesis_widget_area(
 		'above-footer-widget',
 		array(
 			'before' => '<div class="above-footer-widget widget-area"><div class="wrap">',

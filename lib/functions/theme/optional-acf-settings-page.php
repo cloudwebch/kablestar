@@ -2,13 +2,13 @@
 /**
  * Add (optional) Advanced Custom Fields Theme Options Page
  *
- * @package KableStar
+ * @package KabelStar
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
-namespace CloudWeb\KableStar;
+namespace CloudWeb\KabelStar;
 
 /** Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) {
