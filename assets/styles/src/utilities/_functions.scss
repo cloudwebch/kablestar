@@ -1,0 +1,9 @@
+//Pixels to EM
+@function calculateEm( $pixels ) {
+  @return #{ $pixels / 16.0 }em;
+}
+
+//Pixels to REM
+@function calculateRem( $pixels ) {
+  @return #{ $pixels / 10.0 }rem;
+}
