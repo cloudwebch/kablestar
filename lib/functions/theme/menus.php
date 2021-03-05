@@ -13,27 +13,27 @@
 namespace CloudWeb\KabelStar;
 
 // If statement for menu placement.
-if ( get_theme_mod( 'navigation_layout_select' ) === 'centered' ) {
-	// Add support for right and left menu & rename top menu.
-	add_theme_support(
-		'genesis-menus',
-		array(
-			'primary'      => __( 'Above Header Menu', 'KabelStar' ),
-			'header-left'  => __( 'Header Left', 'KabelStar' ),
-			'header-right' => __( 'Header Right', 'KabelStar' ),
-			'secondary'    => __( 'Footer Menu', 'KabelStar' ),
-		)
-	);
-} else {
-	// Rename primary and secondary navigation menus.
-	add_theme_support(
-		'genesis-menus',
-		array(
-			'primary'   => __( 'Header Menu', 'KabelStar' ),
-			'secondary' => __( 'Footer Menu', 'KabelStar' ),
-		)
-	);
-}
+//if ( get_theme_mod( 'navigation_layout_select' ) === 'centered' ) {
+//	// Add support for right and left menu & rename top menu.
+//	add_theme_support(
+//		'genesis-menus',
+//		array(
+//			'primary'      => __( 'Above Header Menu', 'kabelstar' ),
+//			'header-left'  => __( 'Header Left', 'kabelstar' ),
+//			'header-right' => __( 'Header Right', 'kabelstar' ),
+//			'secondary'    => __( 'Top Menu', 'kabelstar' ),
+//		)
+//	);
+//} else {
+//	// Rename primary and secondary navigation menus.
+//	add_theme_support(
+//		'genesis-menus',
+//		array(
+//			'primary'   => __( 'Header Menu', 'kabelstar' ),
+//			'secondary' => __( 'Top Menu', 'kabelstar' ),
+//		)
+//	);
+//}
 
 /**
  * Define our standard responsive menu settings.
@@ -41,14 +41,14 @@ if ( get_theme_mod( 'navigation_layout_select' ) === 'centered' ) {
 function standard_responsive_menu_settings() {
 
 	$settings = array(
-		'mainMenu'          => __( 'Menu', 'KabelStar' ),
+		'mainMenu'          => __( 'Menu', 'kabelstar' ),
 		'menuIconClass'     => 'dashicons-before dashicons-menu',
-		'subMenu'           => __( 'Submenu', 'KabelStar' ),
+		'subMenu'           => __( 'Submenu', 'kabelstar' ),
 		'subMenuIconsClass' => 'dashicons-before dashicons-arrow-down-alt2',
 		'menuClasses'       => array(
 			'combine' => array(
 				'.nav-primary',
-				'.nav-header',
+				'.nav-secondary',
 			),
 			'others'  => array(),
 		),
@@ -64,13 +64,14 @@ function standard_responsive_menu_settings() {
 function centered_logo_responsive_menu_settings() {
 
 	$settings = array(
-		'mainMenu'          => __( 'Menu', 'KabelStar' ),
+		'mainMenu'          => __( 'Menu', 'kabelstar' ),
 		'menuIconClass'     => 'dashicons-before dashicons-menu',
-		'subMenu'           => __( 'Submenu', 'KabelStar' ),
+		'subMenu'           => __( 'Submenu', 'kabelstar' ),
 		'subMenuIconsClass' => 'dashicons-before dashicons-arrow-down-alt2',
 		'menuClasses'       => array(
 			'combine' => array(
 				'.nav-primary',
+				'.nav-secondary',
 				'.nav-header-left',
 				'.nav-header-right',
 			),
@@ -87,47 +88,48 @@ function centered_logo_responsive_menu_settings() {
  *
  * @since 1.0.0
  */
-function header_left_menu() {
-
-	genesis_nav_menu(
-		array(
-			'theme_location' => 'header-left',
-			'depth'          => 2,
-		)
-	);
-
-}
+//function header_left_menu() {
+//
+//	genesis_nav_menu(
+//		array(
+//			'theme_location' => 'header-left',
+//			'depth'          => 2,
+//		)
+//	);
+//
+//}
 
 /**
  * Hook menu to right of logo.
  *
  * @since 1.0.0
  */
-function header_right_menu() {
-
-	genesis_nav_menu(
-		array(
-			'theme_location' => 'header-right',
-			'depth'          => 2,
-		)
-	);
-
-}
+//function header_right_menu() {
+//
+//	genesis_nav_menu(
+//		array(
+//			'theme_location' => 'header-right',
+//			'depth'          => 2,
+//		)
+//	);
+//
+//}
 
 /**
  * Reposition the primary navigation menu.
  */
-if ( get_theme_mod( 'navigation_layout_select' ) === 'centered' ) {
-	remove_action( 'genesis_after_header', 'genesis_do_nav' );
-	add_action( 'genesis_before_header', 'genesis_do_nav', 7 );
-	add_action( 'genesis_header', __NAMESPACE__ . '\header_left_menu', 6 );
-	add_action( 'genesis_header', __NAMESPACE__ . '\header_right_menu', 9 );
-}
+//if ( get_theme_mod( 'navigation_layout_select' ) === 'centered' ) {
+//	remove_action( 'genesis_after_header', 'genesis_do_nav' );
+//	add_action( 'genesis_before_header', 'genesis_do_nav', 7 );
+//	add_action( 'genesis_header', __NAMESPACE__ . '\header_left_menu', 6 );
+//	add_action( 'genesis_header', __NAMESPACE__ . '\header_right_menu', 9 );
+//}
 
 // Reposition the secondary navigation menu.
-remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
+//remove_action( 'genesis_after_header', 'genesis_do_subnav' );
+//add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
 
+//add_filter( 'genesis_attr_nav-top', 'genesis_attributes_nav' );
 add_filter( 'wp_nav_menu_args', __NAMESPACE__ . '\secondary_menu_args' );
 /**
  * Reduce the secondary navigation menu to one level depth.

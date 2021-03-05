@@ -45,37 +45,34 @@ function adds_theme_supports() {
 		),
 		'post-formats' => array( 'aside', 'gallery', 'link', 'video' ),
 		'genesis-menus'                   => array(
-			'primary'        => __( 'Primary Menu', 'KabelStar' ),
-			'secondary'      => __( 'Footer Menu', 'KabelStar' ),
-			'sidebar-footer' => __( 'Sidebar Footer Navigation Menu', 'KabelStar' ),
-
+			'primary'        => __( 'Primary Menu', 'kabelstar' ),
+			'secondary'      => __( 'Top Menu', 'kabelstar' ),
 		),
 		'genesis-structural-wraps'        => array(
 			'header',
-			'sidebar-footer'
 		),
 		'editor-font-sizes' =>	array(
 			array(
-				'name'      => __( 'small', 'KabelStar' ),
-				'shortName' => __( 'S', 'KabelStar' ),
+				'name'      => __( 'small', 'kabelstar' ),
+				'shortName' => __( 'S', 'kabelstar' ),
 				'size'      => 12,
 				'slug'      => 'small',
 			),
 			array(
-				'name'      => __( 'regular', 'KabelStar' ),
-				'shortName' => __( 'M', 'KabelStar' ),
+				'name'      => __( 'regular', 'kabelstar' ),
+				'shortName' => __( 'M', 'kabelstar' ),
 				'size'      => 16,
 				'slug'      => 'regular',
 			),
 			array(
-				'name'      => __( 'large', 'KabelStar' ),
-				'shortName' => __( 'L', 'KabelStar' ),
+				'name'      => __( 'large', 'kabelstar' ),
+				'shortName' => __( 'L', 'kabelstar' ),
 				'size'      => 20,
 				'slug'      => 'large',
 			),
 			array(
-				'name'      => __( 'larger', 'KabelStar' ),
-				'shortName' => __( 'XL', 'KabelStar' ),
+				'name'      => __( 'larger', 'kabelstar' ),
+				'shortName' => __( 'XL', 'kabelstar' ),
 				'size'      => 24,
 				'slug'      => 'larger',
 			),
@@ -91,22 +88,22 @@ function adds_theme_supports() {
 		'disable-custom-colors' => true,
 		'editor-color-palette' =>	array(
 			array(
-				'name'  => __( 'Blue', 'KabelStar' ),
+				'name'  => __( 'Blue', 'kabelstar' ),
 				'slug'  => 'blue',
 				'color' => '#0071bc',
 			),
 			array(
-				'name'  => __( 'Red', 'KabelStar' ),
+				'name'  => __( 'Red', 'kabelstar' ),
 				'slug'  => 'red',
 				'color' => '#e31c3d',
 			),
 			array(
-				'name'  => __( 'Yellow', 'KabelStar' ),
+				'name'  => __( 'Yellow', 'kabelstar' ),
 				'slug'  => 'yellow',
 				'color' => '#fdb81e',
 			),
 			array(
-				'name'  => __( 'Gray', 'KabelStar' ),
+				'name'  => __( 'Gray', 'kabelstar' ),
 				'slug'  => 'gray',
 				'color' => '#323a45',
 			),

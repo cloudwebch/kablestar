@@ -21,6 +21,10 @@ function body_class( $classes ) {
 //		$classes[]  = 'company-locations';
 //	}
 
+	if(get_theme_mod( 'navigation_fixed' )){
+		$classes[]  = 'fixed-header';
+	}
+
 	return $classes;
 }
 
@@ -38,7 +42,7 @@ add_filter( 'login_errors', __NAMESPACE__ .'\login_errors' );
  * Generic login error message
  */
 function login_errors() {
-	return __('Oops! Something is wrong!', 'KabelStar');
+	return __('Oops! Something is wrong!', 'kabelstar');
 }
 
 
@@ -65,3 +69,9 @@ function comments_gravatar( $args ) {
 	return $args;
 
 }
+//Remove edit link from page
+add_filter( 'edit_post_link', '__return_false' );
+
+//\add_filter('manage_product_posts_custom_column', function($columns){
+//	d($columns);
+//});

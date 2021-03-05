@@ -12,7 +12,7 @@
 
 namespace CloudWeb\KabelStar;
 
-add_filter( 'script_loader_tag', __NAMESPACE__ . '\js_defer_attr', 10 );
+//add_filter( 'script_loader_tag', __NAMESPACE__ . '\js_defer_attr', 10 );
 /**
  * Function to add defer to all scripts
  *

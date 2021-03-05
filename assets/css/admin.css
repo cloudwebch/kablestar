@@ -1,0 +1,43 @@
+table.wp-list-table .column-featured_week {
+    width: 48px;
+}
+
+table.wp-list-table span.wc-privacy.parent-tips {
+    font-size: 1.2em;
+    cursor: help;
+}
+
+table.wp-list-table span.wc-privacy {
+    font-size: 1.6em;
+    cursor: pointer;
+}
+
+table.wp-list-table span.wc-featured.wc-privacy::before {
+    content: "\f198";
+}
+
+table.wp-list-table span.wc-privacy.not-privacy::before {
+    content: "\f194";
+}
+
+table.wp-list-table .column-featured_day {
+    width: 48px;
+}
+
+table.wp-list-table span.wc-thumbs-up.parent-tips {
+    font-size: 1.2em;
+    cursor: help;
+}
+
+table.wp-list-table span.wc-thumbs-up {
+    font-size: 1.6em;
+    cursor: pointer;
+}
+
+table.wp-list-table span.wc-featured.wc-thumbs-up::before {
+    content: "\f177";
+}
+
+table.wp-list-table span.wc-thumbs-up.not-thumbs-up::before {
+    content: "\f530";
+}

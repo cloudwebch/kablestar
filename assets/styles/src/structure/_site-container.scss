@@ -16,3 +16,37 @@
 	from { opacity: 0; }
 	to   { opacity: 1; }
 }
+
+.wrap {
+	width: 100%;
+	max-width: 1355px;
+	padding-left: 5%;
+	padding-right: 5%;
+	margin: 0 auto;
+	@include breakpoint(desktop-wide) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.wrap {
+		width: 100%;
+		min-width: 100%;
+	}
+}
+
+.content-sidebar-wrap {
+	//margin: 2rem auto;
+	@include breakpoint(tablet) {
+		//margin: 6rem auto;
+		.sidebar-content & {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			flex-direction: row-reverse;
+		}
+
+		.center-content &,
+		.full-width-content & {
+			justify-content: center;
+		}
+	}
+}

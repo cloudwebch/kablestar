@@ -12,77 +12,87 @@
 
 namespace CloudWeb\KabelStar;
 
-/**
- * Gets default link color for Customizer.
- * Abstracted here since at least two functions use it.
- *
- * @since 1.0
- *
- * @return string Hex color code for link color.
- */
-function customizer_get_default_link_color() {
+function get_site_posts( $post_type, $args = array() ) {
+//	global $wp_query;
+	$defaults = array(
+		'post_type'        => $post_type,
+		'post_status'      => 'publish',
+		'posts_per_page'   => 500,
+		'no_found_rows'    => true,
+		'suppress_filters' => false,
+	);
 
-	return '#0073e5';
+	$args = wp_parse_args( $args, $defaults );
 
+	return new \WP_Query( $args );
 }
 
-/**
- * Gets default accent color for Customizer.
- * Abstracted here since at least two functions use it.
- *
- * @since 1.0
- *
- * @return string Hex color code for accent color.
- */
-function customizer_get_default_accent_color() {
+function get_the_featured_image( $post_id, $size = 'full' ) {
+	$post_image = get_the_post_thumbnail_url( $post_id, $size );
+	$thumb_id   = get_post_thumbnail_id( $post_id );
+	$alt        = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true );
+	$post_image_attributes = wp_get_attachment_image_src( $thumb_id, $size );
 
-	return '#0073e5';
-
+	return sprintf( '<img src="%s" alt="%s" width="%s" height="%s" />',
+		esc_url( $post_image ),
+		\esc_attr( $alt ),
+		(int) $post_image_attributes[1],
+		(int) $post_image_attributes[2]
+	);
 }
 
-/**
- * Calculates if white or gray would contrast more with the provided color.
- *
- * @since 1.0
- *
- * @param string $color A color in hex format.
- * @return string The hex code for the most contrasting color: dark grey or white.
- */
-function color_contrast( $color ) {
+function get_highlighted_product($type){
+	$args = array(
+		'stock'      => 1,
+		'showposts'  => 1,
+		'orderby'    => 'date',
+		'order'      => 'DESC',
+		'meta_query' => array(
+			array(
+				'key'   => 'featured_' . $type,
+				'value' => 'yes',
+			)
+		)
+	);
 
-	$hexcolor = str_replace( '#', '', $color );
-	$red      = hexdec( substr( $hexcolor, 0, 2 ) );
-	$green    = hexdec( substr( $hexcolor, 2, 2 ) );
-	$blue     = hexdec( substr( $hexcolor, 4, 2 ) );
+	$featured_day_product = get_site_posts( 'product', $args );
+	if ( ! $featured_day_product->have_posts() ) {
+		echo sprintf( '%s', __( 'We do not have any highlighted product for ' . $type ) );
 
-	$luminosity = ( ( $red * 0.2126 ) + ( $green * 0.7152 ) + ( $blue * 0.0722 ) );
+		return false;
+	}
 
-	return ( $luminosity > 128 ) ? '#333333' : '#ffffff';
 
-}
+	while ( $featured_day_product->have_posts() ) {
+		$featured_day_product->the_post();
+		$product_id       = get_the_ID();
+		$product_image    = get_the_featured_image( $product_id, 'side-featured-product' );
+		$product          = new \WC_Product( $product_id );
+		$product_price    = $product->get_price();
+		$product_name     = $product->get_name();
+		$product_url      = get_permalink( $product_id );
+		return sprintf( '<div class="featured-product featured-product-%s">
+<a href="%s" title="%s">
+<div class="featured-product-visual">
+%s
+</div>
+<div class="featured-product-title">
+<h3>%s</h3>
+</div>
+<div class="featured-product-stock">
+<span>%s</span>
+</div>
+</a>
+</div>',
+			$type,
+			\esc_url( $product_url ),
+			esc_attr( $product_name ),
+			$product_image,
+			$product_name,
+			(int) $product->get_stock_quantity()
+		);
+	}
+	\wp_reset_query();
 
-/**
- * Generates a lighter or darker color from a starting color.
- * Used to generate complementary hover tints from user-chosen colors.
- *
- * @since 1.0
- *
- * @param string $color A color in hex format.
- * @param int    $change The amount to reduce or increase brightness by.
- * @return string Hex code for the adjusted color brightness.
- */
-function color_brightness( $color, $change ) {
-
-	$hexcolor = str_replace( '#', '', $color );
-
-	$red   = hexdec( substr( $hexcolor, 0, 2 ) );
-	$green = hexdec( substr( $hexcolor, 2, 2 ) );
-	$blue  = hexdec( substr( $hexcolor, 4, 2 ) );
-
-	$red   = max( 0, min( 255, $red + $change ) );
-	$green = max( 0, min( 255, $green + $change ) );
-	$blue  = max( 0, min( 255, $blue + $change ) );
-
-	return '#' . dechex( $red ) . dechex( $green ) . dechex( $blue );
 
 }

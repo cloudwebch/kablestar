@@ -1,24 +1,18 @@
 .sidebar {
-	font-size: 16px;
 	font-size: 1.6rem;
 	line-height: 1.5;
-}
-
-.sidebar .widget {
-	margin-bottom: 40px;
-}
-
-.sidebar p {
-	margin-bottom: 20px;
-}
-
-@media only screen and (min-width: 960px) {
-	.sidebar {
-		float: right;
-		width: 30%;
+	@include breakpoint(960px){
+		width: 15.50%;
 	}
-
-	.sidebar-content .sidebar {
-		float: left;
+	&.sidebar-front{
+		padding-left: 1.375em; //22px - 16
+		padding-right: 1.375em; //22px - 16
+		width: 27.5133%;
+	}
+	.widget {
+		margin-bottom: 40px;
+	}
+	p {
+		margin-bottom: 20px;
 	}
 }

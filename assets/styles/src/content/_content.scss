@@ -8,21 +8,20 @@
 
 @media only screen and (min-width: 960px) {
     .content {
-		float: left;
-		width: 65%;
+		width: 84.50%;
 	}
 
-	.sidebar-content .content {
-		float: right;
-	}
+	//.sidebar-content .content {
+	//	float: right;
+	//}
 
 	.full-width-content .content,
 	.landing-page .content {
-		float: none;
+		//float: none;
 		margin-left: auto;
 		margin-right: auto;
     }
-    
+
     /* Author Box
 	--------------------------------------------- */
 
@@ -42,7 +41,7 @@
 		padding-left: 30px;
 		padding-right: 30px;
     }
-    
+
     /* Entry Misc.
 	--------------------------------------------- */
 

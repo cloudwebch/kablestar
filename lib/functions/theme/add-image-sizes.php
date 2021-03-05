@@ -19,11 +19,22 @@ namespace CloudWeb\KabelStar;
  * @since 1.0.0
  *
  */
+add_action( 'after_setup_theme', __NAMESPACE__ . '\adds_new_image_sizes' );
 function adds_new_image_sizes() {
 	$config = array(
-		'featured-image' => array(
-			'width'  => 720,
-			'height' => 400,
+		'front-slide' => array(
+			'width'  => 764,
+			'height' => 382,
+			'crop'   => true,
+		),
+		'featured-product' => array(
+			'width'  => 365,
+			'height' => 185,
+			'crop'   => true,
+		),
+		'side-featured-product' => array(
+			'width'  => 268,
+			'height' => 135,
 			'crop'   => true,
 		),
 

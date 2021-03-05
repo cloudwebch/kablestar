@@ -1,0 +1,34 @@
+.front-page-section{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &-main{
+    padding-left: 2em; //32px - 16
+    padding-right: 2em; //32px - 16
+    padding-top: 2em; //32px - 16
+    width: 72.3207%;
+  }
+}
+
+.featured-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2em; //32px - 16
+}
+
+.featured-product{
+  flex-basis: 0;
+  flex-grow: 1;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  &:not(:first-child) {
+    margin-left: 2em; //32px - 16
+  }
+  .sidebar-front & {
+    &:not(:first-child) {
+      margin-left: initial;
+    }
+  }
+}

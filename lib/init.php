@@ -28,7 +28,7 @@ function init_constants() {
 	define( 'CHILD_TEXT_DOMAIN', $child_theme->get( 'TextDomain' ) );
 	define( 'CHILD_THEME_DIR', get_stylesheet_directory() );
 	defined('CHILD_DIRECTORY') or define( 'CHILD_DIRECTORY', get_stylesheet_directory_uri() );
-	defined('CHILD_JS') or define( 'CHILD_JS', CHILD_DIRECTORY .'/assets/js' );
+	defined('CHILD_JS') or define( 'CHILD_JS', CHILD_DIRECTORY .'/assets/scripts' );
 	defined('CHILD_CSS') or define( 'CHILD_CSS', CHILD_DIRECTORY .'/assets/css' );
 
 }

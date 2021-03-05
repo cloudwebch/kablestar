@@ -29,26 +29,14 @@ function load_nonadmin_files() {
 	$filenames = array(
 		'setup.php',
 		'functions/helpers.php',// Add the helper functions.
+		'custom/index.php',// Add custom theme functionalities.
 		'functions/load-assets.php',// Add the assets and enqueue styles and scripts.
-		'functions/theme/theme-support.php',// Add theme support functions.
-		'functions/theme/add-image-sizes.php',
-		'functions/theme/custom-logo.php',// Include Custom logo replacement for Header Image.
-		'functions/theme/customize.php',// Add Image upload and Color select to WordPress Theme Customizer.
-		'functions/theme/genesis-adjustments.php',// Include Genesis adjustments.
-		'functions/theme/login-logo.php',// Include login logo replacement.
-		'functions/theme/menus.php',// Add our responsive menu settings.
-		'functions/theme/optional-acf-settings-page.php',
-		'functions/theme/output.php',// Include Customizer CSS.
-		'functions/theme/speed-tuning.php',// Add speed tuning functions.
-		'functions/theme/theme-defaults.php',
-		'functions/theme/widgets.php',// Add widgets.
-		'woocommerce/woocommerce-setup.php',// Add WooCommerce support.
-		'woocommerce/woocommerce-output.php',// Add the required WooCommerce styles and Customizer CSS.
-		'woocommerce/woocommerce-notice.php',// Add the Genesis Connect WooCommerce notice.
+		'functions/theme/index.php',// Add theme support functions.
+		'woocommerce/index.php',// Add WooCommerce support.
 		'functions/filters.php',
 //		'functions/register-post-type.php',
 		'functions/templates.php',
-		// 'structure/structure.php',
+		'structure/index.php',
 	);
 	load_specified_files( $filenames );
 }
