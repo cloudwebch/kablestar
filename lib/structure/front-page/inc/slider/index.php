@@ -22,20 +22,26 @@ function get_the_slider() {
 		$image_alt    = $image['alt'] ? $image['alt'] : $image['title'];
 		$image_width  = $image['sizes']['front-slide-width'];
 		$image_height = $image['sizes']['front-slide-height'];
-		$content      = $slide_group['content'];
+		$text_group   = $slide_group['text_group'];
+		$small_text   = $text_group['small_text'];
+		$big_text     = $text_group['big_text'];
 //		d($image);
 //		d( $slide );
 		$html .= sprintf( '<div class="front-slide">
 <div class="front-slide-visual">
 <img src="%s" alt="%s" width="%s" height="%s">
 </div>
-<div class="front-slide-excerpt">%s</div>
+<div class="front-slide-excerpt">
+<span>%s</span>
+<p>%s</p>
+</div>
 </div>',
 			esc_url( $image_url ),
 			esc_attr( $image_alt ),
 			(int) $image_width,
 			(int) $image_height,
-			$content
+			esc_html( $small_text ),
+			esc_html( $big_text )
 		);
 	}
 

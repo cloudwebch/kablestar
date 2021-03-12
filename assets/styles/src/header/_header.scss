@@ -1,15 +1,24 @@
 .site-header {
-	background-color: #fff;
-	box-shadow: 0 0 20px rgba(0,0,0,0.05);
-	padding: 0 30px;
-	@include breakpoint(960px){
-		.header-fixed &{
+	//background-color: #fff;
+	//padding: 0 1.5em; //24px -16
+	box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.1);
+	padding-top: 0.8125em; //13px - 16
+	padding-bottom: 1em; //16px - 16
+	@include breakpoint(960px) {
+		.header-fixed & {
 			position: fixed;
 			width: 100%;
 			z-index: 9999;
 		}
-
+	}
+	.wrap {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
 	}
 }
 
 @import 'title-area';
+@import 'search-box';
+@import 'user-menu';
+@import 'mini-cart';

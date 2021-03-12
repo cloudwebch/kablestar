@@ -28,9 +28,9 @@ function get_site_posts( $post_type, $args = array() ) {
 }
 
 function get_the_featured_image( $post_id, $size = 'full' ) {
-	$post_image = get_the_post_thumbnail_url( $post_id, $size );
-	$thumb_id   = get_post_thumbnail_id( $post_id );
-	$alt        = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true );
+	$post_image            = get_the_post_thumbnail_url( $post_id, $size );
+	$thumb_id              = get_post_thumbnail_id( $post_id );
+	$alt                   = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true );
 	$post_image_attributes = wp_get_attachment_image_src( $thumb_id, $size );
 
 	return sprintf( '<img src="%s" alt="%s" width="%s" height="%s" />',
@@ -41,7 +41,7 @@ function get_the_featured_image( $post_id, $size = 'full' ) {
 	);
 }
 
-function get_highlighted_product($type){
+function get_highlighted_product( $type ) {
 	$args = array(
 		'stock'      => 1,
 		'showposts'  => 1,
@@ -65,12 +65,13 @@ function get_highlighted_product($type){
 
 	while ( $featured_day_product->have_posts() ) {
 		$featured_day_product->the_post();
-		$product_id       = get_the_ID();
-		$product_image    = get_the_featured_image( $product_id, 'side-featured-product' );
-		$product          = new \WC_Product( $product_id );
-		$product_price    = $product->get_price();
-		$product_name     = $product->get_name();
-		$product_url      = get_permalink( $product_id );
+		$product_id    = get_the_ID();
+		$product_image = get_the_featured_image( $product_id, 'side-featured-product' );
+		$product       = new \WC_Product( $product_id );
+		$product_price = $product->get_price();
+		$product_name  = $product->get_name();
+		$product_url   = get_permalink( $product_id );
+
 		return sprintf( '<div class="featured-product featured-product-%s">
 <a href="%s" title="%s">
 <div class="featured-product-visual">
@@ -95,4 +96,15 @@ function get_highlighted_product($type){
 	\wp_reset_query();
 
 
+}
+
+function is_decimal( $val ) {
+	return is_numeric( $val ) && floor( $val ) != $val;
+}
+
+function get_first_word( $sentence ) {
+	$sentence_array  = explode( ' ', trim( $sentence ) );
+	$remaining_words = substr( strstr( $sentence, " " ), 1 );
+
+	return sprintf( '<span>%s</span> %s', $sentence_array[0], $remaining_words );
 }

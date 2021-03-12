@@ -14,8 +14,9 @@
 .site-header::before,
 .site-inner::before,
 .widget::before,
-.wrap::before {
-	content: " ";
+.wrap::before,
+.latest-products::before {
+	content: ' ';
 	display: table;
 }
 
@@ -32,8 +33,9 @@
 .site-header::after,
 .site-inner::after,
 .widget::after,
-.wrap::after {
+.wrap::after,
+.latest-products::after {
 	clear: both;
-	content: " ";
+	content: ' ';
 	display: table;
 }

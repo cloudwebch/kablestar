@@ -40,7 +40,7 @@ namespace CloudWeb\KabelStar;
  */
 function standard_responsive_menu_settings() {
 
-	$settings = array(
+	return array(
 		'mainMenu'          => __( 'Menu', 'kabelstar' ),
 		'menuIconClass'     => 'dashicons-before dashicons-menu',
 		'subMenu'           => __( 'Submenu', 'kabelstar' ),
@@ -54,7 +54,7 @@ function standard_responsive_menu_settings() {
 		),
 	);
 
-	return $settings;
+//	return $settings;
 
 }
 

@@ -1,16 +1,51 @@
 .sidebar {
-	font-size: 1.6rem;
-	line-height: 1.5;
-	@include breakpoint(960px){
-		width: 15.50%;
+	//font-size: 1.6rem;
+	//line-height: 1.5;
+	@include breakpoint(960px) {
+		padding-top: 1.5em; //24px -16
+		width: 15.5%;
 	}
-	&.sidebar-front{
+	&.sidebar-primary {
+		padding-top: 0.625em; //10px - 16
+	}
+	&.sidebar-front {
 		padding-left: 1.375em; //22px - 16
 		padding-right: 1.375em; //22px - 16
 		width: 27.5133%;
 	}
+	&-primary {
+		border-right: 1px solid #ddd;
+		.menu-item {
+			//border-bottom: 1px solid #ddd;
+			margin-bottom: 0;
+
+			a {
+				display: block;
+				padding: 0.5625em 1.5em 0.5625em 0; // 9px 24px 9px 0 - 16
+				position: relative;
+				&::after {
+					content: '';
+					width: calc(100% - 24px);
+					height: 1px;
+					background-color: #ddd;
+					position: absolute;
+					left: 0;
+					right: 1.5em; //24px - 16
+					bottom: 0;
+				}
+				//font-size: 1.3rem;
+				//text-decoration: none;
+			}
+		}
+	}
 	.widget {
 		margin-bottom: 40px;
+		li {
+			a {
+				font-size: 1.3rem;
+				text-decoration: none;
+			}
+		}
 	}
 	p {
 		margin-bottom: 20px;

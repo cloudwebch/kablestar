@@ -55,6 +55,7 @@ function get_featured_products() {
 %s
 </div>
 <div class="featured-product-title">
+<span>- Small Text - </span>
 <h3>%s</h3>
 </div>
 </a>

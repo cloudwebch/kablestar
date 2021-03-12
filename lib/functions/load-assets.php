@@ -45,19 +45,19 @@ function enqueue_scripts_styles() {
 	 * Load inline typekit, google fonts, custom web fonts fonts
 	 *
 	 */
-	// $inline_js_fonts  = '
-	// 	WebFontConfig = {
-	// 	    typekit: {id: \'tvd7ktt\'}
-	// 	  };
-	//        (function() {
-	//            var wf = document.createElement("script");
-	//            wf.src = "https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js";
-	//            wf.type = "text/javascript";
-	//            wf.async = "true";
-	//            var s = document.getElementsByTagName("script")[0];
-	//            s.parentNode.insertBefore(wf, s);
-	//        })();';
-	// wp_add_inline_script( CHILD_TEXT_DOMAIN . '-js', $inline_js_fonts );
+	 $inline_js_fonts  = '
+	 	WebFontConfig = {
+	 	    google: { families: [ "Roboto:400,500,600,700:latin" ] }
+	 	  };
+	        (function() {
+	            var wf = document.createElement("script");
+	            wf.src = "https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js";
+	            wf.type = "text/javascript";
+	            wf.async = "true";
+	            var s = document.getElementsByTagName("script")[0];
+	            s.parentNode.insertBefore(wf, s);
+	        })();';
+	 wp_add_inline_script( CHILD_TEXT_DOMAIN . '-js', $inline_js_fonts );
 
 	/**
 	 *
@@ -98,9 +98,19 @@ function enqueue_scripts_styles() {
 		wp_enqueue_script( 'slick' );
 		wp_add_inline_script( 'slick',
 			'jQuery(document).ready(function($){
-				    $("[rel=\'slider\']").slick({
-//				        dots: true
-				    });
+			
+					var relatedProducts = $("[rel=\'latest-products\']");
+						
+				    $("[rel=\'slider\']").slick();
+				    
+				    if(relatedProducts.length){
+					    relatedProducts.slick({
+					        slidesToShow: 4,
+					        dots: true,
+					        
+					    });
+				    }
+				     
 				  });' );
 	}
 

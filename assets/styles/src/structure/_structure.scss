@@ -1,10 +1,11 @@
 @import 'site-container';
 @import 'site-inner';
-@import "pages/index";
+@import 'pages/index';
 @media only screen and (min-width: 960px) {
-    .site-inner {
-		margin-top: 70px;
-		max-width: 1355px;
+	.site-inner {
+		//max-width: 1355px;
+		padding-left: 1.5em; //24px -16
+		padding-right: 1.5em; //24px -16;
 	}
 
 	/* Column Classes

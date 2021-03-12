@@ -22,12 +22,17 @@ function site_page_layout() {
 
 	add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_sidebar_content' );
 	add_action( 'genesis_before_header', 'genesis_do_subnav' );
+	add_action( 'genesis_header', __NAMESPACE__ . '\get_product_search_box', 12 );
+	add_action( 'genesis_header', __NAMESPACE__ . '\add_loginout_buttons', 13 );
 	if(is_front_page() && !is_home()){
+		remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
 		remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_open', 5 );
 		remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_close', 15 );
 		remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 		remove_action( 'genesis_after_entry', 'genesis_get_comments_template' );
 		\add_action('genesis_entry_content', __NAMESPACE__ . '\get_front_page_entry_content');
+		\add_action('genesis_entry_content', __NAMESPACE__ . '\get_latest_products');
+//		add_action( 'genesis_entry_content', 'genesis_do_post_content', 12 );
 //		\add_action('genesis_entry_content', __NAMESPACE__ . '\get_featured_products');
 //		\add_action('genesis_entry_content', __NAMESPACE__ . '\get_side_product_of_the_day');
 //		\add_action('genesis_entry_content', __NAMESPACE__ . '\get_side_product_of_the_week');

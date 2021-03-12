@@ -1,21 +1,50 @@
 .nav-secondary {
-  margin-top: 10px;
-  .genesis-nav-menu {
-    line-height: 1.5;
-  }
-  .menu-item {
-    display: inline-block;
-    a{
-      a {
-        margin-right: 10px;
-        padding: 0;
-      }
-    }
-    &:not(:first-child){
-      a {
-        margin-left: 10px;
-      }
-    }
-  }
+	padding-top: 0.625em; //10px -16
+	padding-bottom: 1.125em; //18px - 16
+	background-color: $color_background;
 
+	.wrap {
+		position: relative;
+		&::after {
+			content: '';
+			width: 100%;
+			height: 10px;
+			background: linear-gradient(
+				90deg,
+				#c4a277,
+				#c4a277 16.66667%,
+				#ffc32d 16.66667%,
+				#ffc32d 33.33333%,
+				#f67858 33.33333%,
+				#f67858 50%,
+				#84d160 0,
+				#84d160 66.66667%,
+				#b384d3 66.66667%,
+				#b384d3 83.33333%,
+				#72c7f9 83.33333%
+			);
+			position: absolute;
+			bottom: -18px;
+			left: 0;
+			right: 0;
+		}
+	}
+	.genesis-nav-menu {
+		line-height: 1.5;
+	}
+	.menu-item {
+		display: inline-block;
+		&:not(:last-of-type) {
+			border-right: 1px solid #b3b3b3;
+		}
+		a {
+			margin-right: 10px;
+			padding: 0;
+		}
+		&:not(:first-child) {
+			a {
+				margin-left: 10px;
+			}
+		}
+	}
 }
