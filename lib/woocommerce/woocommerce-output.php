@@ -20,7 +20,7 @@ add_filter( 'woocommerce_enqueue_styles', __NAMESPACE__ . '\woocommerce_styles' 
  *
  * @param  array $enqueue_styles Styles array.
  *
- * @return array Required values for the Digital Creative Genesis Theme's WooCommerce stylesheet.
+ * @return array Required values for the Genesis Theme's WooCommerce stylesheet.
  */
 function woocommerce_styles( $enqueue_styles ) {
 

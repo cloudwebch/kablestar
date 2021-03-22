@@ -84,7 +84,7 @@ function adds_theme_supports() {
 		'genesis-custom-header'           => null,
 		'custom-background'               => true,
 		'genesis-after-entry-widget-area' => true,
-		'genesis-footer-widgets'          => 3,
+		'genesis-footer-widgets'          => 6,
 		'disable-custom-colors' => true,
 		'editor-color-palette' =>	array(
 			array(

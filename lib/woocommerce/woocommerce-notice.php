@@ -81,7 +81,7 @@ function woocommerce_theme_notice() {
 
 }
 
-add_action( 'wp_ajax_dcg_dismiss_woocommerce_notice', __NAMESPACE__ . '\dismiss_woocommerce_notice' );
+add_action( 'wp_ajax_dismiss_woocommerce_notice', __NAMESPACE__ . '\dismiss_woocommerce_notice' );
 /**
  * Add option to dismiss Genesis Connect for Woocommerce plugin install prompt.
  *

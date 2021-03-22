@@ -1,13 +1,13 @@
 .front-page-section {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	//display: flex;
+	//flex-wrap: wrap;
+	//justify-content: space-between;
 	&-main {
-		border-right: 1px solid #ddd;
+		//border-right: 1px solid #ddd;
 		padding-left: 2em; //32px - 16
 		padding-right: 2em; //32px - 16
 		padding-top: 1.5em; //24px -16
-		width: 72.3207%;
+		//width: 72.3207%;
 	}
 }
 
@@ -15,17 +15,20 @@
 	&:hover {
 		.front-slide-visual {
 			img {
-				//transform: scale(1.01);
-				transform: perspective(700px) translateZ(10px);
+				transform: scale(1.02);
+				transition: all 320ms linear;
+				//transform: perspective(700px) translateZ(10px);
 			}
 		}
 	}
 	&-visual {
+		overflow: hidden;
 		img {
-			transform: perspective(0) translateZ(0);
-			transform-style: preserve-3d;
-			transition: transform 0.5s;
-			will-change: transform;
+			transition: all 320ms linear;
+			//transform: perspective(0) translateZ(0);
+			//transform-style: preserve-3d;
+			//transition: transform 0.5s;
+			//will-change: transform;
 		}
 	}
 	&-excerpt {
@@ -40,6 +43,19 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 	margin-top: 2em; //32px - 16
+	position: relative;
+	&::before {
+		content: '';
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		width: 1px;
+		height: 100%;
+		background-color: #ddd;
+		position: absolute;
+	}
 }
 
 .featured-product {
@@ -48,8 +64,24 @@
 	min-width: 0;
 	word-break: break-word;
 	overflow-wrap: break-word;
+	overflow: hidden;
+
 	&:not(:first-child) {
+		.featured-products & {
+			margin-left: 2em; //32px - 16
+		}
+	}
+	.sidebar-secondary & {
 		margin-left: 2em; //32px - 16
+	}
+	&:hover {
+		img {
+			transform: scale(1.02);
+			transition: all 320ms linear;
+		}
+	}
+	img {
+		transition: all 320ms linear;
 	}
 	a {
 		color: inherit;
@@ -75,11 +107,13 @@
 .latest-products {
 	//display: flex;
 	//flex-wrap: wrap;
-	border-right: 1px solid #ddd;
-	padding-left: 1em; //16px - 16
-	padding-right: 1em; //16px - 16
+	//border-right: 1px solid #ddd;
+	padding-left: 1.125em; //18px - 16
+	padding-right: 1.875em; //30px - 16
+	//margin-left: -8px; //16px - 16
+	margin-right: -0.875em; //14px - 16
 	padding-top: 2em; //32px - 16
-	width: 72.3207%;
+	//width: 72.3207%;
 	.latest-product {
 		&:not(:last-child) {
 			//margin-right: 15px;
@@ -92,10 +126,20 @@
 	float: left;
 	padding-right: 15px;
 	padding-left: 15px;
+	overflow: hidden;
 	width: 25%;
 	&:hover {
-		background-color: #ddd;
+		img {
+			transform: scale(1.02);
+			transition: all 320ms linear;
+		}
 	}
+	img {
+		transition: all 320ms linear;
+	}
+	//&:hover {
+	//	background-color: #ddd;
+	//}
 	//width: calc(24% - 15px);
 	//margin-right: 10px;
 	a {

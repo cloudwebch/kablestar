@@ -25,7 +25,7 @@ function get_center_section() {
 function get_aside_section() {
 	$get_side_product_of_the_day  = get_side_product_of_the_day();
 	$get_side_product_of_the_week = get_side_product_of_the_week();
-	return sprintf('<aside class="sidebar sidebar-front">%s %s</aside>',
+	printf('%s %s',
 		$get_side_product_of_the_day,
 		$get_side_product_of_the_week);
 }
@@ -83,9 +83,8 @@ function get_latest_products(){
 
 function get_front_page_entry_content(){
 	$get_center_section = get_center_section();
-	$get_aside_section = get_aside_section();
-	printf('<div class="front-page-section">%s%s</div>',
-		$get_center_section,
-		$get_aside_section
+//	$get_aside_section = get_aside_section();
+	printf('<div class="front-page-section">%s</div>',
+		$get_center_section
 	);
 }

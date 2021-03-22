@@ -17,10 +17,23 @@
 }
 
 .breadcrumb {
-	border-bottom: 1px solid #eee;
-	font-size: 1.6rem;
-	margin-bottom: 40px;
-	padding-bottom: 10px;
+	//border-bottom: 1px solid #eee;
+	font-size: 1.3rem;
+	margin-bottom: 1.76923em; //23px - 13
+	margin-left: 2.384615em; //31px - 13
+	padding-bottom: 0.76923em; //10px - 13
+	a {
+		text-decoration: none;
+		margin-right: 0.538462em; //7px - 13
+		margin-left: 0.538462em; //7px - 13
+		&:hover,
+		&:focus {
+			color: inherit;
+		}
+	}
+	&_last {
+		margin-left: 0.538462em; //7px - 13
+	}
 }
 
 .archive-description p:last-child,

@@ -2,36 +2,38 @@
 
 // Mobile Breakpoints
 $breakpoints: (
-        "phone": 400px,
-        "phone-wide": 480px,
-        "phablet": 560px,
-        "tablet-small": 640px,
-        "tablet": 861px,
-        "tablet-wide": 1024px,
-        "desktop": 1201px,
-        "desktop-wide": 1341px
+	'phone': 400px,
+	'phone-wide': 480px,
+	'phablet': 560px,
+	'tablet-small': 640px,
+	'tablet': 861px,
+	'tablet-wide': 1024px,
+	'desktop': 1201px,
+	'desktop-wide': 1341px,
 );
 
 @mixin breakpoint($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: #{ map-get($breakpoints, $breakpoint) }) {
-      @content;
-    }
-  } @else if type_of($breakpoint) ==
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media (min-width: #{ map-get($breakpoints, $breakpoint) }) {
+			@content;
+		}
+	} @else if
+		type_of($breakpoint) ==
 		number and
 		unit($breakpoint) ==
 		px or
 		unit($breakpoint) ==
 		em or
 		unit($breakpoint) ==
-		rem {
-    @media (min-width: $breakpoint) {
-      @content;
-    }
-  } @else {
-    @warn "No value could be retrieved from `#{$breakpoint}`. "
+		rem
+	{
+		@media (min-width: $breakpoint) {
+			@content;
+		}
+	} @else {
+		@warn "No value could be retrieved from `#{$breakpoint}`. "
 			+ "Please make sure it is defined in `$breakpoints` map, or it is a valid number with supported unit of px, em or rem.";
-  }
+	}
 }
 
 // USAGE
@@ -49,21 +51,21 @@ $breakpoints: (
 
 // Input Placeholders
 @mixin input-placeholder {
-  &.placeholder {
-    @content;
-  }
-  &:-moz-placeholder {
-    @content;
-  }
-  &::-moz-placeholder {
-    @content;
-  }
-  &:-ms-input-placeholder {
-    @content;
-  }
-  &::-webkit-input-placeholder {
-    @content;
-  }
+	&.placeholder {
+		@content;
+	}
+	&:-moz-placeholder {
+		@content;
+	}
+	&::-moz-placeholder {
+		@content;
+	}
+	&:-ms-input-placeholder {
+		@content;
+	}
+	&::-webkit-input-placeholder {
+		@content;
+	}
 }
 
 // USAGE
@@ -81,60 +83,65 @@ textarea {
 
 // Clearfix.
 @mixin clearfix {
-  clear: both;
+	clear: both;
 
-  &::before,
-  &::after {
-    display: block;
-    clear: both;
-    content: '';
-  }
+	&::before,
+	&::after {
+		display: block;
+		clear: both;
+		content: '';
+	}
+}
+
+@mixin stupidFontSize {
+	font-size: 1.3rem;
+	line-height: 18px;
 }
 
 // Flexfix.
 @mixin flexfix {
-  &::before,
-  &::after {
-    position: absolute;
-  }
+	&::before,
+	&::after {
+		position: absolute;
+	}
 }
 
 // Overlay.
 @mixin overlay {
-  position: relative;
+	position: relative;
 
-  &::before {
-    display: block;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: $overlay;
-    content: '';
-    pointer-events: none;
-  }
+	&::before {
+		display: block;
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: $overlay;
+		content: '';
+		pointer-events: none;
+	}
 }
 
 // Center.
 @mixin center {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
 }
 
 // Screen reader text.
 @mixin screen-reader-text() {
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  position: absolute !important;
-  width: 1px;
-  height: 1px;
-  border: 0;
-  word-wrap: normal !important;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	border: 0;
+	word-wrap: normal !important;
 }
 
 // USAGE
@@ -147,29 +154,29 @@ textarea {
 
 // Keyframe Animation
 @mixin keyframes($name) {
-  @-webkit-keyframes #{$name} {
-    @content;
-  }
-  @-moz-keyframes #{$name} {
-    @content;
-  }
-  @-ms-keyframes #{$name} {
-    @content;
-  }
-  @-o-keyframes #{$name} {
-    @content;
-  }
-  @keyframes #{$name} {
-    @content;
-  }
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@-ms-keyframes #{$name} {
+		@content;
+	}
+	@-o-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	}
 }
 
 @mixin animation($value) {
-  -webkit-animation: $value;
-  -moz-animation: $value;
-  -ms-animation: $value;
-  -o-animation: $value;
-  animation: $value;
+	-webkit-animation: $value;
+	-moz-animation: $value;
+	-ms-animation: $value;
+	-o-animation: $value;
+	animation: $value;
 }
 
 // USAGE
@@ -186,22 +193,28 @@ textarea {
 */
 
 // Font Styles
-@mixin font($font-family: false, $size: false, $colour: false, $weight: false,  $lh: false) {
-  @if $font-family {
-    font-family: $font-family
-  };
-  @if $size {
-    font-size: $size;
-  }
-  @if $colour {
-    color: $colour;
-  }
-  @if $weight {
-    font-weight: $weight;
-  }
-  @if $lh {
-    line-height: $lh;
-  }
+@mixin font(
+	$font-family: false,
+	$size: false,
+	$colour: false,
+	$weight: false,
+	$lh: false
+) {
+	@if $font-family {
+		font-family: $font-family;
+	}
+	@if $size {
+		font-size: $size;
+	}
+	@if $colour {
+		color: $colour;
+	}
+	@if $weight {
+		font-weight: $weight;
+	}
+	@if $lh {
+		line-height: $lh;
+	}
 }
 
 // USAGE
@@ -214,8 +227,8 @@ div {
 
 // Box Shadow Emboss
 @mixin box-emboss($outerOpacity, $innerOpacity) {
-  box-shadow: rgba($white, $outerOpacity) 0 1px 0,
-  rgba($black, $innerOpacity) 0 1px 0 inset;
+	box-shadow: rgba($white, $outerOpacity) 0 1px 0,
+		rgba($black, $innerOpacity) 0 1px 0 inset;
 }
 
 // USAGE
@@ -228,9 +241,9 @@ div {
 
 // Opacity
 @mixin opacity($opacity) {
-  opacity: $opacity;
-  $opacity-ie: $opacity * 100;
-  filter: alpha(opacity=$opacity-ie); //IE8
+	opacity: $opacity;
+	$opacity-ie: $opacity * 100;
+	filter: alpha(opacity=$opacity-ie); //IE8
 }
 
 // USAGE
@@ -243,8 +256,8 @@ div {
 
 // Pseudo selectors
 %pseudos {
-  content: '';
-  position: absolute;
+	content: '';
+	position: absolute;
 }
 
 // USAGE
@@ -258,32 +271,32 @@ div {
 // Transform
 // generic transform
 @mixin transform($transforms) {
-  transform: $transforms;
+	transform: $transforms;
 }
 
 // rotate
 @mixin rotate($deg) {
-  @include transform(rotate(#{$deg}deg));
+	@include transform(rotate(#{$deg}deg));
 }
 
 // scale
 @mixin scale($scale) {
-  @include transform(scale($scale));
+	@include transform(scale($scale));
 }
 
 // translate
 @mixin translate($x, $y) {
-  @include transform(translate($x, $y));
+	@include transform(translate($x, $y));
 }
 
 // skew
 @mixin skew($x, $y) {
-  @include transform(skew(#{$x}deg, #{$y}deg));
+	@include transform(skew(#{$x}deg, #{$y}deg));
 }
 
 //transform origin
 @mixin transform-origin($origin) {
-  transform-origin: $origin;
+	transform-origin: $origin;
 }
 
 // USAGE
@@ -297,23 +310,23 @@ div {
 
 // Transition
 @mixin transition($transition...) {
-  transition: $transition;
+	transition: $transition;
 }
 
 @mixin transition-property($property...) {
-  transition-property: $property;
+	transition-property: $property;
 }
 
 @mixin transition-duration($duration...) {
-  transition-property: $duration;
+	transition-property: $duration;
 }
 
 @mixin transition-timing-function($timing...) {
-  transition-timing-function: $timing;
+	transition-timing-function: $timing;
 }
 
 @mixin transition-delay($delay...) {
-  transition-delay: $delay;
+	transition-delay: $delay;
 }
 
 // USAGE
@@ -326,10 +339,10 @@ a {
 
 // Linear Gradient
 @mixin linear-gradient($args...) {
-  background-image: -o-linear-gradient($args);
-  background-image: -moz-linear-gradient($args);
-  background-image: -webkit-linear-gradient($args);
-  background-image: linear-gradient($args);
+	background-image: -o-linear-gradient($args);
+	background-image: -moz-linear-gradient($args);
+	background-image: -webkit-linear-gradient($args);
+	background-image: linear-gradient($args);
 }
 
 // USAGE

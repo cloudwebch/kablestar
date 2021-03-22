@@ -37,6 +37,11 @@ function adds_new_image_sizes() {
 			'height' => 135,
 			'crop'   => true,
 		),
+		'post' => array(
+			'width'  => 828,
+			'height' => 414,
+			'crop'   => true,
+		),
 
 
 	);

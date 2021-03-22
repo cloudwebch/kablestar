@@ -47,11 +47,16 @@
 	//margin: 2rem auto;
 	@include breakpoint(tablet) {
 		//margin: 6rem auto;
-		.sidebar-content & {
+		.sidebar-content &,
+		.sidebar-content-sidebar & {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
 			flex-direction: row-reverse;
+		}
+
+		.sidebar-content-sidebar & {
+			width: 75.206%;
 		}
 
 		.center-content &,

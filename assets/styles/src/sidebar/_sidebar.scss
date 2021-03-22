@@ -3,10 +3,31 @@
 	//line-height: 1.5;
 	@include breakpoint(960px) {
 		padding-top: 1.5em; //24px -16
-		width: 15.5%;
+		width: 22.663%;
+		//&:not(.sidebar-front) {
+		//	.home & {
+		//		width: 15.5%;
+		//	}
+		//}
 	}
 	&.sidebar-primary {
 		padding-top: 0.625em; //10px - 16
+	}
+	&.sidebar-secondary {
+		border-left: 1px solid #ddd;
+		padding-top: 0.875em; //14px - 16
+		margin-right: 0;
+		margin-left: auto;
+		width: 24.794%;
+		.widget {
+			border-bottom: 1px solid #ddd;
+			margin-bottom: 1.125em; //18px - 16
+			font-size: 1.3rem;
+			line-height: 18px;
+			//&-wrap {
+			//	padding-left: 1.5em;
+			//}
+		}
 	}
 	&.sidebar-front {
 		padding-left: 1.375em; //22px - 16

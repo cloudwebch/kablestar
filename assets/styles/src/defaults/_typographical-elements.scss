@@ -34,14 +34,14 @@ textarea:focus,
 }
 
 a {
-	color: #0073e5;
+	color: $black;
 	text-decoration: underline;
 	transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 a:focus,
 a:hover {
-	color: #333;
+	color: #b3b3b3;
 	text-decoration: none;
 }
 

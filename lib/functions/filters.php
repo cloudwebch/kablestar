@@ -14,6 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Cheatin&#8217; uh?' );
 }
 
+include_once __DIR__ . '/filters/index.php';
+
 add_filter( 'body_class', __NAMESPACE__ . '\body_class' );
 function body_class( $classes ) {
 

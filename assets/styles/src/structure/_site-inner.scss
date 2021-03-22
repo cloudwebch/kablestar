@@ -3,4 +3,9 @@
 .site-inner {
 	clear: both;
 	margin: 0 auto;
+	.sidebar-content-sidebar & {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
 }

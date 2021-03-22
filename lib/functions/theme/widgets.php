@@ -12,26 +12,6 @@
 
 namespace CloudWeb\KabelStar;
 
-// Register top widget.
-\genesis_register_sidebar(
-	array(
-		'id'          => 'top-widget',
-		'name'        => __( 'Top Widget', 'genesis' ),
-		'description' => __( 'Widgets in this widget area will display above the header.', 'kabelstar' ),
-	)
-);
-
-// Banner widget area.
-\genesis_register_sidebar(
-	array(
-		'id'           => 'banner-widget',
-		'name'         => __( 'Banner Widget', 'KabelStar' ),
-		'description'  => __( 'Widgets in this widget area will display in the banner on the homepage.', 'kabelstar' ),
-		'before_title' => '<h1 class="widget-title">',
-		'after_title'  => '</h1>',
-	)
-);
-
 // Register above footer widget.
 \genesis_register_sidebar(
 	array(
@@ -43,29 +23,18 @@ namespace CloudWeb\KabelStar;
 	)
 );
 
-add_action( 'genesis_before_header', __NAMESPACE__ . '\top_widget' );
-/**
- * Add top widget.
- */
-function top_widget() {
-	\genesis_widget_area(
-		'top-widget',
-		array(
-			'before' => '<div class="top-widget widget-area">',
-			'after'  => '</div>',
-		)
-	);
-}
-
 add_action( 'genesis_before_footer', __NAMESPACE__ . '\above_footer_widget', 5 );
 /**
  * Add above footer widget.
  */
 function above_footer_widget() {
+
+	$columns = flexible_widget_area_class( 'above-footer-widget' );
+
 	\genesis_widget_area(
 		'above-footer-widget',
 		array(
-			'before' => '<div class="above-footer-widget widget-area"><div class="wrap">',
+			'before' => sprintf('<div class="above-footer-widget widget-area %s"><div class="wrap">', $columns),
 			'after'  => '</div></div>',
 		)
 	);
@@ -79,9 +48,10 @@ function above_footer_widget() {
  * @param  string $id The widget area id.
  * @return int        Number of active widgets in the widget area.
  */
-function count_widgets( $id ) {
 
-	global $sidebars_widgets;
+function flexible_count_widgets( $id ) {
+
+	$sidebars_widgets = wp_get_sidebars_widgets();
 
 	if ( isset( $sidebars_widgets[ $id ] ) ) {
 		return count( $sidebars_widgets[ $id ] );
@@ -97,38 +67,33 @@ function count_widgets( $id ) {
  * @param  string $id    The widget area id.
  * @return string $class The appropriate class for the amount of widgets.
  */
-function widget_area_class( $id ) {
 
-	$count = count_widgets( $id );
+function flexible_widget_area_class( $id ) {
+
+	$count = flexible_count_widgets( $id );
 
 	$class = '';
 
-	if ( 1 === $count ) {
-		$class .= ' widget-full';
-	} elseif ( 1 === $count % 3 ) {
-		$class .= ' widget-thirds';
-	} elseif ( 1 === $count % 4 ) {
-		$class .= ' widget-fourths';
-	} elseif ( 0 === $count % 2 ) {
-		$class .= ' widget-halves uneven';
-	} else {
-		$class .= ' widget-halves even';
+	switch ($count){
+		case ( 1 === $count ) :
+			$class .= 'widget-full';
+			break;
+		case ( 0 === $count % 4 ):
+			$class .= 'widget-fourths';
+			break;
+		case ( 0 === $count % 6 ):
+			$class .= 'widget-sixts';
+			break;
+		case ( 1 === $count % 2 ):
+			$class .= 'widget-halves uneven';
+			break;
+		case ( 0 === $count % 3 ):
+			$class .= 'widget-thirds';
+			break;
+		default:
+			$class .= 'widget-halves';
+			break;
 	}
-
-	/*
-	Uncomment if you don't want a full-width widget for the first widget
-	if( $count == 1 ) {
-		$class .= ' widget-full';
-	} elseif( $count == 2 ) {
-		$class .= ' widget-halves';
-	} elseif( $count == 3 ) {
-		$class .= ' widget-thirds';
-	} elseif( $count == 4 ) {
-		$class .= ' widget-fourths';
-	} else {
-		$class .= ' widget-halves even';
-	}
-	*/
 
 	return $class;
 

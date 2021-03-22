@@ -33,7 +33,7 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_scripts_styles' );
  * Enqueue Scripts and Styles.
  */
 function enqueue_scripts_styles() {
-
+	global $wp_scripts;
 	//Register Scripts
 	wp_register_script( 'slick', CHILD_JS . "/vendors/slick.min.js", array( 'jquery' ), null, true );
 
@@ -112,6 +112,10 @@ function enqueue_scripts_styles() {
 				    }
 				     
 				  });' );
+	}
+
+	if( is_product() ){
+		$wp_scripts->registered[ 'wc-single-product' ]->src = CHILD_DIRECTORY . '/lib/woocommerce/js/single-product.js';
 	}
 
 
