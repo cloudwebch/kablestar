@@ -14,6 +14,10 @@
 	line-height: 42px;
 	//font-weight: 300;
 	margin-bottom: 10px;
+	.single-post & {
+		padding-left: 9.65%;
+		padding-right: 9.65%;
+	}
 }
 
 .entry-title-above {
@@ -21,6 +25,8 @@
 	justify-content: space-between;
 	flex-wrap: wrap;
 	margin-bottom: 1.0625em; //17px - 16
+	padding-left: 9.65%;
+	padding-right: 9.65%;
 }
 
 .entry-title a,
@@ -43,6 +49,6 @@
 		font-size: 2.4rem;
 		line-height: 28px;
 		padding-bottom: 0.708333em; //17px - 24
-		padding-left: 0.958333em; // 23px - 24
+		padding-left: 1.083333em; // 26px - 24
 	}
 }

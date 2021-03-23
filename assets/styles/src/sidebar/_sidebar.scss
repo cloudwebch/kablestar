@@ -24,6 +24,11 @@
 			margin-bottom: 1.125em; //18px - 16
 			font-size: 1.3rem;
 			line-height: 18px;
+			.widget-wrap {
+				> div {
+					padding-left: 2em; //26px -13
+				}
+			}
 			//&-wrap {
 			//	padding-left: 1.5em;
 			//}

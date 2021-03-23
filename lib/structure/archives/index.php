@@ -2,7 +2,7 @@
 /**
  * KabelStar
  *
- * This file autoload the structure specific files.
+ * This file autoload the archives files.
  *
  * @package KabelStar
  * @author  Valentin Zmaranda
@@ -19,14 +19,11 @@ namespace CloudWeb\KabelStar;
  * @since 1.0.1
  *
  */
-function load_structure_files() {
+function load_archive_files() {
 	$filenames = array(
-		'structure/header/index.php',
-		'structure/front-page/index.php',
-		'structure/singular/index.php',
-		'structure/archives/index.php',
+		'structure/archives/shop/index.php',
 	);
 	load_specified_files( $filenames );
 }
 
-load_structure_files();
+load_archive_files();

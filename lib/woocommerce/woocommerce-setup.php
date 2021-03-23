@@ -12,23 +12,23 @@
 
 namespace CloudWeb\KabelStar;
 
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\products_match_height', 99 );
+//add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\products_match_height', 99 );
 /**
  * Print an inline script to the footer to keep products the same height.
  *
  * @since 1.0.0
  */
-function products_match_height() {
-
-	// If Woocommerce is not activated, or a product page isn't showing, exit early.
-	if ( ! class_exists( 'WooCommerce' ) || ! is_shop() && ! is_product_category() && ! is_product_tag() ) {
-		return;
-	}
-
-	wp_enqueue_script( CHILD_TEXT_DOMAIN . '-match-height', CHILD_DIRECTORY . '/dist/js/jquery.matchHeight.min.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
-	wp_add_inline_script( CHILD_TEXT_DOMAIN . '-match-height', "jQuery(document).ready( function() { jQuery( '.product .woocommerce-LoopProduct-link').matchHeight(); });" );
-
-}
+//function products_match_height() {
+//
+//	// If Woocommerce is not activated, or a product page isn't showing, exit early.
+//	if ( ! class_exists( 'WooCommerce' ) || ! is_shop() && ! is_product_category() && ! is_product_tag() ) {
+//		return;
+//	}
+//
+//	wp_enqueue_script( CHILD_TEXT_DOMAIN . '-match-height', CHILD_DIRECTORY . '/dist/js/jquery.matchHeight.min.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
+//	wp_add_inline_script( CHILD_TEXT_DOMAIN . '-match-height', "jQuery(document).ready( function() { jQuery( '.product .woocommerce-LoopProduct-link').matchHeight(); });" );
+//
+//}
 
 add_filter( 'woocommerce_style_smallscreen_breakpoint', __NAMESPACE__ . '\woocommerce_breakpoint' );
 /**
@@ -87,8 +87,8 @@ add_filter( 'woocommerce_pagination_args', __NAMESPACE__ . '\woocommerce_paginat
  */
 function woocommerce_pagination( $args ) {
 
-	$args['prev_text'] = sprintf( '&laquo; %s', __( 'Previous Page', 'genesis-webpack-replace' ) );
-	$args['next_text'] = sprintf( '%s &raquo;', __( 'Next Page', 'genesis-webpack-replace' ) );
+	$args['prev_text'] = sprintf( '&laquo; %s', __( 'Previous Page', 'kabelstar' ) );
+	$args['next_text'] = sprintf( '%s &raquo;', __( 'Next Page', 'kabelstar' ) );
 
 	return $args;
 

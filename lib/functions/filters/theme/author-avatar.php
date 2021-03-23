@@ -37,7 +37,7 @@ function author_box_gravatar_size( $size ) {
 add_filter( 'genesis_author_box_title', __NAMESPACE__ . '\author_box_title', 10, 3 );
 
 function author_box_title( $title, $context, $user_id ) {
-//	d($title);
+//	d($context);
 	$author_url = get_author_posts_url( $user_id );
 
 	return sprintf( '<a href="%1$s" title="%3$s">%2$s</a>',
@@ -45,4 +45,14 @@ function author_box_title( $title, $context, $user_id ) {
 		str_replace( 'About ', '', $title ),
 		esc_html( ucwords( get_the_author_meta( 'display_name', $user_id ) ) )
 	);
+}
+
+add_filter( 'genesis_author_box', __NAMESPACE__ . '\author_box', 10, 7 );
+function author_box( $output, $context, $pattern, $gravatar, $title, $description, $user_id ) {
+	$output = str_replace( '<img', '<div class="author-box-image"><img', $output );
+	$output = str_replace( '/>', '/></div>', $output );
+	$output = str_replace( '<h4 class="author-box-title">', '<div class="author-box-details"><h4 class="author-box-title">', $output );
+	$output = str_replace( '</div></section>', '</div></div></section>', $output );
+
+	return $output;
 }

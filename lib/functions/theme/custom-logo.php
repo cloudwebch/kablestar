@@ -45,3 +45,15 @@ function remove_customizer_settings( $config ) {
 
 // Displays custom logo.
 add_action( 'genesis_site_title', 'the_custom_logo', 0 );
+
+function custom_logo_setup() {
+	$defaults = array(
+		'height'      => 100,
+		'width'       => 400,
+		'flex-height' => true,
+		'flex-width'  => true,
+		'header-text' => array( 'site-title', 'site-description' ),
+	);
+	add_theme_support( 'custom-logo', $defaults );
+}
+add_action( 'after_setup_theme', __NAMESPACE__ .'\custom_logo_setup' );

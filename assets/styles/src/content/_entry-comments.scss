@@ -1,49 +1,80 @@
 /* Entry Comments
 --------------------------------------------- */
-
-.comment-respond,
-.entry-comments,
-.entry-pings {
-	font-size: 18px;
-	font-size: 1.8rem;
-	margin-bottom: 40px;
-}
-
-.comment-list li {
-	padding: 40px 0 0 30px;
-}
-
-.comment-list .depth-1 {
-	padding-left: 0;
-}
-
-.comment-header {
-	margin-bottom: 30px;
-}
-
-.comment-content {
-	clear: both;
-}
-
-.comment-content ul > li {
-	list-style-type: disc;
-}
-
-.comment-respond input[type="email"],
-.comment-respond input[type="text"],
-.comment-respond input[type="url"] {
-	width: 50%;
-}
-
-.comment-respond label {
-	display: block;
-	margin-right: 12px;
-}
-
-.comment-header p {
-	margin-bottom: 0;
-}
-
-.entry-pings .reply {
-	display: none;
+.comment {
+	&-list {
+		font-size: 1.3rem;
+		li {
+			padding: 1.23077em 0 1.23077em 30px; //16px 0 16px 30px - 13
+			.children {
+				padding-left: 11.95%;
+				li {
+					padding-left: 0;
+					&:last-child {
+						padding-bottom: 0;
+						article {
+							padding-bottom: 0;
+						}
+					}
+				}
+			}
+		}
+		.depth-1 {
+			border-top: 1px solid #ddd;
+			padding-left: 0;
+			&:last-of-type {
+				border-bottom: 1px solid #ddd;
+			}
+		}
+		.depth-2 {
+			article {
+				border-top: 1px solid #ddd;
+				border-bottom: 1px solid #ddd;
+			}
+			&:last-of-type {
+				article {
+					border-bottom-color: transparent;
+					padding-bottom: 1.23077em; //16px -13
+					padding-top: 1.23077em; //16px -13
+				}
+			}
+		}
+	}
+	&-header {
+		margin-bottom: 2.307692em; //30px - 13
+		p {
+			margin-bottom: 0;
+		}
+		a {
+			text-decoration: none;
+		}
+	}
+	&-content {
+		clear: both;
+		//padding-left: 73px;
+		padding-left: 11.95%;
+		//ul > li {
+		//	list-style-type: disc;
+		//}
+		p {
+			&:last-of-type {
+				margin-bottom: 0.384615em; //5px - 16
+			}
+		}
+	}
+	&-respond {
+		padding-left: 9.6%;
+		padding-right: 9.6%;
+		input[type='email'],
+		input[type='text'],
+		input[type='url'] {
+			width: 50%;
+		}
+		label {
+			display: block;
+			margin-right: 12px;
+		}
+	}
+	&-reply {
+		padding-left: 11.95%;
+	}
 }

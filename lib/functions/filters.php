@@ -26,6 +26,9 @@ function body_class( $classes ) {
 	if(get_theme_mod( 'navigation_fixed' )){
 		$classes[]  = 'fixed-header';
 	}
+	if( is_shop() ){
+		$classes[]  = 'shop';
+	}
 
 	return $classes;
 }
