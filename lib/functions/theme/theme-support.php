@@ -107,10 +107,17 @@ function adds_theme_supports() {
 				'slug'  => 'gray',
 				'color' => '#323a45',
 			),
-		)
+		),
 	);
 
 	foreach ( $config as $feature => $args ) {
 		add_theme_support( $feature, $args );
 	}
 }
+
+function woo_theme_setup() {
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
+}
+

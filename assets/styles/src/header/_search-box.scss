@@ -1,14 +1,19 @@
 .product-search-box {
 	padding-left: 2.0625em; //33px - 16
+	position: relative;
 	width: 58.5%;
 	input {
 		&[type='search'] {
-			width: 80%;
+			width: 100%;
 		}
 	}
 	button {
 		&[type='submit'] {
-			width: 19.39%;
+			background-color: transparent;
+			color: $black;
+			position: absolute;
+			right: 0;
+			width: 10.39%;
 		}
 	}
 }

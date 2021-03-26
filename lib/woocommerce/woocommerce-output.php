@@ -23,14 +23,15 @@ add_filter( 'woocommerce_enqueue_styles', __NAMESPACE__ . '\woocommerce_styles' 
  * @return array Required values for the Genesis Theme's WooCommerce stylesheet.
  */
 function woocommerce_styles( $enqueue_styles ) {
-
+//d($enqueue_styles);
 	$enqueue_styles[CHILD_TEXT_DOMAIN . '-woocommerce-styles'] = array(
 		'src'     => CHILD_DIRECTORY . '/lib/woocommerce/genesis-woocommerce.css',
 		'deps'    => '',
 		'version' => CHILD_THEME_VERSION,
-		'media'   => 'screen',
+		'media'   => 'all',
 	);
-
+	unset($enqueue_styles['woocommerce-smallscreen']);
+//	d($enqueue_styles);
 	return $enqueue_styles;
 
 }

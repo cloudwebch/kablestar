@@ -1,0 +1,135 @@
+/* WooCommerce Cart Page
+---------------------------------------------------------------------------------------------------- */
+.woocommerce {
+	table {
+		&.shop_table {
+			border-color: #eee;
+			border-radius: 0;
+			line-height: 1.75;
+			word-break: normal;
+			td {
+				border-color: #eee;
+				border-radius: 0;
+				line-height: 1.75;
+				word-break: normal;
+				&.actions {
+					padding-top: 15px;
+					.coupon {
+						.input-text {
+							font-size: 1.8rem;
+						}
+					}
+				}
+			}
+		}
+	}
+	&-cart {
+		table {
+			&.cart {
+				line-height: 1.75;
+				td {
+					font-size: 1.8rem;
+					padding: 10px 12px;
+					&.actions {
+						.coupon {
+							.input-text {
+								border-color: #eee;
+								padding: 5px 20px;
+								width: 150px;
+							}
+						}
+					}
+				}
+				th {
+					&.product-name {
+						min-width: 140px;
+					}
+					&.product-price,
+					&.product-quantity,
+					&.product-subtotal {
+						min-width: 110px;
+					}
+				}
+				.product-thumbnail {
+					min-width: 56px;
+				}
+				img {
+					vertical-align: middle;
+				}
+				input {
+					vertical-align: top;
+				}
+			}
+			&.shop_table {
+				.order-number {
+					min-width: 75px;
+				}
+			}
+		}
+		td {
+			&.product-name {
+				dl {
+					&.variation {
+						dd {
+							margin-left: 20px;
+						}
+					}
+				}
+			}
+		}
+	}
+	&-checkout {
+		table {
+			.cart {
+				td {
+					&.actions {
+						.coupon {
+							.input-text {
+								border-color: #eee;
+								padding: 5px 20px;
+								width: 150px;
+							}
+						}
+					}
+				}
+				img {
+					vertical-align: middle;
+				}
+				input {
+					vertical-align: top;
+				}
+			}
+		}
+		&-review-order-table {
+			th {
+				&.product-total {
+					min-width: 110px;
+				}
+			}
+		}
+	}
+}
+
+#add_payment_method {
+	table {
+		&.cart {
+			td {
+				&.actions {
+					.coupon {
+						.input-text {
+							border-color: #eee;
+							padding: 5px 20px;
+							width: 150px;
+						}
+					}
+				}
+			}
+			img {
+				vertical-align: middle;
+			}
+			input {
+				vertical-align: top;
+			}
+		}
+	}
+}

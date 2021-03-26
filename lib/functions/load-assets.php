@@ -36,7 +36,7 @@ function enqueue_scripts_styles() {
 	global $wp_scripts;
 	//Register Scripts
 	wp_register_script( 'slick', CHILD_JS . "/vendors/slick.min.js", array( 'jquery' ), null, true );
-
+	wp_register_script( CHILD_TEXT_DOMAIN . '-archive-product', CHILD_JS . '/build/archive-product.bundle.js', array( 'jquery' ), null, true );
 	// Load responsive menu and arguments.
 
 
@@ -116,6 +116,10 @@ function enqueue_scripts_styles() {
 
 	if( is_product() ){
 		$wp_scripts->registered[ 'wc-single-product' ]->src = CHILD_DIRECTORY . '/lib/woocommerce/js/single-product.js';
+	}
+
+	if( is_shop() || is_product_category() ){
+		wp_enqueue_script( CHILD_TEXT_DOMAIN . '-archive-product');
 	}
 
 

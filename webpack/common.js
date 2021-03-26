@@ -13,6 +13,9 @@ module.exports = {
 			path.resolve('assets/scripts/src/theme', 'theme.js'),
 			path.resolve('assets/styles/src', 'style.scss'),
 		],
+		'archive-product': [
+			path.resolve('assets/scripts/src/archive', 'product.js'),
+		],
 	},
 	output: {
 		filename: 'scripts/build/[name].bundle.js',

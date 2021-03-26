@@ -54,6 +54,8 @@ function remove_script_version( $src ) {
 
 add_action( 'genesis_meta', __NAMESPACE__ . '\site_page_layout' ); // templates.php
 add_action( 'genesis_setup', __NAMESPACE__ . '\setup', 15 );
+add_action( 'after_setup_theme', __NAMESPACE__ . '\woo_theme_setup' );
+
 
 /**
  * Setup child theme.

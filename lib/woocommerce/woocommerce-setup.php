@@ -160,3 +160,10 @@ function update_woocommerce_image_dimensions() {
 	update_option( 'shop_thumbnail_image_size', $thumbnail ); // Image gallery thumbs.
 
 }
+
+/**
+ * Change number or products per row to 3
+ */
+add_filter('loop_shop_columns', function(){
+	return 3;
+}, 999);

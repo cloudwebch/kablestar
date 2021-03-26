@@ -11,7 +11,8 @@
     "lint": "npm run lint:js && npm run lint:scss",
     "build": "npm run lint && webpack --config ./webpack/production.js",
     "watch": "webpack --watch --config ./webpack/development.js",
-    "wp-pot": "wp-pot --src 'lib/**/*.php' --dest-file 'languages/kabelstar.pot' --package 'kabelstar' --domain 'kabelstar' --last-translator 'Valentin Zmaranda <valentin.zmaranda@cloudweb.ch>' --team 'Team <info@cloudweb.ch' --bug-report 'https://www.cloudweb.ch' --write-file"
+    "wp-pot": "wp-pot --src 'lib/**/*.php' --dest-file 'languages/kabelstar.pot' --package 'kabelstar' --domain 'kabelstar' --last-translator 'Valentin Zmaranda <valentin.zmaranda@cloudweb.ch>' --team 'Team <info@cloudweb.ch' --bug-report 'https://www.cloudweb.ch' --write-file",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "assets/scripts/src/**/*.{js,jsx}": [
@@ -22,11 +23,6 @@
       "stylelint --syntax scss --fix",
       "git add"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "browserslist": [
     "extends @wordpress/browserslist-config"
@@ -57,7 +53,7 @@
     "file-loader": "^2.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^4.3.0",
-    "husky": "^4.3.8",
+    "husky": "^5.2.0",
     "lint-staged": "^10.2.11",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",

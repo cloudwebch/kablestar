@@ -1,0 +1,65 @@
+/* WooCommerce Payment
+---------------------------------------------------------------------------------------------------- */
+.woocommerce {
+	&-cart {
+		#payment {
+			background-color: #f5f5f5;
+			border-radius: 0;
+			padding: 30px;
+			div {
+				&.payment_box {
+					background-color: #eee;
+					&::before {
+						display: none;
+					}
+				}
+			}
+			ul {
+				&.payment_methods {
+					border-color: #eee;
+				}
+			}
+		}
+	}
+	&-checkout {
+		#payment {
+			background-color: #f5f5f5;
+			border-radius: 0;
+			padding: 30px;
+			div {
+				&.payment_box {
+					background-color: #eee;
+					&::before {
+						display: none;
+					}
+				}
+			}
+			ul {
+				&.payment_methods {
+					border-color: #eee;
+				}
+			}
+		}
+	}
+}
+
+#add_payment_method {
+	#payment {
+		background-color: #f5f5f5;
+		border-radius: 0;
+		padding: 30px;
+		div {
+			&.payment_box {
+				background-color: #eee;
+				&::before {
+					display: none;
+				}
+			}
+		}
+		ul {
+			&.payment_methods {
+				border-color: #eee;
+			}
+		}
+	}
+}

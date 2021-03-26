@@ -16,13 +16,13 @@ namespace CloudWeb\KabelStar;
 function add_loginout_buttons() {
 	$html = '<div class="user-menu"><ul>';
 	if ( is_user_logged_in() ) {
-		$html .= sprintf( '<li><a href="%1$s" title="%2$s">%2$s</a></li>',
+		$html .= sprintf( '<li><a class="button button-login" href="%1$s" title="%2$s">%2$s</a></li>',
 			wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) ),
-		__('Log Out', 'kablestart'));
+		__('Anmelden', 'kablestart'));
 	} elseif ( ! is_user_logged_in() ) {
-		$html .= sprintf( '<li><a href="%1$s" title="%2$s">%2$s</a></li>',
+		$html .= sprintf( '<li><a class="button button-login" href="%1$s" title="%2$s">%2$s</a></li>',
 			get_permalink( wc_get_page_id( 'myaccount' ),
-			__('Log In', 'kablestart'))
+			__('Abmelden', 'kablestart'))
 		);
 	}
 

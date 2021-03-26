@@ -12,6 +12,52 @@
 	}
 	&.sidebar-primary {
 		padding-top: 0.625em; //10px - 16
+		.menu-item-type-taxonomy {
+			.tax-product_cat & {
+				display: none;
+			}
+			//&:not(.current-menu-item),
+			&.current-menu-parent,
+			&.current-menu-item {
+				display: block;
+				> a {
+					font-weight: 700;
+					//&::after {
+					//	display: none;
+					//}
+				}
+				.menu-item {
+					display: block;
+				}
+			}
+			&.menu-item-has-children {
+				&:not(.current-menu-item):not(.current-product_cat-ancestor) {
+					.sub-menu {
+						display: none;
+					}
+				}
+			}
+			&.current-product_cat-ancestor {
+				.sub-menu {
+					display: block;
+				}
+			}
+		}
+		.menu-item-back {
+			background-color: $black;
+			margin-left: -24px;
+			padding-left: 24px;
+			a {
+				color: $white;
+				&:hover,
+				&:focus {
+					color: #ddd;
+				}
+				&::after {
+					display: none;
+				}
+			}
+		}
 	}
 	&.sidebar-secondary {
 		border-left: 1px solid #ddd;

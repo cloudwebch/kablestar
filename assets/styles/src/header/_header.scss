@@ -2,8 +2,8 @@
 	//background-color: #fff;
 	//padding: 0 1.5em; //24px -16
 	box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.1);
-	padding-top: 0.8125em; //13px - 16
-	padding-bottom: 1em; //16px - 16
+	padding-top: 1.6875em; //27px - 16
+	padding-bottom: 1.4375em; //23px - 16
 	@include breakpoint(960px) {
 		.header-fixed & {
 			position: fixed;

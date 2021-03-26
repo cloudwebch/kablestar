@@ -21,7 +21,10 @@ namespace CloudWeb\KabelStar;
  */
 function load_shop_archive_files() {
 	$filenames = array(
+		'structure/archives/shop/inc/sorting.php',
 		'structure/archives/shop/inc/product-above.php',
+		'structure/archives/shop/inc/product-title.php',
+		'structure/archives/shop/inc/under-picture.php',
 	);
 	load_specified_files( $filenames );
 }

@@ -24,6 +24,7 @@ function load_woocommerce_files() {
 		'woocommerce/woocommerce-setup.php',// Add WooCommerce support.
 		'woocommerce/woocommerce-output.php',// Add the required WooCommerce styles and Customizer CSS.
 		'woocommerce/woocommerce-notice.php',// Add the Genesis Connect WooCommerce notice.
+//		'woocommerce/template-functions.php',// Add the Genesis Connect WooCommerce notice.
 	);
 	load_specified_files( $filenames );
 }
