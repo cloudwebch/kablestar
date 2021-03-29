@@ -16,6 +16,9 @@ module.exports = {
 		'archive-product': [
 			path.resolve('assets/scripts/src/archive', 'product.js'),
 		],
+		'singular-product': [
+			path.resolve('assets/scripts/src/singular', 'product.js'),
+		],
 	},
 	output: {
 		filename: 'scripts/build/[name].bundle.js',

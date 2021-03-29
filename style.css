@@ -1512,14 +1512,13 @@ p.entry-meta {
   position: absolute; }
 
 .flex-control-nav {
-  bottom: 0;
+  bottom: -60px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
   z-index: 1; }
   .flex-control-nav li {
-    margin-left: 5px;
     margin-right: 5px; }
   .flex-control-nav a {
     border: 1px solid #565656;
@@ -1578,9 +1577,22 @@ p.entry-meta {
   position: relative;
   z-index: 2;
   text-align: center;
-  color: #f00;
-  background: #ff0;
   width: 100%; }
+
+.fancybox-thumbs {
+  top: auto;
+  width: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 95px;
+  padding: 10px 10px 5px 10px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.3); }
+
+.fancybox-show-thumbs .fancybox-inner {
+  right: 0;
+  bottom: 95px; }
 
 /* WooCommerce Shop Page
 ---------------------------------------------------------------------------------------------------- */

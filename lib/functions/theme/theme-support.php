@@ -116,8 +116,13 @@ function adds_theme_supports() {
 }
 
 function woo_theme_setup() {
-	add_theme_support( 'wc-product-gallery-zoom' );
-	add_theme_support( 'wc-product-gallery-lightbox' );
+//	add_theme_support( 'wc-product-gallery-zoom' );
+//	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
+//	add_theme_support( 'woocommerce', array(
+//		'thumbnail_image_width'         => 810,
+//		'gallery_thumbnail_image_width' => 810,
+//		'single_image_width'            => 1400,
+//	) );
 }
 

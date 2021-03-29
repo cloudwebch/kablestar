@@ -96,4 +96,7 @@ function site_page_layout() {
 //		add_action('woocommerce_shop_loop_item_title', __NAMESPACE__ . '\loop_product_title');
 //		add_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_rating');
 	}
+//	if( is_singular('product')){
+//		remove_action( 'woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20 );
+//	}
 }

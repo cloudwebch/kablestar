@@ -149,8 +149,8 @@ function update_woocommerce_image_dimensions() {
 		'crop'   => 1,     // true.
 	);
 	$thumbnail = array(
-		'width'  => '180', // px.
-		'height' => '180', // px.
+		'width'  => '310', // px.
+		'height' => '182', // px.
 		'crop'   => 1,     // true.
 	);
 

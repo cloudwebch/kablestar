@@ -35,9 +35,14 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_scripts_styles' );
 function enqueue_scripts_styles() {
 	global $wp_scripts;
 	//Register Scripts
-	wp_register_script( 'slick', CHILD_JS . "/vendors/slick.min.js", array( 'jquery' ), null, true );
+	wp_register_script( 'slick', CHILD_JS . '/vendors/slick.min.js', array( 'jquery' ), null, true );
+	wp_register_script( 'fancybox', CHILD_JS . '/vendors/fancybox/jquery.fancybox.min.js', array( 'jquery' ), null, true );
 	wp_register_script( CHILD_TEXT_DOMAIN . '-archive-product', CHILD_JS . '/build/archive-product.bundle.js', array( 'jquery' ), null, true );
+
+	//Register Styles
+	wp_register_style( 'fancybox', CHILD_JS . '/vendors/fancybox/jquery.fancybox.css' );
 	// Load responsive menu and arguments.
+
 
 
 	/**
@@ -84,7 +89,6 @@ function enqueue_scripts_styles() {
 
 	wp_enqueue_style( 'dashicons' ); //used for responsive menu icons in case the design not specify something else
 
-
 	wp_enqueue_script( CHILD_TEXT_DOMAIN . '-js', CHILD_JS . "/build/theme.bundle.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
 //	wp_enqueue_script( CHILD_TEXT_DOMAIN . '-responsive-menu', CHILD_JS . "/assets/scripts/build/responsive-menus{$suffix}.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
 
@@ -116,6 +120,27 @@ function enqueue_scripts_styles() {
 
 	if( is_product() ){
 		$wp_scripts->registered[ 'wc-single-product' ]->src = CHILD_DIRECTORY . '/lib/woocommerce/js/single-product.js';
+		wp_enqueue_style('fancybox');
+		wp_enqueue_script('fancybox');
+
+
+		///https://fancyapps.com/fancybox/3/docs/#options
+
+		wp_add_inline_script( "fancybox",
+			"jQuery(document).ready(function($){
+				   $('[data-fancybox=\"images\"]').fancybox({
+					   buttons: [
+						    'close'
+						  ],
+					   margin : [44,0,22,0],
+					   thumbs : {
+					     autoStart : true,
+					     axis      : 'x'
+					   }
+				   })
+				});" );
+
+
 	}
 
 	if( is_shop() || is_product_category() ){

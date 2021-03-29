@@ -42,6 +42,16 @@ function adds_new_image_sizes() {
 			'height' => 414,
 			'crop'   => true,
 		),
+		'product_gallery' => array(
+			'width'  => 680,
+			'height' => 400,
+			'crop'   => true,
+		),
+		'product_lightbox' => array(
+			'width'  => 1400,
+			'height' => 840,
+			'crop'   => true,
+		),
 
 
 	);
