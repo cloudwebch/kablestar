@@ -16,6 +16,12 @@ add_filter('woocommerce_sale_flash', __NAMESPACE__ . '\sale_flash', 10, 2);
 
 function sale_flash($post, $product){
 	global $product;
-	$percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
+//
+	if ( $product->is_type( 'variable' ) ) {
+		return false;
+	}
+//	d($product->get_regular_price());
+//	d($product->get_sale_price());
+	$percentage = round( ( ( $product->get_regular_price() - $product->get_sale_price() ) / $product->get_regular_price() ) * 100 );
 	return sprintf('<span class="onsale">-%s%%</span>', $percentage);
 }

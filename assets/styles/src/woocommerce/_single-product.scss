@@ -117,4 +117,31 @@
 	right: 0;
 	bottom: 95px;
 }
-//}
+
+.fancybox-product {
+	&-info {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		padding-left: 10px;
+		padding-top: 12px;
+		font-size: 2.4rem;
+	}
+	&-price {
+		line-height: 1;
+		font-weight: 700;
+	}
+	&-name {
+		span {
+			span {
+				font-weight: 700;
+			}
+		}
+	}
+	&-categories {
+		display: inline-flex;
+	}
+	&-category {
+		font-size: 1.3rem;
+	}
+}

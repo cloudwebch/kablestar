@@ -24,6 +24,7 @@ function load_theme_filters_files() {
 		'functions/filters/woo/format-sale-price.php',
 		'functions/filters/woo/wc-price.php',
 		'functions/filters/woo/sale-flash.php',
+		'functions/filters/woo/variable-price.php',
 		'functions/filters/woo/single-product-carousel-options.php',
 		'functions/filters/theme/breadcrumb.php',
 		'functions/filters/theme/primary-menu-items.php',

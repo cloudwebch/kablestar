@@ -108,3 +108,21 @@ function get_first_word( $sentence ) {
 
 	return sprintf( '<span>%s</span> %s', $sentence_array[0], $remaining_words );
 }
+
+
+function get_product_categories( $product_id ) {
+	$product_cats_ids = \wc_get_product_term_ids( $product_id, 'product_cat' );
+//	d($product_cats_ids);
+	if ( ! $product_cats_ids ) {
+		return '';
+	}
+	$output = '';
+	$index = 1;
+	foreach ( $product_cats_ids as $cat_id ) {
+		$term   = get_term_by( 'id', $cat_id, 'product_cat' );
+		$comma = $index !== count($product_cats_ids) ? ', ' : '';
+		$output .= sprintf( '<span class="fancybox-product-category">%s%s</span>', esc_html( $term->name ), $comma );
+		$index++;
+	}
+	return $output;
+}

@@ -95,10 +95,10 @@ body.compensate-for-scrollbar {
 .fancybox-caption,
 .fancybox-navigation .fancybox-button {
 	direction: ltr;
-	opacity: 0;
+	/*opacity: 0;*/
 	position: absolute;
 	transition: opacity 0.25s ease, visibility 0s ease 0.25s;
-	visibility: hidden;
+	/*visibility: hidden;*/
 	z-index: 99997;
 }
 
@@ -132,7 +132,7 @@ body.compensate-for-scrollbar {
 
 .fancybox-toolbar {
 	right: 0;
-	top: 0;
+	top: 19px;
 }
 
 .fancybox-stage {
@@ -335,7 +335,7 @@ body.compensate-for-scrollbar {
 /* Buttons */
 
 .fancybox-button {
-	background: rgba(30, 30, 30, 0.6);
+	background: transparent;
 	border: 0;
 	border-radius: 0;
 	box-shadow: none;
@@ -354,14 +354,16 @@ body.compensate-for-scrollbar {
 .fancybox-button,
 .fancybox-button:visited,
 .fancybox-button:link {
-	color: #ccc;
+	color: #000;
 }
 
 .fancybox-button:hover {
-	color: #fff;
+	background-color: transparent;
+	color: #000;
 }
 
 .fancybox-button:focus {
+	background-color: transparent;
 	outline: none;
 }
 
@@ -378,7 +380,12 @@ body.compensate-for-scrollbar {
 
 /* Fix IE11 */
 .fancybox-button div {
-	height: 100%;
+	border: 1px solid #dddddd;
+	border-radius: 50%;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+	width: 48px;
+	height: 48px;
+	/*height: 100%;*/
 }
 
 .fancybox-button svg {
@@ -462,7 +469,7 @@ body.compensate-for-scrollbar {
 .fancybox-navigation .fancybox-button {
 	background-clip: content-box;
 	height: 100px;
-	opacity: 0;
+	/*opacity: 0;*/
 	position: absolute;
 	top: calc(50% - 50px);
 	width: 70px;
@@ -480,37 +487,37 @@ body.compensate-for-scrollbar {
 
 .fancybox-navigation .fancybox-button--arrow_right {
 	padding: 31px 6px 31px 26px;
-	right: 0;
-	right: env(safe-area-inset-right);
+	right: 10px;
+	/*right: env(safe-area-inset-right);*/
 }
 
 /* Caption */
 
 .fancybox-caption {
-	background: linear-gradient(
-		to top,
-		rgba(0, 0, 0, 0.85) 0%,
-		rgba(0, 0, 0, 0.3) 50%,
-		rgba(0, 0, 0, 0.15) 65%,
-		rgba(0, 0, 0, 0.075) 75.5%,
-		rgba(0, 0, 0, 0.037) 82.85%,
-		rgba(0, 0, 0, 0.019) 88%,
-		rgba(0, 0, 0, 0) 100%
-	);
-	bottom: 0;
-	color: #eee;
+	/*background: linear-gradient(*/
+	/*	to top,*/
+	/*	rgba(0, 0, 0, 0.85) 0%,*/
+	/*	rgba(0, 0, 0, 0.3) 50%,*/
+	/*	rgba(0, 0, 0, 0.15) 65%,*/
+	/*	rgba(0, 0, 0, 0.075) 75.5%,*/
+	/*	rgba(0, 0, 0, 0.037) 82.85%,*/
+	/*	rgba(0, 0, 0, 0.019) 88%,*/
+	/*	rgba(0, 0, 0, 0) 100%*/
+	/*);*/
+	/*bottom: 0;*/
+	/*color: #eee;*/
 	font-size: 14px;
 	font-weight: 400;
 	left: 0;
 	line-height: 1.5;
 	padding: 75px 44px 25px 44px;
 	pointer-events: none;
-	right: 0;
-	text-align: center;
+	/*right: 0;*/
+	/*text-align: center;*/
 	z-index: 99996;
 }
 
-@supports (padding: max(0px)) {
+@supports (padding: max(0)) {
 	.fancybox-caption {
 		padding: 75px max(44px, env(safe-area-inset-right))
 			max(25px, env(safe-area-inset-bottom))

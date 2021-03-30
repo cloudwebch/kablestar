@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function site_page_layout() {
+
 	remove_action( 'genesis_after_header', 'genesis_do_nav' );
 	remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 //	remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
@@ -39,18 +40,22 @@ function site_page_layout() {
 		add_action( 'genesis_sidebar_alt', __NAMESPACE__ . '\get_aside_section' );
 	}
 	if ( is_product() ) {
-
+//		$product = \wc_get_product( get_queried_object_id() );
+//d($product->is_type( 'variable' ));
 		add_filter( 'woocommerce_product_description_heading', '__return_empty_string' );
 		add_filter( 'woocommerce_product_additional_information_heading', '__return_empty_string' );
 		add_filter( 'woocommerce_format_sale_price', __NAMESPACE__ . '\format_sale_price', 10, 3 );
+//		if ( ! $product->is_type( 'variable' ) ) {
+			add_filter( 'wc_price', __NAMESPACE__ . '\wc_price', 10, 4 ); //filters/woo/wc-price.php
+//		}
 
+//
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 
-		add_action( 'wc_price', __NAMESPACE__ . '\wc_price', 10, 4 ); //filters/woo/wc-price.php
 		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 5 );
 		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title' );
 		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating' );
@@ -78,7 +83,7 @@ function site_page_layout() {
 		remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart');
 
 		add_filter( 'woocommerce_format_sale_price', __NAMESPACE__ . '\format_sale_price', 10, 3 );
-		add_action( 'wc_price', __NAMESPACE__ . '\wc_price', 10, 4 ); //filters/woo/wc-price.php
+//		add_action( 'wc_price', __NAMESPACE__ . '\wc_price', 10, 4 ); //filters/woo/wc-price.php
 
 		add_action('woocommerce_before_shop_loop', __NAMESPACE__ . '\create_sorting_and_view', 9);
 		add_action('woocommerce_before_shop_loop_item', __NAMESPACE__ . '\above_product', 9);

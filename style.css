@@ -1594,6 +1594,29 @@ p.entry-meta {
   right: 0;
   bottom: 95px; }
 
+.fancybox-product-info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-left: 10px;
+  padding-top: 12px;
+  font-size: 24px;
+  font-size: 2.4rem; }
+
+.fancybox-product-price {
+  line-height: 1;
+  font-weight: 700; }
+
+.fancybox-product-name span span {
+  font-weight: 700; }
+
+.fancybox-product-categories {
+  display: inline-flex; }
+
+.fancybox-product-category {
+  font-size: 13px;
+  font-size: 1.3rem; }
+
 /* WooCommerce Shop Page
 ---------------------------------------------------------------------------------------------------- */
 .woocommerce ul.products {

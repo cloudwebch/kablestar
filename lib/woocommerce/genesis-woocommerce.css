@@ -43,6 +43,10 @@
 	font-size: 1.3rem;
 }
 
+.single-product.woocommerce .product-type-variable span.onsale {
+	position: initial;
+}
+
 .woocommerce ul.products li.product span.onsale {
 	/*top: 1.785714em; !*25px - 14*!*/
 	background-color: #e76f51;
@@ -95,7 +99,13 @@
 }
 
 .woocommerce a.added_to_cart {
-	line-height: 1;
+	/*display: none;*/
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
 }
 
 .woocommerce a.button.loading::after,

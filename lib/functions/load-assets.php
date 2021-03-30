@@ -38,11 +38,14 @@ function enqueue_scripts_styles() {
 	wp_register_script( 'slick', CHILD_JS . '/vendors/slick.min.js', array( 'jquery' ), null, true );
 	wp_register_script( 'fancybox', CHILD_JS . '/vendors/fancybox/jquery.fancybox.min.js', array( 'jquery' ), null, true );
 	wp_register_script( CHILD_TEXT_DOMAIN . '-archive-product', CHILD_JS . '/build/archive-product.bundle.js', array( 'jquery' ), null, true );
+	wp_register_script( CHILD_TEXT_DOMAIN . '-single-product', CHILD_JS . '/build/singular-product.bundle.js', array(
+		'jquery',
+		'fancybox'
+	), null, true );
 
 	//Register Styles
 	wp_register_style( 'fancybox', CHILD_JS . '/vendors/fancybox/jquery.fancybox.css' );
 	// Load responsive menu and arguments.
-
 
 
 	/**
@@ -50,7 +53,7 @@ function enqueue_scripts_styles() {
 	 * Load inline typekit, google fonts, custom web fonts fonts
 	 *
 	 */
-	 $inline_js_fonts  = '
+	$inline_js_fonts = '
 	 	WebFontConfig = {
 	 	    google: { families: [ "Roboto:400,500,600,700:latin" ] }
 	 	  };
@@ -62,7 +65,7 @@ function enqueue_scripts_styles() {
 	            var s = document.getElementsByTagName("script")[0];
 	            s.parentNode.insertBefore(wf, s);
 	        })();';
-	 wp_add_inline_script( CHILD_TEXT_DOMAIN . '-js', $inline_js_fonts );
+	wp_add_inline_script( CHILD_TEXT_DOMAIN . '-js', $inline_js_fonts );
 
 	/**
 	 *
@@ -118,33 +121,60 @@ function enqueue_scripts_styles() {
 				  });' );
 	}
 
-	if( is_product() ){
-		$wp_scripts->registered[ 'wc-single-product' ]->src = CHILD_DIRECTORY . '/lib/woocommerce/js/single-product.js';
-		wp_enqueue_style('fancybox');
-		wp_enqueue_script('fancybox');
+	if ( is_product() ) {
+		$product = wc_get_product( get_queried_object_id() );
+
+		if ( $product->get_sale_price() ) {
+			$price = '<del>' . ( is_decimal( $product->get_regular_price() ) ? wc_price( $product->get_regular_price() ) : sprintf( '%s.–', $product->get_regular_price() ) ) . '</del> <ins>' . ( is_decimal( $product->get_sale_price() ) ? wc_price( $product->get_sale_price() ) : sprintf( '%s.–', $product->get_sale_price() ) ) . '</ins>';
+		} else {
+			$price = $product->get_price();
+		}
+		$product_cats = get_product_categories( $product->get_id() );
+
+//		d( $product_cats );
+
+		$caption = sprintf( '<div class="fancybox-product-info">
+<div class="fancybox-product-price">%s</div>
+<div class="fancybox-product-name"><span>%s</span></div>
+<div class="fancybox-product-categories">%s</div>
+</div>',
+			$price,
+			get_first_word( $product->get_name() ),
+			$product_cats
+		);
+
+
+		$wp_scripts->registered['wc-single-product']->src = CHILD_DIRECTORY . '/lib/woocommerce/js/single-product.js';
+		wp_enqueue_style( 'fancybox' );
+		wp_enqueue_script( 'fancybox' );
+		wp_enqueue_script( 'slick' );
+		wp_enqueue_script( CHILD_TEXT_DOMAIN . '-single-product' );
+		wp_localize_script( CHILD_TEXT_DOMAIN . '-single-product', 'l18n_js_single_product', array(
+			'caption' => $caption,
+		) );
 
 
 		///https://fancyapps.com/fancybox/3/docs/#options
 
-		wp_add_inline_script( "fancybox",
-			"jQuery(document).ready(function($){
-				   $('[data-fancybox=\"images\"]').fancybox({
-					   buttons: [
-						    'close'
-						  ],
-					   margin : [44,0,22,0],
-					   thumbs : {
-					     autoStart : true,
-					     axis      : 'x'
-					   }
-				   })
-				});" );
+//		wp_add_inline_script( "fancybox",
+//			"jQuery(document).ready(function($){
+//				   $('[data-fancybox=\"images\"]').fancybox({
+//					   buttons: [
+//						    'close'
+//						  ],
+//					   margin : [44,0,22,0],
+//					   thumbs : {
+//					     autoStart : true,
+//					     axis      : 'x'
+//					   }
+//				   })
+//				});" );
 
 
 	}
 
-	if( is_shop() || is_product_category() ){
-		wp_enqueue_script( CHILD_TEXT_DOMAIN . '-archive-product');
+	if ( is_shop() || is_product_category() ) {
+		wp_enqueue_script( CHILD_TEXT_DOMAIN . '-archive-product' );
 	}
 
 

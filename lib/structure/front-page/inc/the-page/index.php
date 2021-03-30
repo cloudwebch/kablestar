@@ -14,6 +14,7 @@ namespace CloudWeb\KabelStar;
 
 
 function get_center_section() {
+	$front_posts = get_front_page_posts();
 	$get_the_slider        = get_the_slider();
 	$get_featured_products = get_featured_products();
 	return sprintf( '<div class="front-page-section-main">%s %s</div>',
