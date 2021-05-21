@@ -1,9 +1,7 @@
 <?php
-
 /**
- * KabelStar
  *
- * This file adds add new theme custom functionalities
+ * This file adds footer structure files.
  *
  * @package KabelStar
  * @author  Valentin Zmaranda
@@ -14,18 +12,17 @@
 namespace CloudWeb\KabelStar;
 
 /**
- * Loads admin files.
+ * Loads front page structures files.
  *
- * @since 1.0.0
+ * @since 1.0.1
  *
  * @return void
  */
-function load_custom_files() {
+function load_footer_files() {
 	$filenames = array(
-		'custom/admin/index.php',
-		'custom/frontend/index.php',
+		'structure/footer/inc/last-seen/index.php',
 	);
 	load_specified_files( $filenames );
 }
 
-load_custom_files();
+load_footer_files();

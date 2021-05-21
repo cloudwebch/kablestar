@@ -22,8 +22,8 @@ namespace CloudWeb\KabelStar;
 function load_front_page_files() {
 	$filenames = array(
 		'structure/front-page/inc/blog-posts/index.php',
-		'structure/front-page/inc/slider/index.php',
-		'structure/front-page/inc/featured-products/index.php',
+//		'structure/front-page/inc/slider/index.php',
+//		'structure/front-page/inc/featured-products/index.php',
 		'structure/front-page/inc/side/index.php',
 		'structure/front-page/inc/the-page/index.php',
 	);

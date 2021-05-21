@@ -23,7 +23,7 @@ namespace CloudWeb\KabelStar;
 	)
 );
 
-add_action( 'genesis_before_footer', __NAMESPACE__ . '\above_footer_widget', 5 );
+
 /**
  * Add above footer widget.
  */

@@ -22,6 +22,7 @@ namespace CloudWeb\KabelStar;
 function load_header_files() {
 	$filenames = array(
 		'structure/header/inc/product-search-box.php',
+		'structure/header/inc/search-results-box.php',
 		'structure/header/inc/login-logout.php',
 	);
 	load_specified_files( $filenames );

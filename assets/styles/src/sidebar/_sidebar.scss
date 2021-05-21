@@ -3,6 +3,7 @@
 	//line-height: 1.5;
 	@include breakpoint(960px) {
 		padding-top: 1.5em; //24px -16
+		max-width: 222px;
 		width: 22.663%;
 		//&:not(.sidebar-front) {
 		//	.home & {

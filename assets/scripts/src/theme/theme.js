@@ -7,4 +7,7 @@ import $ from 'jquery';
 /**
  * Internal dependencies
  */
-import './responsive-menus';
+import './inc/responsive-menus';
+import searchForm from './inc/search-form';
+
+$(window).on('load', searchForm.init);

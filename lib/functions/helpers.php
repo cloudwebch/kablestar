@@ -117,12 +117,17 @@ function get_product_categories( $product_id ) {
 		return '';
 	}
 	$output = '';
-	$index = 1;
+	$index  = 1;
 	foreach ( $product_cats_ids as $cat_id ) {
 		$term   = get_term_by( 'id', $cat_id, 'product_cat' );
-		$comma = $index !== count($product_cats_ids) ? ', ' : '';
+		$comma  = $index !== count( $product_cats_ids ) ? ', ' : '';
 		$output .= sprintf( '<span class="fancybox-product-category">%s%s</span>', esc_html( $term->name ), $comma );
-		$index++;
+		$index ++;
 	}
+
 	return $output;
+}
+
+function has_last_seen_products() {
+	return ! ! $_COOKIE['woocommerce_recently_viewed'];
 }

@@ -11,6 +11,84 @@
 	}
 }
 
+.featured-articles {
+	&-secondary {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-top: 2em; //32px - 16
+		position: relative;
+		&::before {
+			content: '';
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			width: 1px;
+			height: 100%;
+			background-color: #ddd;
+			position: absolute;
+		}
+	}
+}
+
+.featured-article {
+	text-decoration: none;
+	&:hover {
+		color: inherit;
+		.featured-article-visual {
+			img {
+				transform: scale(1.02);
+				transition: all 320ms linear;
+				//transform: perspective(700px) translateZ(10px);
+			}
+		}
+	}
+	&-visual {
+		margin-bottom: 17px;
+		overflow: hidden;
+		img {
+			transition: all 320ms linear;
+			//transform: perspective(0) translateZ(0);
+			//transform-style: preserve-3d;
+			//transition: transform 0.5s;
+			//will-change: transform;
+		}
+	}
+	&-excerpt {
+		h2 {
+			font-size: 3rem;
+		}
+		span {
+			margin-bottom: 5px;
+			display: inline-block;
+			font-size: 1.3rem;
+		}
+	}
+	&.regular-article {
+		//flex-basis: 0;
+		//flex-grow: 1;
+		//min-width: 0;
+		word-break: break-word;
+		overflow-wrap: break-word;
+		overflow: hidden;
+		width: calc(50% - 15px);
+		.featured-article-visual {
+			margin-bottom: 0;
+		}
+		.featured-article-excerpt {
+			h2 {
+				font-size: 2.4rem;
+				font-weight: 600;
+			}
+			span {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
 .front-slide {
 	&:hover {
 		.front-slide-visual {
@@ -38,25 +116,26 @@
 		}
 	}
 }
-.featured-products {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	margin-top: 2em; //32px - 16
-	position: relative;
-	&::before {
-		content: '';
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		margin: auto;
-		width: 1px;
-		height: 100%;
-		background-color: #ddd;
-		position: absolute;
-	}
-}
+
+//.featured-products {
+//	display: flex;
+//	flex-wrap: wrap;
+//	justify-content: space-between;
+//	margin-top: 2em; //32px - 16
+//	position: relative;
+//	&::before {
+//		content: '';
+//		left: 0;
+//		right: 0;
+//		top: 0;
+//		bottom: 0;
+//		margin: auto;
+//		width: 1px;
+//		height: 100%;
+//		background-color: #ddd;
+//		position: absolute;
+//	}
+//}
 
 .featured-product {
 	flex-basis: 0;

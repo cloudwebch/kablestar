@@ -3,29 +3,28 @@
 /**
  * KabelStar
  *
- * This file adds add new theme custom functionalities
- *
  * @package KabelStar
+ * @snippet AJAX Event Handlers
  * @author  Valentin Zmaranda
  * @license GPL-2.0+
  * @link    https://www.cloudweb.ch/
  */
 
+
 namespace CloudWeb\KabelStar;
 
 /**
- * Loads admin files.
+ * Loads ajax handlers files.
  *
- * @since 1.0.0
+ * @since 1.0.1
  *
  * @return void
  */
-function load_custom_files() {
+function load_ajax_frontend_handlers_files() {
 	$filenames = array(
-		'custom/admin/index.php',
-		'custom/frontend/index.php',
+		'custom/frontend/ajax/update-item-cart.php',
 	);
 	load_specified_files( $filenames );
 }
 
-load_custom_files();
+load_ajax_frontend_handlers_files();

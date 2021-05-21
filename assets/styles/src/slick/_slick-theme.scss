@@ -2,85 +2,129 @@
 
 .slick-prev,
 .slick-next {
-	position: absolute;
-	display: block;
-	top: 50%;
-	width: 30px;
-	height: 72px;
-	line-height: 0;
-	font-size: 0;
-	cursor: pointer;
-	background: transparent;
-	color: transparent;
-	transform: translate(0, -50%);
-	padding: 0;
-	border: none;
-	outline: none;
-	z-index: 1;
-	&:hover,
-	&:focus {
-		outline: none;
-		background: transparent;
-		color: transparent;
-		//&::before {
-		//	//opacity: $slick-opacity-on-hover;
-		//}
-	}
-	//&.slick-disabled::before {
-	//	//opacity: $slick-opacity-not-active;
+	//position: absolute;
+	//display: block;
+	//top: 50%;
+	//width: 30px;
+	//height: 72px;
+	//line-height: 0;
+	//font-size: 0;
+	//cursor: pointer;
+	//background: transparent;
+	//color: transparent;
+	//transform: translate(0, -50%);
+	//padding: 0;
+	//border: none;
+	//outline: none;
+	//z-index: 1;
+	//&:hover,
+	//&:focus {
+	//	outline: none;
+	//	background: transparent;
+	//	color: transparent;
+	//	//&::before {
+	//	//	//opacity: $slick-opacity-on-hover;
+	//	//}
 	//}
-	&::before {
-		//font-family: $slick-font-family;
-		font-size: 20px;
-		line-height: 1;
-		left: 0;
-		top: 0;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
+	////&.slick-disabled::before {
+	////	//opacity: $slick-opacity-not-active;
+	////}
+	//&::before {
+	//	//font-family: $slick-font-family;
+	//	font-size: 20px;
+	//	line-height: 1;
+	//	left: 0;
+	//	top: 0;
+	//	-webkit-font-smoothing: antialiased;
+	//	-moz-osx-font-smoothing: grayscale;
+	//}
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	background-color: $white;
+	border-radius: 50%;
+	color: inherit;
+	padding: 0;
+	text-indent: -9999px;
+	display: inline-block;
+	position: absolute;
+	overflow: hidden;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+	width: 30px;
+	height: 30px;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: opacity 320ms linear;
+	z-index: 1;
+	opacity: 0;
+	&::before,
+	&::after {
+		border-right: 2px solid;
+		content: '';
+		display: block;
+		height: 8px;
+		margin-top: -6px;
+		position: absolute;
+		-moz-transform: rotate(135deg);
+		-o-transform: rotate(135deg);
+		-webkit-transform: rotate(135deg);
+		transform: rotate(135deg);
+		right: 12px;
+		top: 50%;
+		width: 0;
+	}
+	&::after {
+		margin-top: -1px;
+		transform: rotate(45deg);
 	}
 }
 
 .slick-prev {
-	left: 30px;
-	[dir='rtl'] & {
-		left: auto;
-		right: -30px;
-	}
-	&::before {
-		//content: $slick-prev-character;
-		content: '';
-		//background-image: url('assets/images/slider-nav.png');
-		background-repeat: no-repeat;
-		//background-position: -135px -170px;
-		width: 30px;
-		height: 72px;
-		position: absolute;
-		transform: rotate(180deg);
-
-		[dir='rtl'] & {
-			//content: $slick-next-character;
-		}
-	}
+	right: auto;
+	left: 16px;
+	transform: rotate(180deg);
+	transform-origin: top center;
+	//top: 50%;
+	//left: 30px;
+	//[dir='rtl'] & {
+	//	left: auto;
+	//	right: -30px;
+	//}
+	//&::before {
+	//	//content: $slick-prev-character;
+	//	content: '';
+	//	//background-image: url('assets/images/slider-nav.png');
+	//	background-repeat: no-repeat;
+	//	//background-position: -135px -170px;
+	//	width: 30px;
+	//	height: 72px;
+	//	position: absolute;
+	//	transform: rotate(180deg);
+	//
+	//	[dir='rtl'] & {
+	//		//content: $slick-next-character;
+	//	}
+	//}
 }
 
 .slick-next {
-	right: 30px;
-	[dir='rtl'] & {
-		right: auto;
-		left: -30px;
-	}
-	&::before {
-		content: '';
-		background-repeat: no-repeat;
-		background-image: url('assets/images/slider-nav.png');
-		//background-position: -135px -170px;
-		width: 30px;
-		height: 72px;
-		position: absolute;
-		[dir='rtl'] & {
-			//content: $slick-prev-character;
-		}
-	}
+	right: 16px;
+	left: auto;
+	//right: 30px;
+	//[dir='rtl'] & {
+	//	right: auto;
+	//	left: -30px;
+	//}
+	//&::before {
+	//	content: '';
+	//	background-repeat: no-repeat;
+	//	background-image: url('assets/images/slider-nav.png');
+	//	//background-position: -135px -170px;
+	//	width: 30px;
+	//	height: 72px;
+	//	position: absolute;
+	//	[dir='rtl'] & {
+	//		//content: $slick-prev-character;
+	//	}
+	//}
 }
 
 /* Dots */

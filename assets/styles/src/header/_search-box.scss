@@ -2,9 +2,15 @@
 	padding-left: 2.0625em; //33px - 16
 	position: relative;
 	width: 58.5%;
+	z-index: 1;
 	input {
 		&[type='search'] {
 			width: 100%;
+			.search-focus-in & {
+				border-left-color: transparent;
+				border-right-color: transparent;
+				border-top-color: transparent;
+			}
 		}
 	}
 	button {
@@ -16,4 +22,79 @@
 			width: 10.39%;
 		}
 	}
+}
+
+.latest-seen-products {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 98px;
+	z-index: 1;
+	background-color: $white;
+	box-shadow: 0 6px 10px -8px rgb(0, 0, 0 / 10%);
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	padding-bottom: 1.5em;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 520ms linear;
+	.search-focus-in & {
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 520ms linear;
+	}
+	&-wrap {
+		width: 63.6%;
+		//background: #f0f8ff;
+		margin: auto;
+	}
+	h4 {
+		font-size: 11px;
+		font-weight: 700;
+	}
+	li {
+		margin-bottom: 1.5em;
+		a {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			position: relative;
+		}
+	}
+}
+.item {
+	&-left {
+		flex-basis: 15%;
+	}
+	&-right {
+		flex-basis: 85%;
+		padding-left: 20px;
+	}
+	&-price {
+		display: block;
+		margin-bottom: 10px;
+		span.onsale {
+			.woocommerce & {
+				left: 0;
+			}
+		}
+	}
+	&-name {
+		display: block;
+	}
+}
+
+.body-overlay {
+	background: rgba(0, 0, 0, 0.25);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	//opacity: 0;
+	transition: opacity 0.2s ease-in;
+	opacity: 1;
+	right: 0;
+	bottom: 0;
+	height: auto;
+	width: auto;
 }

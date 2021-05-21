@@ -42,6 +42,10 @@ function enqueue_scripts_styles() {
 		'jquery',
 		'fancybox'
 	), null, true );
+	wp_enqueue_script( CHILD_TEXT_DOMAIN . '-cart-widget', CHILD_JS . '/build/cart-widget.bundle.js', array(
+		'jquery',
+		'wc-cart-fragments'
+	), null, true );
 
 	//Register Styles
 	wp_register_style( 'fancybox', CHILD_JS . '/vendors/fancybox/jquery.fancybox.css' );
@@ -125,7 +129,7 @@ function enqueue_scripts_styles() {
 		$product = wc_get_product( get_queried_object_id() );
 
 		if ( $product->get_sale_price() ) {
-			$price = '<del>' . ( is_decimal( $product->get_regular_price() ) ? wc_price( $product->get_regular_price() ) : sprintf( '%s.–', $product->get_regular_price() ) ) . '</del> <ins>' . ( is_decimal( $product->get_sale_price() ) ? wc_price( $product->get_sale_price() ) : sprintf( '%s.–', $product->get_sale_price() ) ) . '</ins>';
+			$price = '<del>' . ( is_decimal( $product->get_regular_price() ) ? \wc_price( $product->get_regular_price() ) : sprintf( '%s.–', $product->get_regular_price() ) ) . '</del> <ins>' . ( is_decimal( $product->get_sale_price() ) ? \wc_price( $product->get_sale_price() ) : sprintf( '%s.–', $product->get_sale_price() ) ) . '</ins>';
 		} else {
 			$price = $product->get_price();
 		}
@@ -175,6 +179,21 @@ function enqueue_scripts_styles() {
 
 	if ( is_shop() || is_product_category() ) {
 		wp_enqueue_script( CHILD_TEXT_DOMAIN . '-archive-product' );
+	}
+
+	if( has_last_seen_products() ){
+		wp_enqueue_script( 'slick' );
+		wp_add_inline_script( 'slick',
+			'jQuery(document).ready(function($){
+								
+				    $("[rel=\'last-seen-slider\']").slick({
+					        slidesToShow: 5,
+					        slidesToScroll: 1,
+					        infinite: false,
+					        dots: true					        
+					    });
+				     
+				  });' );
 	}
 
 

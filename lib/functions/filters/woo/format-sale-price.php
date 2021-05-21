@@ -34,7 +34,7 @@ function format_sale_price($price, $regular_price, $sale_price){
 	if ( $product->is_type( 'variable' ) ) {
 		return false;
 	}
-	$price = '<del>' . ( is_decimal( $regular_price ) ? wc_price( $regular_price ) : sprintf('%s.–', $regular_price) ) . '</del> <ins>' . ( is_decimal( $sale_price ) ? wc_price( $sale_price ) : sprintf('%s.–', $sale_price) ) . '</ins>';
+	$price = '<del>' . ( is_decimal( $regular_price ) ? \wc_price( $regular_price ) : sprintf('%s.–', $regular_price) ) . '</del> <ins>' . ( is_decimal( $sale_price ) ? \wc_price( $sale_price ) : sprintf('%s.–', $sale_price) ) . '</ins>';
 
 	return $price;
 }

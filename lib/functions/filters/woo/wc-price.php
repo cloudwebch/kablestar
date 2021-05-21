@@ -20,3 +20,11 @@ function wc_price($return, $price, $args, $unformatted_price){
 
 	return $return;
 }
+
+//function cw_change_product_price_display( $price ) {
+//	d($price);
+//	$price .= ' At Each Item Product';
+//	return $price;
+//}
+//add_filter( 'woocommerce_get_price_html', __NAMESPACE__ . '\cw_change_product_price_display' );
+//add_filter( 'woocommerce_cart_item_price', __NAMESPACE__ . '\cw_change_product_price_display' );

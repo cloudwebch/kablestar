@@ -22,6 +22,7 @@ namespace CloudWeb\KabelStar;
 function load_structure_files() {
 	$filenames = array(
 		'structure/header/index.php',
+		'structure/footer/index.php',
 		'structure/front-page/index.php',
 		'structure/singular/index.php',
 		'structure/archives/index.php',

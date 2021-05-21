@@ -14,35 +14,39 @@ namespace CloudWeb\KabelStar;
 
 
 function get_center_section() {
-	$front_posts = get_front_page_posts();
-	$get_the_slider        = get_the_slider();
-	$get_featured_products = get_featured_products();
-	return sprintf( '<div class="front-page-section-main">%s %s</div>',
-		$get_the_slider,
-		$get_featured_products
+	$front_posts           = get_front_page_posts();
+//	$get_the_slider        = get_the_slider();
+//	$get_featured_products = get_featured_products();
+//	return sprintf( '<div class="front-page-section-main">%s %s</div>',
+//		$get_the_slider,
+//		$get_featured_products
+//	);
+	return sprintf( '<div class="front-page-section-main">%s</div>',
+		$front_posts
 	);
 }
 
 function get_aside_section() {
 	$get_side_product_of_the_day  = get_side_product_of_the_day();
 	$get_side_product_of_the_week = get_side_product_of_the_week();
-	printf('%s %s',
+	printf( '%s %s',
 		$get_side_product_of_the_day,
-		$get_side_product_of_the_week);
+		$get_side_product_of_the_week );
 }
 
-function get_latest_products(){
+function get_latest_products() {
 	$html = '<div class="latest-products" rel="latest-products">';
 	$args = array(
-		'orderby'    => 'date',
-		'order'      => 'DESC',
+		'orderby'        => 'date',
+		'order'          => 'DESC',
 		'posts_per_page' => 8
 	);
 
 	$latest_products = get_site_posts( 'product', $args );
 //	d($latest_products);
-	if( !$latest_products->have_posts() ){
+	if ( ! $latest_products->have_posts() ) {
 		printf( '%s', __( 'No products to show', 'kabelstar' ) );
+
 		return false;
 	}
 	while ( $latest_products->have_posts() ) {
@@ -50,12 +54,12 @@ function get_latest_products(){
 		$product_id    = \get_the_ID();
 		$product_image = get_the_featured_image( $product_id, 'woocommerce_thumbnail' );
 		$product       = new \WC_Product( $product_id );
-		$product_price = is_decimal($product->get_price()) ? $product->get_price() : sprintf('%s.–', $product->get_price());
+		$product_price = is_decimal( $product->get_price() ) ? $product->get_price() : sprintf( '%s.–', $product->get_price() );
 		$product_name  = $product->get_name();
 		$product_url   = get_permalink( $product->get_id() );
 //d($product_image);
 //		d(is_decimal($product_price));
-		$html .= sprintf('
+		$html .= sprintf( '
 			<div class="latest-product">
 				<a href="%1$s" title="%2$s">
 					<div class="latest-product-visual">
@@ -72,7 +76,7 @@ function get_latest_products(){
 			$product_name,
 			$product_price,
 			$product_image,
-			get_first_word($product_name));
+			get_first_word( $product_name ) );
 
 	}
 
@@ -82,10 +86,10 @@ function get_latest_products(){
 	echo $html;
 }
 
-function get_front_page_entry_content(){
+function get_front_page_entry_content() {
 	$get_center_section = get_center_section();
 //	$get_aside_section = get_aside_section();
-	printf('<div class="front-page-section">%s</div>',
+	printf( '<div class="front-page-section">%s</div>',
 		$get_center_section
 	);
 }

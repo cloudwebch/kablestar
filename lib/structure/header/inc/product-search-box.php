@@ -17,6 +17,8 @@ function get_product_search_box(){
 	 get_product_search_form();
 	$search_form = \ob_get_clean();
 
-	printf('<div class="product-search-box">%s</div>', $search_form);
+	printf('<div class="product-search-box">%s
+</div>', $search_form);
 
 }
+

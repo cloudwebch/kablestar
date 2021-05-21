@@ -19,6 +19,9 @@ module.exports = {
 		'singular-product': [
 			path.resolve('assets/scripts/src/singular', 'product.js'),
 		],
+		'cart-widget': [
+			path.resolve('assets/scripts/src/cart-widget', 'index.js'),
+		],
 	},
 	output: {
 		filename: 'scripts/build/[name].bundle.js',
@@ -41,7 +44,7 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['babel-preset-env'],
+						presets: ['@babel/preset-env'],
 					},
 				},
 			},

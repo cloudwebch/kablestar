@@ -3,7 +3,7 @@
 /**
  * KabelStar
  *
- * This file adds add new theme custom functionalities
+ * This file adds add new frontend functionalities
  *
  * @package KabelStar
  * @author  Valentin Zmaranda
@@ -20,12 +20,11 @@ namespace CloudWeb\KabelStar;
  *
  * @return void
  */
-function load_custom_files() {
+function load_custom_frontend_files() {
 	$filenames = array(
-		'custom/admin/index.php',
-		'custom/frontend/index.php',
+		'custom/frontend/ajax/index.php',
 	);
 	load_specified_files( $filenames );
 }
 
-load_custom_files();
+load_custom_frontend_files();

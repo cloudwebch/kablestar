@@ -52,6 +52,11 @@ function adds_new_image_sizes() {
 			'height' => 840,
 			'crop'   => true,
 		),
+		'last-seen' => array(
+			'width'  => 120,
+			'height' => 110,
+			'crop'   => true,
+		),
 
 
 	);
