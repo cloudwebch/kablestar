@@ -18,17 +18,25 @@
 
 .breadcrumb {
 	//border-bottom: 1px solid #eee;
-	font-size: 1.3rem;
-	margin-bottom: 1.76923em; //23px - 13
-	margin-left: 2.384615em; //31px - 13
-	padding-bottom: 0.76923em; //10px - 13
+	font-size: 1.2rem;
+	margin-bottom: 1.916667em; //23px - 12
+	//margin-left: 2.384615em; //31px - 13
+	padding-bottom: 0.833333em; //10px - 12
 	.shop & {
 		display: none;
+	}
+	span {
+		span {
+			display: flex;
+			align-items: center;
+		}
 	}
 	a {
 		text-decoration: none;
 		margin-right: 0.538462em; //7px - 13
-		margin-left: 0.538462em; //7px - 13
+		//margin-left: 0.538462em; //7px - 13
+		padding-top: 2px;
+		line-height: 1;
 		&:hover,
 		&:focus {
 			color: inherit;
@@ -36,6 +44,8 @@
 	}
 	&_last {
 		margin-left: 0.538462em; //7px - 13
+		padding-top: 2px;
+		line-height: 1;
 	}
 }
 

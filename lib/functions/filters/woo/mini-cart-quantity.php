@@ -35,8 +35,9 @@ function filter_woocommerce_widget_cart_item_quantity( $return, $cart_item, $car
 //	);
 
 //	$cart_item_data = \WC()->cart->get_product_price( $cart_item['data'] );
-//	d($cart_item['quantity']);
-	$item_price      = (int) $cart_item['quantity'] * $cart_item['data']->get_price();
+	$cart_item_price = \WC()->cart->get_product_price( $cart_item['data'] );
+
+//	$item_price      = (int) $cart_item['quantity'] * $cart_item['data']->get_price();
 	$button_disabled = (int) $cart_item['quantity'] === 1 ? 'disabled=disabled' : '';
 	$output          = sprintf( '<div class="mini-cart-item-detail-quantity" data-cart_item_key="%s">', $cart_item_key );
 	$output          .= sprintf( '<button type="button" %s class="mini-cart-button mini-cart-button-minus" ><svg width="16" height="16" viewBox="0 0 16 16"><path d="M12 7v1H3V7z"></path></svg></button>', $button_disabled );
@@ -48,7 +49,8 @@ function filter_woocommerce_widget_cart_item_quantity( $return, $cart_item, $car
 		$cart_item['data'], false );
 	$output          .= '<button type="button" class="mini-cart-button mini-cart-button-plus" ><svg width="16" height="16" viewBox="0 0 16 16"><path d="M7.02 2.98h1v9h-1z"></path><path d="M12.02 6.98v1h-9v-1z"></path></svg></button>';
 	$output          .= '</div>';
-	$output          .= sprintf( '<div class="mini-cart-product-totals"><span>%s</span></div>', is_decimal( $item_price ) ? \wc_price( $item_price ) : sprintf( '%s.–', $item_price ) );
+//	$output          .= sprintf( '<div class="mini-cart-product-totals"><span>%s</span></div>', is_decimalis_decimal( $item_price ) ? \wc_price( $item_price ) : sprintf( '%s.–', $item_price ) );
+	$output          .= sprintf( '<div class="mini-cart-product-totals"><span>%s</span></div>', $cart_item_price );
 
 	return $output;
 }

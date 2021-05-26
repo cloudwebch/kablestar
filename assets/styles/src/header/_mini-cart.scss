@@ -1,3 +1,15 @@
 .mini-cart {
 	margin-left: auto;
+	order: 2;
+	width: 50%;
+	text-align: right;
+	@include breakpoint(768px) {
+		order: 3;
+		width: 25%;
+	}
+	@include breakpoint(960px) {
+		order: initial;
+		width: auto;
+		text-align: initial;
+	}
 }

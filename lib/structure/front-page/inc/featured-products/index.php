@@ -44,7 +44,8 @@ function get_featured_products() {
 		$product_id    = \get_the_ID();
 		$product_image = get_the_featured_image( $product_id, 'featured-product' );
 		$product       = new \WC_Product( $product_id );
-		$product_price = $product->get_price();
+//		$product_price = $product->get_price();
+		$product_price = $product->get_price_html();
 		$product_name  = $product->get_name();
 		$product_url   = get_permalink( $product->get_id() );
 		//more product methods here - https://www.businessbloomer.com/woocommerce-easily-get-product-info-title-sku-desc-product-object/

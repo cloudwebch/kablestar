@@ -45,7 +45,7 @@
 
 .content-sidebar-wrap {
 	//margin: 2rem auto;
-	@include breakpoint(tablet) {
+	@include breakpoint(960px) {
 		//margin: 6rem auto;
 		.sidebar-content &,
 		.sidebar-content-sidebar & {
@@ -55,13 +55,14 @@
 			flex-direction: row-reverse;
 		}
 
-		.sidebar-content-sidebar & {
-			width: 75.206%;
-		}
-
 		.center-content &,
 		.full-width-content & {
 			justify-content: center;
+		}
+	}
+	@include breakpoint(tablet-wide) {
+		.sidebar-content-sidebar & {
+			width: 75.206%;
 		}
 	}
 }

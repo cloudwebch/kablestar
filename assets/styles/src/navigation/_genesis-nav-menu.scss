@@ -76,7 +76,7 @@
 	}
 }
 
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 1024px) {
 	.genesis-nav-menu > .menu-bold > a {
 		font-weight: 700;
 	}
@@ -124,8 +124,8 @@
   --------------------------------------------- */
 
 	.genesis-responsive-menu {
-		display: block;
-		padding-top: 15px;
+		//display: block;
+		padding-top: 10px;
 	}
 
 	.menu-toggle,

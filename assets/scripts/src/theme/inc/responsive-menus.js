@@ -100,6 +100,7 @@
 					'aria-expanded': false,
 					'aria-pressed': false,
 				}).append(genesisMenuParams.mainMenu),
+				// }).append(genesisMenuParams.mainMenu),
 				submenu: $('<button />', {
 					class: subMenuButtonClass,
 					'aria-expanded': false,
@@ -149,13 +150,16 @@
 			const menusToToggle = genesisMenus.others.concat(menusToCombine[0]);
 
 			// Only add menu button the primary menu and navs NOT in the combine variable.
-			$(_getMenuSelectorString(menusToToggle)).before(toggleButtons.menu);
+
+			// $(_getMenuSelectorString(menusToToggle)).before(toggleButtons.menu);
+			$('.product-search-box').before(toggleButtons.menu);
 		} else {
 			// Apply the main menu toggle to all menus in the list.
 			$(_getMenuSelectorString(genesisMenus.others)).before(
 				toggleButtons.menu
 			);
 		}
+		// console.log('menu');
 	}
 
 	/**
@@ -185,7 +189,10 @@
 	 */
 	function _addClassID() {
 		const $this = $(this),
-			nav = $this.next('nav'),
+			nav = $this
+				.parent()
+				.parent()
+				.next('nav'),
 			id = 'class';
 
 		$this.attr(
@@ -244,7 +251,12 @@
 		_toggleAria($this, 'aria-pressed');
 		_toggleAria($this, 'aria-expanded');
 		$this.toggleClass('activated');
-		$this.next('nav').slideToggle('fast');
+		// $this.next('nav').slideToggle('fast');
+		$this
+			.parent()
+			.parent()
+			.next('nav')
+			.slideToggle('fast');
 	}
 
 	/**

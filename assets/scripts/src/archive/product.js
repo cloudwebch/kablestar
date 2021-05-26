@@ -34,6 +34,7 @@
 		// console.log(productGrid.prop("classList"))
 		$('.view-mode').on('click', 'button', function() {
 			var className = $(this).attr('class');
+			console.log('class', className);
 			Cookies.remove('gridcookie');
 			$('.view-mode button').removeClass('active');
 			$(this).addClass('active');

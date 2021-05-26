@@ -55,8 +55,6 @@ const searchForm = ((document, window, $) => {
 				version: 'wc/v3',
 			});
 
-			setBoxPosition();
-
 			products.forEach((productId) => {
 				api.get(`products/${productId}`).then((response) => {
 					const item = `<li>
@@ -74,12 +72,19 @@ const searchForm = ((document, window, $) => {
 					boxWrap.insertAdjacentHTML('beforeend', item);
 				});
 			});
-
+			setTimeout(function() {
+				setBoxPosition();
+			}, 500);
 			handleSearchForm();
 		};
 
 		const setBoxPosition = () => {
-			const siteHeaderHeight = $('.site-header').outerHeight(true);
+			const siteHeaderHeight = $('.site-header .wrap').outerHeight(true);
+
+			// var element = document.querySelector('.site-header .wrap');
+			//
+			// console.log('siteHeaderHeight 1', siteHeaderHeight);
+			// console.log('siteHeaderHeight 2', siteHeaderHeight);
 			$('.latest-seen-products').css({ top: siteHeaderHeight });
 		};
 

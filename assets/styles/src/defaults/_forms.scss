@@ -9,8 +9,11 @@ textarea {
 	color: #333;
 	font-size: 1.8rem;
 	font-weight: 400;
-	padding: 0.6666675em 0.722222em 0.777778em 0.722222em; //12px 13px 14px 13px; -18
+	padding: 0.333333em 0.722222em; //6px 13px 6px 13px
 	width: 100%;
+	@include breakpoint(tablet-wide) {
+		padding: 0.6666675em 0.722222em 0.777778em 0.722222em; //12px 13px 14px 13px; -18
+	}
 }
 
 input:focus,

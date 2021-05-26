@@ -1,4 +1,7 @@
 .nav-primary {
-  clear: left;
-  width: 100%;
+	clear: left;
+	width: 100%;
+	@include breakpoint(tablet-wide) {
+		display: none;
+	}
 }

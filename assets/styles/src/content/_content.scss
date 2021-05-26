@@ -9,17 +9,23 @@
 @media only screen and (min-width: 960px) {
 	.content {
 		width: 77.337%;
-		.page & {
+		.page:not(.woocommerce-page) & {
 			padding-left: 5em; //80px - 16 was 2em
 			padding-right: 5em; //80px - 16 was 2em
 			padding-top: 2em;
 		}
+		.page.woocommerce-page & {
+			padding-top: 2em;
+			max-width: initial;
+			width: 100%;
+		}
 		.home.page & {
-			padding-left: initial;
+			padding-left: 4em;
 			padding-right: initial;
 			padding-top: initial;
 		}
-		.woocommerce-account & {
+		.woocommerce-account &,
+		.woocommerce-checkout & {
 			padding-left: initial;
 			padding-right: initial;
 			width: 80.5%;
@@ -88,5 +94,14 @@
 	.entry,
 	.entry-pings {
 		margin-bottom: 60px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.content {
+		.home.page & {
+			padding-left: initial;
+			padding-right: initial;
+		}
 	}
 }

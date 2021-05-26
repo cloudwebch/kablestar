@@ -14,6 +14,15 @@
 	padding-top: 5px;
 	position: relative;
 	z-index: 1;
+	order: 1;
+	width: 25%;
+	//@include breakpoint(768px) {
+	//	width: 25%;
+	//}
+	@include breakpoint(960px) {
+		order: initial;
+		width: 13%;
+	}
 }
 
 .site-title {

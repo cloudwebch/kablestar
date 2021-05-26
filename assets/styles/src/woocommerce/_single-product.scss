@@ -43,7 +43,7 @@
 		&-prev {
 			position: absolute;
 			//overflow: hidden;
-			z-index: 2;
+			z-index: 0;
 			a {
 				border: 1px solid rgba(0, 0, 0, 0.1);
 				background-color: $white;
@@ -143,5 +143,14 @@
 	}
 	&-category {
 		font-size: 1.3rem;
+	}
+}
+
+.shipping-time {
+	p {
+		color: #bed003;
+		//> span {
+		//	margin-right: 5px;
+		//}
 	}
 }

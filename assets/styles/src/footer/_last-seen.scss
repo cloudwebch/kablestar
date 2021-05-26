@@ -18,9 +18,17 @@
 		}
 	}
 	&-wrap {
+		.slick-track {
+			margin-left: 0;
+		}
 		&.slick-dotted {
-			margin-bottom: 2.75em; //44px - 16
+			//margin-bottom: 2.75em; //44px - 16
+			margin-bottom: 0;
 			.slick-dots {
+				bottom: 0;
+				@include breakpoint(tablet-wide) {
+					bottom: -36px;
+				}
 				li {
 					width: 0.625em; //10px - 16
 					margin-left: 0.1875em; //3px - 16
@@ -68,7 +76,7 @@
 		span {
 			font-size: 1.6rem;
 			font-weight: 600;
-			display: block;
+			//display: block;
 			line-height: 1.2;
 		}
 	}

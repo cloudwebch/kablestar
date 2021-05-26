@@ -12,14 +12,14 @@
 
 namespace CloudWeb\KabelStar;
 
-function wc_price($return, $price, $args, $unformatted_price){
-//d($price);
-	$negative          = $price < 0;
-	$formatted_price = ( $negative ? '-' : '' ) . sprintf( '%s', is_decimal( $price ) ? $price : sprintf('%s.–', $price) );
-	$return          = '<span class="woocommerce-Price-amount amount"><bdi>' . $formatted_price . '</bdi></span>';
-
-	return $return;
-}
+//function wc_price($return, $price, $args, $unformatted_price){
+////d($price);
+//	$negative          = $price < 0;
+//	$formatted_price = ( $negative ? '-' : '' ) . sprintf( '%s', is_decimal( $price ) ? $price : sprintf('%s.–', $price) );
+//	$return          = '<span class="woocommerce-Price-amount amount"><bdi>' . $formatted_price . '</bdi></span>';
+//
+//	return $return;
+//}
 
 //function cw_change_product_price_display( $price ) {
 //	d($price);

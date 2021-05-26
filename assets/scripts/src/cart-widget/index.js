@@ -57,7 +57,7 @@ import $ from 'jquery';
 				.parent()
 				.parent()
 				.data('cart_item_key');
-		console.log('changed');
+		// console.log('changed');
 		updateQty(cart_item_key, currentVal);
 	});
 

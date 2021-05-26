@@ -57,7 +57,7 @@ function get_highlighted_product( $type ) {
 
 	$featured_day_product = get_site_posts( 'product', $args );
 	if ( ! $featured_day_product->have_posts() ) {
-		echo sprintf( '%s', __( 'We do not have any highlighted product for ' . $type ) );
+		echo sprintf( '<div class="featured-product"><p>%s</p></div>', __( 'We do not have any highlighted product for ' . $type ) );
 
 		return false;
 	}
@@ -68,7 +68,8 @@ function get_highlighted_product( $type ) {
 		$product_id    = get_the_ID();
 		$product_image = get_the_featured_image( $product_id, 'side-featured-product' );
 		$product       = new \WC_Product( $product_id );
-		$product_price = $product->get_price();
+//		$product_price = $product->get_price();
+		$product_price = $product->get_price_html();
 		$product_name  = $product->get_name();
 		$product_url   = get_permalink( $product_id );
 

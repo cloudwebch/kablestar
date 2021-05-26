@@ -11,10 +11,11 @@
 
 namespace CloudWeb\KabelStar;
 
-add_action( 'template_redirect', __NAMESPACE__ . '\track_product_view', 20 );
+remove_action('template_redirect', 'wc_track_product_view', 20);
+add_action( 'wp', __NAMESPACE__ . '\track_product_view', 20 );
 
 function track_product_view() {
-	if ( ! is_singular( 'product' ) ) {
+	if ( ! is_product() ) {
 		return;
 	}
 
@@ -23,23 +24,30 @@ function track_product_view() {
 	if ( empty( $_COOKIE['woocommerce_recently_viewed'] ) ) {
 		$viewed_products = array();
 	} else {
-		$viewed_products = (array) explode( '|', $_COOKIE['woocommerce_recently_viewed'] );
+		$viewed_products = wp_parse_id_list( (array) explode( '|', wp_unslash( $_COOKIE['woocommerce_recently_viewed'] ) ) );
 	}
 
-	if ( ! in_array( $post->ID, $viewed_products ) ) {
-		$viewed_products[] = $post->ID;
+
+	$keys = array_flip( $viewed_products );
+
+	if ( isset( $keys[ $post->ID ] ) ) {
+		unset( $viewed_products[ $keys[ $post->ID ] ] );
 	}
 
-	if ( sizeof( $viewed_products ) > 15 ) {
+	$viewed_products[] = $post->ID;
+
+	if ( count( $viewed_products ) > 15 ) {
 		array_shift( $viewed_products );
 	}
 
 	// Store for session only
-	wc_setcookie( 'woocommerce_recently_viewed', implode( '|', $viewed_products ) );
+	\wc_setcookie( 'woocommerce_recently_viewed', implode( '|', $viewed_products ), time() + (86400 * 30), true );
 }
 
 function get_last_seen_products() {
 	$last_seen_products = last_seen_products();
+
+
 	if ( ! $last_seen_products ) {
 		return false;
 	}
@@ -81,7 +89,8 @@ function last_seen_products() {
 		$product_id    = \get_the_ID();
 		$product_image = get_the_featured_image( $product_id, 'last-seen' );
 		$product       = new \WC_Product( $product_id );
-		$product_price = is_decimal( $product->get_price() ) ? $product->get_price() : sprintf( '%s.–', $product->get_price() );
+//		$product_price = is_decimal( $product->get_price() ) ? $product->get_price() : sprintf( '%s.–', $product->get_price() );
+		$product_price = $product->get_price_html();
 		$product_name  = $product->get_name();
 		$product_url   = get_permalink( $product->get_id() );
 

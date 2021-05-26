@@ -97,27 +97,56 @@ function enqueue_scripts_styles() {
 	wp_enqueue_style( 'dashicons' ); //used for responsive menu icons in case the design not specify something else
 
 	wp_enqueue_script( CHILD_TEXT_DOMAIN . '-js', CHILD_JS . "/build/theme.bundle.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
+//	wp_add_inline_script( CHILD_TEXT_DOMAIN . '-js', '(function(document){
+////	console.log("something")
+//		document.querySelectorAll("*").forEach(el => {
+//			if (el.offsetWidth > document.documentElement.offsetWidth) {
+//				console.log("Found the worst element ever: ", el);
+//			}
+//		})
+//	})(document)' );
+
+
 //	wp_enqueue_script( CHILD_TEXT_DOMAIN . '-responsive-menu', CHILD_JS . "/assets/scripts/build/responsive-menus{$suffix}.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
 
 	wp_localize_script(
-		CHILD_TEXT_DOMAIN . '-responsive-menu',
+		CHILD_TEXT_DOMAIN . '-js',
 		'genesis_responsive_menu',
 		standard_responsive_menu_settings()
 	);
 
 	if ( is_front_page() && ! \is_home() ) {
 		wp_enqueue_script( 'slick' );
-		wp_add_inline_script( 'slick',
-			'jQuery(document).ready(function($){
-			
-					var relatedProducts = $("[rel=\'latest-products\']");
+		wp_add_inline_script( 'slick','jQuery(document).ready(function($){
+						
+					var latestProducts = $("[rel=\'latest-products\']");
 						
 				    $("[rel=\'slider\']").slick();
 				    
-				    if(relatedProducts.length){
-					    relatedProducts.slick({
+				    if(latestProducts.length){
+					    latestProducts.slick({
 					        slidesToShow: 4,
 					        dots: true,
+					        responsive: [
+						    {
+						      breakpoint: 1201,
+						      settings: {
+						        slidesToShow: 3
+						      }
+						    },
+						    {
+						      breakpoint: 767,
+						      settings: {
+						        slidesToShow: 2
+						      }
+						    },
+						    {
+						      breakpoint: 399,
+						      settings: {
+						        slidesToShow: 1
+						      }
+						    }
+						  ]
 					        
 					    });
 				    }
@@ -187,10 +216,24 @@ function enqueue_scripts_styles() {
 			'jQuery(document).ready(function($){
 								
 				    $("[rel=\'last-seen-slider\']").slick({
-					        slidesToShow: 5,
+					        slidesToShow: 6,
 					        slidesToScroll: 1,
 					        infinite: false,
-					        dots: true					        
+//					        dots: false,
+					        responsive: [
+							    {
+							      breakpoint: 1024,
+							      settings: {
+							        slidesToShow: 3
+							      }
+							    },
+							    {
+							      breakpoint: 400,
+							      settings: {
+							        slidesToShow: 1
+							      }
+							    }
+							  ]					        
 					    });
 				     
 				  });' );

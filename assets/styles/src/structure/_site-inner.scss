@@ -3,9 +3,23 @@
 .site-inner {
 	clear: both;
 	margin: 0 auto;
-	.sidebar-content-sidebar & {
+	//.sidebar-content-sidebar & {
+	//padding-right: 0;
+	padding-left: 5%;
+	padding-right: 5%;
+	@include breakpoint(960px) {
+		padding-left: 1.5em;
+		padding-right: 1.5em;
+	}
+	@include breakpoint(tablet-wide) {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+		//padding-left: initial;
+		//padding-right: initial;
 	}
+	.full-width-content & {
+		display: block;
+	}
+	//}
 }

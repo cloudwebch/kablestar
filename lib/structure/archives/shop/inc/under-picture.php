@@ -13,5 +13,7 @@
 namespace CloudWeb\KabelStar;
 
 function product_details_wrapper(){
+	global $product;
+	$average = $product->get_average_rating();
 	include __DIR__ . '/views/details-wrapper.php';
 }

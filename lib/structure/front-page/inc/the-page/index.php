@@ -54,7 +54,8 @@ function get_latest_products() {
 		$product_id    = \get_the_ID();
 		$product_image = get_the_featured_image( $product_id, 'woocommerce_thumbnail' );
 		$product       = new \WC_Product( $product_id );
-		$product_price = is_decimal( $product->get_price() ) ? $product->get_price() : sprintf( '%s.–', $product->get_price() );
+//		$product_price = is_decimal( $product->get_price() ) ? $product->get_price() : sprintf( '%s.–', $product->get_price() );
+		$product_price = $product->get_price_html();
 		$product_name  = $product->get_name();
 		$product_url   = get_permalink( $product->get_id() );
 //d($product_image);

@@ -17,13 +17,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function site_page_layout() {
 
-	remove_action( 'genesis_after_header', 'genesis_do_nav' );
+//	remove_action( 'genesis_after_header', 'genesis_do_nav' );
 	remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 
 //	remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 //	add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_sidebar_content' );
 	add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_sidebar_content_sidebar' );
-//	add_filter( 'genesis_breadcrumb_args', __NAMESPACE__ . '\breadcrumb_args' );
+	add_filter( 'genesis_breadcrumb_args', __NAMESPACE__ . '\breadcrumb_args' );
 	add_filter( 'wpseo_breadcrumb_output', __NAMESPACE__ . '\wpseo_breadcrumb_output' );
 	add_action( 'genesis_before_header', 'genesis_do_subnav' );
 	add_action( 'genesis_header', __NAMESPACE__ . '\get_product_search_box', 12 );
@@ -57,10 +57,10 @@ function site_page_layout() {
 //d($product->is_type( 'variable' ));
 		add_filter( 'woocommerce_product_description_heading', '__return_empty_string' );
 		add_filter( 'woocommerce_product_additional_information_heading', '__return_empty_string' );
-		add_filter( 'woocommerce_format_sale_price', __NAMESPACE__ . '\format_sale_price', 10, 3 );
-//		if ( ! $product->is_type( 'variable' ) ) {
-		add_filter( 'wc_price', __NAMESPACE__ . '\wc_price', 10, 4 ); //filters/woo/wc-price.php
-//		}
+//		add_filter( 'woocommerce_format_sale_price', __NAMESPACE__ . '\format_sale_price', 10, 3 ); //commented task 68 -https://app.activecollab.com/188952/projects/1342/tasks/25541
+
+//		add_filter( 'wc_price', __NAMESPACE__ . '\wc_price', 10, 4 ); //filters/woo/wc-price.php //commented task 68
+
 
 //
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
@@ -76,38 +76,45 @@ function site_page_layout() {
 		add_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 11 );
 	}
 
-	if( is_shop() || is_product_category() ){
-		remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
-		remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash');
-		remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail');
-		remove_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title');
-		remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
-		remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price');
-		remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart');
+	if ( is_shop() || is_product_category() ) {
+		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash' );
+		remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail' );
+		remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title' );
+
+		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+
+		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price' );
+		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart' );
 
 		add_filter( 'woocommerce_format_sale_price', __NAMESPACE__ . '\format_sale_price', 10, 3 );
 //		add_action( 'wc_price', __NAMESPACE__ . '\wc_price', 10, 4 ); //filters/woo/wc-price.php
 
-		add_action('woocommerce_before_shop_loop', __NAMESPACE__ . '\create_sorting_and_view', 9);
-		add_action('woocommerce_before_shop_loop_item', __NAMESPACE__ . '\above_product', 9);
-		add_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail');
+		add_action( 'woocommerce_before_shop_loop', __NAMESPACE__ . '\create_sorting_and_view', 9 );
+		add_action( 'woocommerce_before_shop_loop_item', __NAMESPACE__ . '\above_product', 9 );
+		add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail' );
 
-		add_action('woocommerce_after_shop_loop_item', __NAMESPACE__ . '\product_details_wrapper');
+		add_action( 'woocommerce_after_shop_loop_item', __NAMESPACE__ . '\product_details_wrapper' );
 
-		add_action('details_wrapper_info', 'woocommerce_show_product_loop_sale_flash');
-		add_action('details_wrapper_info', 'woocommerce_template_loop_price');
-		add_action('details_wrapper_info', __NAMESPACE__ . '\loop_product_title');
-		add_action('details_wrapper_info', 'woocommerce_template_loop_rating');
-		add_action('details_wrapper_cart', 'woocommerce_template_loop_add_to_cart');
+		add_action( 'details_wrapper_info', 'woocommerce_show_product_loop_sale_flash' );
+		add_action( 'details_wrapper_info', 'woocommerce_template_loop_price' );
+		add_action( 'details_wrapper_info', __NAMESPACE__ . '\loop_product_title' );
+		add_action( 'details_wrapper_cart', 'woocommerce_template_loop_add_to_cart' );
+		add_action( 'details_wrapper_ratings', 'woocommerce_template_loop_rating' );
 	}
 
-	if(is_account_page()){
-		add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_sidebar_content' );
-		remove_action( 'genesis_sidebar_alt', 'genesis_do_sidebar_alt' );
+	if ( is_account_page() || is_checkout() ) {
+		add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
+//		add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_sidebar_content' );
+//		remove_action( 'genesis_sidebar_alt', 'genesis_do_sidebar_alt' );
+//		remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 	}
 
 	//Footer actions
-	add_action('genesis_before_footer', __NAMESPACE__ . '\get_last_seen_products');
+	add_action( 'genesis_before_footer', __NAMESPACE__ . '\get_last_seen_products' );
+	if ( is_shop() || is_cart() || is_checkout() || is_account_page() ) {
+		remove_action( 'genesis_before_footer', __NAMESPACE__ . '\get_last_seen_products' );
+	}
 	add_action( 'genesis_before_footer', __NAMESPACE__ . '\above_footer_widget', 11 );
 
 

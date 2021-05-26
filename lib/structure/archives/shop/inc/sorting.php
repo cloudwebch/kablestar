@@ -13,14 +13,15 @@
 namespace CloudWeb\KabelStar;
 
 function create_sorting_and_view(){
-	$product_sort = product_sort();
+//	$product_sort = product_sort();
 	$view_mode = view_mode();
-	printf("<div class='sorting'>%s\n%s</div>", $product_sort, $view_mode);
+//	printf("<div class='sorting'>%s\n%s</div>", $product_sort, $view_mode);
+	printf("<div class='sorting'>%s</div>", $view_mode);
 }
 
-function product_sort(){
-	return sprintf('<div class="sorting-filters">Sorting Boxes</div>');
-}
+//function product_sort(){
+//	return sprintf('<div class="sorting-filters">Sorting Boxes</div>');
+//}
 
 function view_mode(){
 	ob_start();
