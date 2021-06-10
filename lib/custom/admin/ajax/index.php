@@ -24,6 +24,8 @@ function load_ajax_handlers_files() {
 	$filenames = array(
 		'custom/admin/ajax/featured-day.php',
 		'custom/admin/ajax/featured-week.php',
+		'custom/admin/ajax/last-seen-products.php',
+		'custom/admin/ajax/infinite-scroll.php',
 	);
 	load_specified_files( $filenames );
 }

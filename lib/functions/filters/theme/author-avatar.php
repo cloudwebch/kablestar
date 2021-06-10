@@ -12,6 +12,7 @@
 
 namespace CloudWeb\KabelStar;
 
+add_filter( 'wp_lazy_loading_enabled', '__return_false' );
 
 add_filter( 'genesis_post_info', __NAMESPACE__ . '\post_info_filter' );
 function post_info_filter( $post_info ) {

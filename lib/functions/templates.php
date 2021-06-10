@@ -74,6 +74,12 @@ function site_page_layout() {
 		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating' );
 		add_action( 'woocommerce_after_single_product_summary', 'woocommerce_template_single_excerpt', 10 );
 		add_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 11 );
+		add_action( 'genesis_after', __NAMESPACE__ . '\sticky_add_to_cart' );
+
+		add_action( 'sticky_cart_thumb', 'woocommerce_template_loop_product_thumbnail' );
+//		add_action('sticky_cart_details', 'woocommerce_template_loop_product_title' );
+		add_action( 'sticky_cart_details', 'woocommerce_template_loop_price' );
+		add_action( 'sticky_cart_to_cart', 'woocommerce_template_loop_add_to_cart' );
 	}
 
 	if ( is_shop() || is_product_category() ) {
@@ -103,11 +109,21 @@ function site_page_layout() {
 		add_action( 'details_wrapper_ratings', 'woocommerce_template_loop_rating' );
 	}
 
+
+	if ( is_product_category() ) {
+		remove_action( 'genesis_archive_title_descriptions', 'genesis_do_archive_headings_intro_text', 12 );
+		add_action( 'genesis_archive_title_descriptions', function () {
+			$term = is_tax() ? get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ) : get_queried_object();
+			printf( '<h1 %s>%s</h1>', genesis_attr( 'archive-title' ), esc_html( wp_strip_all_tags( $term->name ) ) );
+		}, 12 );
+//		add_action( 'genesis_sidebar', __NAMESPACE__ . '\get_product_archive_description' );
+		add_action( 'genesis_after_loop', __NAMESPACE__ . '\add_load_more_button' );
+		add_action( 'genesis_after_loop', __NAMESPACE__ . '\get_product_after_loop_archive_description' );
+
+	}
+
 	if ( is_account_page() || is_checkout() ) {
 		add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
-//		add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_sidebar_content' );
-//		remove_action( 'genesis_sidebar_alt', 'genesis_do_sidebar_alt' );
-//		remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 	}
 
 	//Footer actions

@@ -76,7 +76,3 @@ function comments_gravatar( $args ) {
 }
 //Remove edit link from page
 add_filter( 'edit_post_link', '__return_false' );
-
-//\add_filter('manage_product_posts_custom_column', function($columns){
-//	d($columns);
-//});

@@ -21,6 +21,7 @@ namespace CloudWeb\KabelStar;
  */
 function load_archive_files() {
 	$filenames = array(
+		'structure/archives/product/index.php',
 		'structure/archives/shop/index.php',
 	);
 	load_specified_files( $filenames );

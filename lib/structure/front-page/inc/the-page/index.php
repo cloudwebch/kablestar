@@ -37,8 +37,9 @@ function get_aside_section() {
 function get_latest_products() {
 	$html = '<div class="latest-products" rel="latest-products">';
 	$args = array(
-		'orderby'        => 'date',
-		'order'          => 'DESC',
+		'orderby'        => 'rand',
+//		'orderby'        => 'date',
+//		'order'          => 'DESC',
 		'posts_per_page' => 8
 	);
 

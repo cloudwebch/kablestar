@@ -21,6 +21,7 @@ namespace CloudWeb\KabelStar;
 function load_footer_files() {
 	$filenames = array(
 		'structure/footer/inc/last-seen/index.php',
+		'structure/footer/inc/sticky-add-cart/index.php',
 	);
 	load_specified_files( $filenames );
 }

@@ -4,7 +4,7 @@
 	@include breakpoint(960px) {
 		padding-top: 1.5em; //24px -16
 		max-width: 222px;
-		width: 22.663%;
+		width: 22.6%;
 		//&:not(.sidebar-front) {
 		//	.home & {
 		//		width: 15.5%;
@@ -14,11 +14,13 @@
 
 	&.sidebar-primary {
 		padding-top: 0.625em; //10px - 16
+		padding-left: 1.5em;
 		.menu-item-type-taxonomy {
 			.tax-product_cat & {
 				display: none;
 			}
 			//&:not(.current-menu-item),
+			&.current-product-ancestor,
 			&.current-menu-parent,
 			&.current-menu-item {
 				display: block;
@@ -46,15 +48,21 @@
 			}
 		}
 		.menu-item-back {
-			background-color: $black;
-			margin-left: -24px;
-			padding-left: 24px;
+			//background-color: $black;
+			background-color: #263652;
+			margin-left: -1.5em; //24px - 16
+			padding-left: 1.5em; //24px - 16
+			&:hover,
+			&:focus {
+				background-color: #77a464;
+			}
 			a {
 				color: $white;
-				&:hover,
-				&:focus {
-					color: #ddd;
-				}
+				//&:hover,
+				//&:focus {
+				//	//color: #ddd;
+				//	background-color: #77a464;
+				//}
 				&::after {
 					display: none;
 				}
@@ -62,16 +70,19 @@
 		}
 	}
 	&.sidebar-secondary {
-		padding-top: 0.875em; //14px - 16
-		margin-right: 0;
-		margin-left: auto;
-		max-width: initial;
-		display: flex;
-		flex-wrap: wrap;
-		width: 100%;
+		display: none;
+
 		@include breakpoint(tablet-wide) {
+			padding-top: 0.875em; //14px - 16
+			margin-right: 0;
+			margin-left: auto;
+			max-width: initial;
+			//display: flex;
+			//flex-wrap: wrap;
+			//width: 100%;
 			border-left: 1px solid #ddd;
 			display: initial;
+			padding-right: 1.5em;
 			width: 24.794%;
 			//flex-direction: column;
 		}

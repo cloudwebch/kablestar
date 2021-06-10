@@ -7,7 +7,8 @@ textarea {
 	background-color: #fff;
 	border: 1px solid #ddd;
 	color: #333;
-	font-size: 1.8rem;
+	font-size: 1.3rem;
+	line-height: 18px;
 	font-weight: 400;
 	padding: 0.333333em 0.722222em; //6px 13px 6px 13px
 	width: 100%;
@@ -65,7 +66,7 @@ input[type='submit']:focus,
 input[type='submit']:hover,
 .button:focus,
 .button:hover {
-	background-color: #0073e5;
+	background-color: #77a464;
 	color: #fff;
 }
 

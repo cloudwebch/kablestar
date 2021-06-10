@@ -39,10 +39,13 @@
 			&:first-of-type {
 				padding-left: 0; //10px - 13
 			}
-			&:last-of-type {
-				padding-right: 0.76923em; //10px - 13
+			&:nth-of-type(4) {
 				padding-left: 0;
 			}
+			//&:last-of-type {
+			//	padding-right: 0.76923em; //10px - 13
+			//	padding-left: 0;
+			//}
 		}
 		@include breakpoint(tablet-wide) {
 			padding-right: 2em; //32px - 13
@@ -75,10 +78,12 @@
 			}
 		}
 	}
-	&.widget-sixts {
-		.widget {
-			flex: 0 0 16.66667%;
-			max-width: 16.66667%;
+	@include breakpoint(tablet-wide) {
+		&.widget-sixts {
+			.widget {
+				flex: 0 0 16.66667%;
+				max-width: 16.66667%;
+			}
 		}
 	}
 }

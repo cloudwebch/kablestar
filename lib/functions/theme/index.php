@@ -33,6 +33,7 @@ function load_theme_files() {
 //		'functions/theme/speed-tuning.php',// Add speed tuning functions.
 		'functions/theme/theme-defaults.php',
 		'functions/theme/widgets.php',// Add widgets.
+		'functions/theme/gtm.php',// Add widgets.
 	);
 	load_specified_files( $filenames );
 }

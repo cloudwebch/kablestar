@@ -20,9 +20,9 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: flex-end;
-		@include breakpoint(960px) {
-			justify-content: space-between;
-		}
+		//@include breakpoint(960px) {
+		//	justify-content: space-between;
+		//}
 	}
 	li {
 		//display: inline-block;
@@ -33,7 +33,7 @@
 			flex-direction: row-reverse;
 			margin-right: 20px;
 			@include breakpoint(960px) {
-				margin-right: initial;
+				//margin-right: initial;
 				flex-basis: 52%;
 			}
 			@include breakpoint(desktop) {
@@ -65,7 +65,7 @@
 				line-height: 18px;
 				&:focus,
 				&:hover {
-					background-color: #2a9d8f;
+					background-color: #77a464;
 				}
 				//}
 			}

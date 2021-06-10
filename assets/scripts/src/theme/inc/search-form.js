@@ -1,13 +1,13 @@
-import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
-import axios from 'axios';
-
-axios.interceptors.request.use(function(config) {
-	const { headers = {} } = config || {};
-	if (headers['User-Agent']) delete config.headers['User-Agent'];
-
-	return config;
-});
-
+// import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
+// import axios from 'axios';
+//
+// axios.interceptors.request.use(function(config) {
+// 	const { headers = {} } = config || {};
+// 	if (headers['User-Agent']) delete config.headers['User-Agent'];
+//
+// 	return config;
+// });
+import woo_api from '../../helpers/woo_api';
 /*
 https://woocommerce.github.io/woocommerce-rest-api-docs/?javascript#create-a-product
 https://woocommerce.github.io/woocommerce-rest-api-docs/?javascript#rest-api-keys
@@ -19,22 +19,27 @@ https://sgwebpartners.com/how-to-use-woocommerce-api/
 const searchForm = ((document, window, $) => {
 	const init = () => {
 		// console.log(productIds());
-		const WpJsonUrl = document.querySelector(
-			'link[rel="https://api.w.org/"]'
-		).href;
-		// then take out the '/wp-json/' part
-		const locationOrigins = WpJsonUrl.replace('/wp-json/', '');
-		const productIds = () => {
-			const ids = [];
-			Array.from(document.querySelectorAll('.last-seen-product')).map(
-				(item) => {
-					ids.push(item.getAttribute('data-product-id'));
-				}
-			);
-			return ids;
-		};
+		// const WpJsonUrl = document.querySelector(
+		// 	'link[rel="https://api.w.org/"]'
+		// ).href;
+		// // then take out the '/wp-json/' part
+		// const locationOrigins = WpJsonUrl.replace('/wp-json/', '');
 
-		const products = productIds();
+		// const productIds = () => {
+		// 	const ids = [];
+		// 	Array.from(document.querySelectorAll('.last-seen-product')).map(
+		// 		(item) => {
+		// 			ids.push(item.getAttribute('data-product-id'));
+		// 		}
+		// 	);
+		// 	return ids;
+		// };
+
+		// const products = productIds();
+		if (!Cookies.get('bb_last_seen_products')) {
+			return false;
+		}
+		const products = JSON.parse(Cookies.get('bb_last_seen_products'));
 
 		// const productIds = productIds();
 		//consumer key = ck_0b3cda3a2edc558df8fe82126ddcc9d56f501155
@@ -48,15 +53,15 @@ const searchForm = ((document, window, $) => {
 				'[rel="last-seen-products"]'
 			);
 
-			const api = new WooCommerceRestApi({
-				url: locationOrigins,
-				consumerKey: 'ck_0b3cda3a2edc558df8fe82126ddcc9d56f501155',
-				consumerSecret: 'cs_54795c58ea69c81406ea2006ff9fa4eaca8bc535',
-				version: 'wc/v3',
-			});
+			// const api = new WooCommerceRestApi({
+			// 	url: locationOrigins,
+			// 	consumerKey: 'ck_0b3cda3a2edc558df8fe82126ddcc9d56f501155',
+			// 	consumerSecret: 'cs_54795c58ea69c81406ea2006ff9fa4eaca8bc535',
+			// 	version: 'wc/v3',
+			// });
 
 			products.forEach((productId) => {
-				api.get(`products/${productId}`).then((response) => {
+				woo_api.get(`products/${productId}`).then((response) => {
 					const item = `<li>
 																<a href="${response.data.permalink}" title="${response.data.name}">
 																	<div class="item-left">
@@ -72,44 +77,43 @@ const searchForm = ((document, window, $) => {
 					boxWrap.insertAdjacentHTML('beforeend', item);
 				});
 			});
-			setTimeout(function() {
-				setBoxPosition();
-			}, 500);
-			handleSearchForm();
-		};
-
-		const setBoxPosition = () => {
-			const siteHeaderHeight = $('.site-header .wrap').outerHeight(true);
-
-			// var element = document.querySelector('.site-header .wrap');
-			//
-			// console.log('siteHeaderHeight 1', siteHeaderHeight);
-			// console.log('siteHeaderHeight 2', siteHeaderHeight);
-			$('.latest-seen-products').css({ top: siteHeaderHeight });
-		};
-
-		const handleSearchForm = () => {
-			const theBody = $('body'),
-				searchBoxField = $('.product-search-box input[type=search]');
-
-			searchBoxField.focusin(function() {
-				theBody.addClass('search-focus-in');
-				theBody.append('<div class="body-overlay"></div>');
-			});
-			searchBoxField.focusout(function() {
-				// console.log('focus in');
-				theBody.removeClass('search-focus-in');
-				$('.body-overlay')
-					.fadeOut()
-					.remove();
-			});
+			// setTimeout(function() {
+			// 	setBoxPosition();
+			// }, 500);
+			// handleSearchForm();
 		};
 
 		lastSeenProducts();
 	};
 
+	const setBoxPosition = () => {
+		const siteHeaderHeight = $('.site-header .wrap').outerHeight(true);
+		$('.latest-seen-products').css({ top: siteHeaderHeight });
+	};
+
+	const handleSearchForm = () => {
+		const theBody = $('body'),
+			searchBoxField = $('.product-search-box input[type=search]');
+
+		searchBoxField.focusin(function() {
+			theBody.addClass('search-focus-in');
+			theBody.append('<div class="body-overlay"></div>');
+		});
+		searchBoxField.focusout(function() {
+			// console.log('focus in');
+			theBody.removeClass('search-focus-in');
+			$('.body-overlay')
+				.fadeOut()
+				.remove();
+		});
+		setTimeout(function() {
+			setBoxPosition();
+		}, 500);
+	};
+
 	return {
 		init,
+		handleSearchForm,
 	};
 })(document, window, jQuery);
 

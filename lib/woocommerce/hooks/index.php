@@ -11,3 +11,5 @@
 namespace CloudWeb\KabelStar;
 
 include_once __DIR__ . '/inc/shipping-time.php';
+include_once __DIR__ . '/inc/checkout-fields.php';
+include_once __DIR__ . '/inc/free-shipping.php';

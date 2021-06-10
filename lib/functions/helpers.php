@@ -27,13 +27,14 @@ function get_site_posts( $post_type, $args = array() ) {
 	return new \WP_Query( $args );
 }
 
-function get_the_featured_image( $post_id, $size = 'full' ) {
+function get_the_featured_image( $post_id, $size = 'full', $with_class = false ) {
 	$post_image            = get_the_post_thumbnail_url( $post_id, $size );
 	$thumb_id              = get_post_thumbnail_id( $post_id );
 	$alt                   = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true );
 	$post_image_attributes = wp_get_attachment_image_src( $thumb_id, $size );
-
-	return sprintf( '<img src="%s" alt="%s" width="%s" height="%s" />',
+	$class = $with_class ? ' class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"' : '';
+	return sprintf( '<img%s src="%s" alt="%s" width="%s" height="%s" />',
+		$class,
 		esc_url( $post_image ),
 		\esc_attr( $alt ),
 		(int) $post_image_attributes[1],
@@ -57,10 +58,12 @@ function get_highlighted_product( $type ) {
 
 	$featured_day_product = get_site_posts( 'product', $args );
 	if ( ! $featured_day_product->have_posts() ) {
-		echo sprintf( '<div class="featured-product"><p>%s</p></div>', __( 'We do not have any highlighted product for ' . $type ) );
+//		echo sprintf( '<div class="featured-product"><p>%s</p></div>', __( 'We do not have any highlighted product for ' . $type ) );
 
 		return false;
 	}
+	$title  = $type === 'day' ? __( 'Aktuelles Wochenangebot', 'kabelstar' ) : __();
+	$output = sprintf( '<div class="featured-products-aside"><h3>%s</h3>', $title );
 
 
 	while ( $featured_day_product->have_posts() ) {
@@ -70,19 +73,19 @@ function get_highlighted_product( $type ) {
 		$product       = new \WC_Product( $product_id );
 //		$product_price = $product->get_price();
 		$product_price = $product->get_price_html();
-		$product_name  = $product->get_name();
+		$product_name  = get_first_word( $product->get_name() );
 		$product_url   = get_permalink( $product_id );
 
-		return sprintf( '<div class="featured-product featured-product-%s">
+		$output .= sprintf( '<div class="featured-product featured-product-%s">
 <a href="%s" title="%s">
 <div class="featured-product-visual">
 %s
 </div>
 <div class="featured-product-title">
-<h3>%s</h3>
+<h4>%s</h4>
 </div>
-<div class="featured-product-stock">
-<span>%s</span>
+<div class="featured-product-price">
+%s
 </div>
 </a>
 </div>',
@@ -91,12 +94,15 @@ function get_highlighted_product( $type ) {
 			esc_attr( $product_name ),
 			$product_image,
 			$product_name,
-			(int) $product->get_stock_quantity()
+			$product_price
+//			(int) $product->get_stock_quantity()
 		);
 	}
 	\wp_reset_query();
 
+	$output .= '</div>';
 
+	return $output;
 }
 
 function is_decimal( $val ) {
@@ -129,6 +135,28 @@ function get_product_categories( $product_id ) {
 	return $output;
 }
 
-function has_last_seen_products() {
-	return ! ! $_COOKIE['woocommerce_recently_viewed'];
+function get_stock_icon_class( $product ){
+	$stock_qty = $product->get_stock_quantity();
+	$stock_class = '';
+	switch($stock_qty){
+		case 0:
+			$stock_class = 'stock-icon-red';
+			break;
+		case ($stock_qty > 0 && $stock_qty <= 10) :
+			$stock_class = 'stock-icon-yellow';
+			break;
+		default :
+			$stock_class = 'stock-icon-green';
+			break;
+
+	}
+	return $stock_class;
+}
+
+//function has_last_seen_products() {
+//	return ! ! $_COOKIE['woocommerce_recently_viewed'];
+//}
+
+function ceiling($number, $significance = 1){
+	return (ceil($number/$significance)*$significance);
 }

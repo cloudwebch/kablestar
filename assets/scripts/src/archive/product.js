@@ -1,9 +1,21 @@
+// import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
+// import axios from 'axios';
+// axios.interceptors.request.use(function(config) {
+// 	const { headers = {} } = config || {};
+// 	if (headers['User-Agent']) delete config.headers['User-Agent'];
+//
+// 	return config;
+// });
+
+// import woo_api from '../helpers/woo_api';
+
 (function(document, $, undefined) {
 	var productArchive = {};
 
 	productArchive.init = function() {
 		this.setGridView();
 		this.gridToListView();
+		this.loadMore();
 		// this.widgetMenuToggle();
 	};
 
@@ -34,7 +46,7 @@
 		// console.log(productGrid.prop("classList"))
 		$('.view-mode').on('click', 'button', function() {
 			var className = $(this).attr('class');
-			console.log('class', className);
+			// console.log('class', className);
 			Cookies.remove('gridcookie');
 			$('.view-mode button').removeClass('active');
 			$(this).addClass('active');
@@ -45,36 +57,6 @@
 			);
 		});
 	};
-
-	// productArchive.widgetMenuToggle = function() {
-	// 	$('.sidebar .widget ul.sub-menu')
-	// 		.parent()
-	// 		.addClass('parent-item');
-	// 	var parentItem = $('.sidebar .widget ul > li.parent-item');
-	// 	$('.sidebar .widget ul > li.parent-item > ul').hide();
-	//
-	// 	if (
-	// 		parentItem.hasClass('current-menu-item') ||
-	// 		parentItem.hasClass('current-product_cat-ancestor')
-	// 	) {
-	// 		$(
-	// 			'.sidebar .widget ul > li.parent-item.current-menu-item > ul'
-	// 		).show();
-	// 	}
-
-	// $('.sidebar .widget ul > li.parent-item').click(function() {
-	// 	var li = $(this).closest('li');
-	// 	li.find(' > ul').slideToggle('fast');
-	// 	li.find('i').toggleClass('icon-minus-squared');
-	// 	// $(this).toggleClass('open-item');
-	// });
-
-	// $('.sidebar .widget ul.children li, ul.children li > a').click(function(
-	// 	e
-	// ) {
-	// 	e.stopPropagation();
-	// });
-	// };
 
 	productArchive.checkSetGridStyle = function($theGrid, className) {
 		$theGrid.fadeOut();
@@ -89,6 +71,65 @@
 				.addClass('products-' + className);
 		}
 		$theGrid.fadeIn();
+	};
+
+	productArchive.loadMore = function() {
+		let loading = false;
+		const productContainter = $('[rel="product-view"]');
+		// productContainter.append('<button class="loading"></button>');
+		const loadingDiv = $('[rel="load-more"]');
+		let page = 2;
+		const scrollHandling = {
+			allow: true,
+			reallow: function() {
+				scrollHandling.allow = true;
+			},
+			delay: 500, // (milliseconds) adjust to the highest acceptable value
+		};
+
+		$(window).scroll(function() {
+			if (!loading && scrollHandling.allow) {
+				scrollHandling.allow = false;
+				setTimeout(scrollHandling.reallow, scrollHandling.delay);
+
+				var offset = $(loadingDiv).offset().top - $(window).scrollTop();
+				console.log('offset', offset);
+				if (1600 > offset) {
+					loading = true;
+
+					var data = {
+						action: 'infinite_scroll',
+						page,
+						category_id: l18n_js_archive.category_id,
+						nonce: l18n_js_archive.nonce,
+					};
+
+					$.post(woocommerce_params.ajax_url, data, function(
+						response
+					) {
+						if (response.success) {
+							// console.log('data', response);
+							$(response.data)
+								.hide()
+								.appendTo(productContainter)
+								.fadeIn(1000);
+
+							if (page >= l18n_js_archive.max_pages) {
+								$(loadingDiv).remove();
+								return false;
+							}
+
+							page = page + 1;
+							loading = false;
+						} else {
+							// console.log(res);
+						}
+					}).fail(function(xhr, textStatus, e) {
+						// console.log(xhr.responseText);
+					});
+				}
+			}
+		});
 	};
 
 	productArchive.init();

@@ -22,30 +22,61 @@
 	margin-bottom: 1.916667em; //23px - 12
 	//margin-left: 2.384615em; //31px - 13
 	padding-bottom: 0.833333em; //10px - 12
-	.shop & {
+
+	.single-post &,
+	.shop &,
+	.woocommerce-cart &,
+	.woocommerce-checkout & {
 		display: none;
 	}
-	span {
-		span {
+	.woocommerce.single-product & {
+		padding-left: 1.5em;
+		padding-right: 1.5em;
+	}
+	> span {
+		> span {
 			display: flex;
 			align-items: center;
+			line-height: 1;
 		}
 	}
 	a {
 		text-decoration: none;
 		margin-right: 0.538462em; //7px - 13
 		//margin-left: 0.538462em; //7px - 13
-		padding-top: 2px;
+		//padding-top: 2px;
 		line-height: 1;
 		&:hover,
 		&:focus {
-			color: inherit;
+			color: #b3b3b3;
 		}
 	}
+	.breadcrumb-link-wrap {
+		&:not(:first-of-type) {
+			margin-left: 0.538462em; //7px - 13
+		}
+	}
+
 	&_last {
 		margin-left: 0.538462em; //7px - 13
 		padding-top: 2px;
 		line-height: 1;
+	}
+	.archive & {
+		> span {
+			> span {
+				> a {
+					margin-top: 3px;
+				}
+				> span.breadcrumb-separator {
+					&[aria-label='breadcrumb separator'] {
+						//&:first-of-type {
+						margin-right: 7px;
+						//}
+					}
+				}
+			}
+		}
 	}
 }
 

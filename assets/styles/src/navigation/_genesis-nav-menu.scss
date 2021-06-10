@@ -34,12 +34,12 @@
 		text-decoration: none;
 		&:hover,
 		&:focus {
-			color: #0073e5;
+			color: #b3b3b3;
 			text-decoration: none;
 		}
 		.current-menu-item {
 			> a {
-				color: #0073e5;
+				color: #b3b3b3;
 				text-decoration: none;
 			}
 		}
@@ -48,7 +48,7 @@
 				> a {
 					&:hover,
 					&:focus {
-						color: #0073e5;
+						color: #b3b3b3;
 						text-decoration: none;
 					}
 				}
@@ -93,7 +93,7 @@
 
 	.genesis-nav-menu > .menu-highlight > a:hover,
 	.genesis-nav-menu > .menu-highlight > a:focus {
-		background-color: #0073e5;
+		background-color: #b3b3b3;
 	}
 
 	.genesis-responsive-menu .genesis-nav-menu .sub-menu,
@@ -123,10 +123,10 @@
 	/* Responsive Menu
   --------------------------------------------- */
 
-	.genesis-responsive-menu {
-		//display: block;
-		padding-top: 10px;
-	}
+	//.genesis-responsive-menu {
+	//	//display: block;
+	//	padding-top: 10px;
+	//}
 
 	.menu-toggle,
 	.sub-menu-toggle {

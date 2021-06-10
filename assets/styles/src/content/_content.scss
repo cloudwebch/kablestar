@@ -8,8 +8,11 @@
 
 @media only screen and (min-width: 960px) {
 	.content {
-		width: 77.337%;
-		.page:not(.woocommerce-page) & {
+		//width: 77.337%;
+		//width: 77.4%;
+		width: 78.2%;
+		.page:not(.woocommerce-page) &,
+		.error404 & {
 			padding-left: 5em; //80px - 16 was 2em
 			padding-right: 5em; //80px - 16 was 2em
 			padding-top: 2em;
@@ -30,6 +33,11 @@
 			padding-right: initial;
 			width: 80.5%;
 		}
+		//.error404 & {
+		//	padding-left: 5em;
+		//	padding-right: 5em;
+		//	padding-top: 2em;
+		//}
 	}
 
 	//.sidebar-content .content {
@@ -87,13 +95,20 @@
 
 	/* Entry Misc.
 	--------------------------------------------- */
+	.archive-description {
+		margin-bottom: 0;
+	}
 
+	.archive-description p {
+		margin-bottom: 1.153846em; //15px - 13
+		font-size: 1.3rem;
+		line-height: 16px;
+	}
 	.after-entry,
-	.archive-description,
 	.comment-respond,
 	.entry,
 	.entry-pings {
-		margin-bottom: 60px;
+		margin-bottom: 20px;
 	}
 }
 

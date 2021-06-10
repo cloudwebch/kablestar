@@ -33,6 +33,7 @@ module.exports = {
 		jquery: 'jQuery',
 		react: 'React',
 		'react-dom': 'ReactDOM',
+		window: 'window',
 		// slick: 'slick',
 	},
 	module: {

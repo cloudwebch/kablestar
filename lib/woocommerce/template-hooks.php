@@ -20,3 +20,23 @@ remove_action( 'woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_s
 //remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 //add_action('woocommerce_after_add_to_cart_form', __NAMESPACE__ . '\add_shipping_time');
 add_action('after_stock_string', __NAMESPACE__ . '\add_shipping_time');
+
+
+add_filter( 'raw_woocommerce_price', __NAMESPACE__ . '\round_price_product', 1000, 1 );
+
+add_filter( 'woocommerce_product_get_price', __NAMESPACE__ . '\round_price_product', 1000, 1 );
+add_filter( 'woocommerce_product_get_regular_price', __NAMESPACE__ . '\round_price_product', 1000, 1 );
+add_filter( 'woocommerce_product_variation_get_price', __NAMESPACE__ . '\round_price_product', 1000, 1 );
+add_filter( 'woocommerce_product_variation_get_regular_price', __NAMESPACE__ . '\round_price_product', 1000, 1 );
+add_filter( 'woocommerce_get_price_excluding_tax', __NAMESPACE__ . '\round_price_product', 1000, 1 );
+add_filter( 'woocommerce_get_price_including_tax', __NAMESPACE__ . '\round_price_product', 1000, 1 );
+//add_filter( 'woocommerce_tax_round', __NAMESPACE__ . '\round_price_product', 1000, 1 );
+function round_price_product( $price ){
+	// Return rounded price
+//	return round( $price, 2 );
+//	return round($price * 2, 0) / 2;
+//	return ceil( $price );
+	return ceiling($price, 0.05);
+}
+
+
