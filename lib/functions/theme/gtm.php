@@ -15,7 +15,10 @@ namespace CloudWeb\KabelStar;
 add_action( 'wp_head', __NAMESPACE__ . '\push_b2b_price_to_datalayer', 1, 0 );
 function push_b2b_price_to_datalayer() {
 
-    if( is_product() ) {
+    $gtm_opts = get_option( 'gtm4wp-options' );
+    $data_layer_var_name = $gtm_opts['gtm-datalayer-variable-name'] ? $gtm_opts['gtm-datalayer-variable-name'] : 'dataLayer';
+
+    if( is_product() && $data_layer_var_name ) {
 
         global $post;
         $prod_id = $post->ID;
@@ -24,8 +27,8 @@ function push_b2b_price_to_datalayer() {
         if( $b2b_price ) {
         ?>
         <script type="text/javascript">
-            if( b2b !== undefined ) {
-                b2b.push({b2b: "<?php echo $b2b_price; ?>"});
+            if( <?php echo $data_layer_var_name; ?> !== undefined ) {
+                <?php echo $data_layer_var_name; ?>.push({b2b: "<?php echo $b2b_price; ?>"});
             }
         </script>
         <?php

@@ -27,6 +27,10 @@ function admin_enqueue_scripts_styles() {
 	wp_enqueue_style( CHILD_TEXT_DOMAIN . '-custom-style', CHILD_CSS . "/admin.css" );
 }
 
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ .'\dequeue_dequeue_ai_plugin_style', 9999 );
+function dequeue_dequeue_ai_plugin_style(){
+	wp_dequeue_style( 'DCAS-style' );
+}
 
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_scripts_styles' );
 /**
@@ -122,10 +126,12 @@ function enqueue_scripts_styles() {
 	);
 
 	if ( is_front_page() && ! \is_home() ) {
+
 		wp_enqueue_script( 'slick' );
 		wp_add_inline_script( 'slick','jQuery(document).ready(function($){
 						
-					var latestProducts = $("[rel=\'latest-products\']");
+//					var latestProducts = $("[rel=\'latest-products\']");
+					var latestProducts = $(".site-main.products ul.products");
 						
 				    $("[rel=\'slider\']").slick();
 				    
@@ -133,23 +139,28 @@ function enqueue_scripts_styles() {
 					    latestProducts.slick({
 					        slidesToShow: 4,
 					        dots: true,
+					        useTransform: false,
+					        slidesToScroll: 4,
 					        responsive: [
 						    {
 						      breakpoint: 1201,
 						      settings: {
-						        slidesToShow: 3
+						        slidesToShow: 3,
+						        slidesToScroll: 3
 						      }
 						    },
 						    {
 						      breakpoint: 767,
 						      settings: {
-						        slidesToShow: 2
+						        slidesToShow: 2,
+						        slidesToScroll: 2
 						      }
 						    },
 						    {
 						      breakpoint: 399,
 						      settings: {
-						        slidesToShow: 1
+						        slidesToShow: 1,
+						        slidesToScroll: 1
 						      }
 						    }
 						  ]
@@ -196,7 +207,11 @@ function enqueue_scripts_styles() {
 				if(lastValues.indexOf("'.get_the_ID().'") >= 0){
 					return false;
 				}
+				if(lastValues.length === 3){
+					lastValues.shift()
+				}
 				lastValues.push("'.get_the_ID().'")
+				
 				Cookies.remove("bb_last_seen_products")
 				Cookies.set("bb_last_seen_products", JSON.stringify(lastValues), { expires: 30 })
 			}

@@ -21,10 +21,10 @@ namespace CloudWeb\KabelStar;
  */
 function load_woocommerce_files() {
 	$filenames = array(
+		'woocommerce/template-hooks.php',// Add the Genesis Connect WooCommerce notice.
 		'woocommerce/woocommerce-setup.php',// Add WooCommerce support.
 		'woocommerce/woocommerce-output.php',// Add the required WooCommerce styles and Customizer CSS.
 		'woocommerce/woocommerce-notice.php',// Add the Genesis Connect WooCommerce notice.
-		'woocommerce/template-hooks.php',// Add the Genesis Connect WooCommerce notice.
 		'woocommerce/pluggable-functions.php',
 	);
 	load_specified_files( $filenames );

@@ -28,9 +28,16 @@ function infinite_scroll() {
 		'posts_per_page' => 20,
 	);
 
-	$args['cat']         = absint( $_GET['category_id'] );
+//	$args['cat']         = absint( $_POST['category_id'] );
 	$args['paged']       = absint( $_GET['page'] );
 	$args['post_status'] = 'publish';
+	$args['tax_query'] = array(
+		array(
+			'taxonomy' => 'product_cat', //double check your taxonomy name in you dd
+			'field'    => 'id',
+			'terms'    => absint( $_GET['category_id'] ),
+		),
+	);
 
 	$output = '';
 

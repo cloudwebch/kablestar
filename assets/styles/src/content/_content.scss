@@ -12,6 +12,7 @@
 		//width: 77.4%;
 		width: 78.2%;
 		.page:not(.woocommerce-page) &,
+		.single-mailpoet_page &,
 		.error404 & {
 			padding-left: 5em; //80px - 16 was 2em
 			padding-right: 5em; //80px - 16 was 2em

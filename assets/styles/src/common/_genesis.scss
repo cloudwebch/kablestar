@@ -26,7 +26,8 @@
 	.single-post &,
 	.shop &,
 	.woocommerce-cart &,
-	.woocommerce-checkout & {
+	.woocommerce-checkout &,
+	.mailpoet_page-template-default & {
 		display: none;
 	}
 	.woocommerce.single-product & {

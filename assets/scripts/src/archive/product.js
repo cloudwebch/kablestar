@@ -104,7 +104,7 @@
 						nonce: l18n_js_archive.nonce,
 					};
 
-					$.post(woocommerce_params.ajax_url, data, function(
+					$.get(woocommerce_params.ajax_url, data, function(
 						response
 					) {
 						if (response.success) {

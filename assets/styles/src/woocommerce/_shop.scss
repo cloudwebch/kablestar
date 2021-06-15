@@ -5,12 +5,14 @@
 		&.products {
 			display: flex;
 			flex-wrap: wrap;
-			&.columns-3 {
+			&.columns-3,
+			&.columns-4 {
 				li {
 					&.product {
 						.details-wrapper-cart {
 							.button {
 								margin-top: initial;
+								margin-bottom: 0;
 							}
 						}
 					}

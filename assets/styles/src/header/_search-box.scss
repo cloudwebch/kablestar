@@ -50,15 +50,29 @@
 		}
 	}
 	button {
-		&[type='submit'] {
+		&[type='submit'],
+		&.button-close {
+			border: 0;
 			background-color: transparent;
 			color: $black;
 			position: absolute;
 			right: 0;
 			top: -7px;
+			cursor: pointer;
+			font-size: 1.6rem;
+			font-weight: 600;
+			padding: 15px 30px;
+			text-decoration: none;
+			white-space: normal;
 			width: 10.39%;
 			@include breakpoint(tablet-wide) {
 				top: auto;
+			}
+		}
+		&.button-close {
+			@include breakpoint(tablet-wide) {
+				top: -1px;
+				right: 1px;
 			}
 		}
 	}
@@ -98,7 +112,9 @@
 		margin: auto;
 
 		@include breakpoint(tablet-wide) {
-			width: 63.6%;
+			//width: 63.6%;
+			width: 55.9%;
+			margin-left: 17.7%;
 		}
 	}
 	h4 {
@@ -110,11 +126,20 @@
 	}
 	li {
 		margin-bottom: 1.5em;
+		padding: 0.9375em; //15px - 16
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.02);
+		}
 		a {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
 			position: relative;
+			text-decoration: none;
+			&:hover,
+			&:focus {
+				text-decoration: none;
+			}
 		}
 	}
 }
