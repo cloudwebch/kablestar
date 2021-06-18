@@ -14,7 +14,8 @@ add_filter( 'woocommerce_default_address_fields' , __NAMESPACE__ . '\rename_addr
 
 function rename_address_placeholders_checkout( $address_fields ) {
 //	d($address_fields);
-	$address_fields['address_1']['label'] = 'Straße';
+//	$address_fields['address_1']['label'] = 'Straße';
+	$address_fields['address_1']['label'] = 'Strasse';
 	$address_fields['address_1']['placeholder'] = '';
 	$address_fields['address_1']['class'] = ['form-row-first', 'form-row-three-thirds', 'form-row'];
 	$address_fields['postcode']['class'] = ['form-row-first', 'form-row-one-third', 'form-row', 'address-field'];
@@ -27,7 +28,7 @@ add_filter('woocommerce_billing_fields',__NAMESPACE__ . '\custom_billing_fields'
 function custom_billing_fields( $fields = array() ) {
 
 	unset($fields['billing_address_2']);
-	unset($fields['billing_state']);
+//	unset($fields['billing_state']);
 
 	return $fields;
 }

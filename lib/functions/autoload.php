@@ -28,6 +28,7 @@ namespace CloudWeb\KabelStar;
 function load_nonadmin_files() {
 	$filenames = array(
 		'setup.php',
+		'update.php',
 		'functions/helpers.php',// Add the helper functions.
 		'custom/index.php',// Add custom theme functionalities.
 		'functions/load-assets.php',// Add the assets and enqueue styles and scripts.

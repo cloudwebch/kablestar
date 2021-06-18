@@ -1,5 +1,5 @@
 /*!
-	Theme Name: Kabelstar
+	Theme Name: Kablestar
 	Theme URI: https://www.cloudweb.ch/
 	Description: This is the Genesis theme using Webpack as a build tool.
 	Author: Valentin Zmaranda
@@ -15,7 +15,7 @@
 	License: GPL-2.0+
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-	Text Domain: Kabelstar
+	Text Domain: kablestar
 */
 /* Table of Contents
 - Reset
@@ -551,7 +551,6 @@ input[type='submit'],
   background-color: #263652;
   padding-top: 4px;
   padding-bottom: 3px;
-  max-width: 85px;
   font-size: 13px;
   padding-left: 10px;
   padding-right: 10px;
